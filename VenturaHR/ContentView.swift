@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  VenturaHR
-//
-//  Created by matheus.evangelista on 19/03/22.
-//
-
 import SwiftUI
 
 struct ContentView: View {
