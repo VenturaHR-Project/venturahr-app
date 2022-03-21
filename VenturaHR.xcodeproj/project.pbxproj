@@ -7,18 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D285A7C27E80AB900FAED39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D285A7B27E80AB900FAED39 /* Localizable.strings */; };
+		6D285A7E27E80B1200FAED39 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D285A7D27E80B1200FAED39 /* R.generated.swift */; };
 		6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */; };
 		6D8DEDA127E6C5690062920E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA027E6C5690062920E /* ContentView.swift */; };
 		6D8DEDA327E6C56D0062920E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA227E6C56D0062920E /* Assets.xcassets */; };
 		6D8DEDA627E6C56D0062920E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA527E6C56D0062920E /* Preview Assets.xcassets */; };
+		B7763B4356AC9C628C04E6A2 /* Pods_VenturaHR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE5AED728E6F0D6D7A72B29 /* Pods_VenturaHR.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		367C572D40E9D82E652C2C04 /* Pods-VenturaHR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenturaHR.debug.xcconfig"; path = "Target Support Files/Pods-VenturaHR/Pods-VenturaHR.debug.xcconfig"; sourceTree = "<group>"; };
+		3EE5AED728E6F0D6D7A72B29 /* Pods_VenturaHR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VenturaHR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D285A7B27E80AB900FAED39 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		6D285A7D27E80B1200FAED39 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		6D8DED9B27E6C5690062920E /* VenturaHR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenturaHR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenturaHRApp.swift; sourceTree = "<group>"; };
 		6D8DEDA027E6C5690062920E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6D8DEDA227E6C56D0062920E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D8DEDA527E6C56D0062920E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		77DFB3AFE143170AB14ABDA9 /* Pods-VenturaHR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenturaHR.release.xcconfig"; path = "Target Support Files/Pods-VenturaHR/Pods-VenturaHR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,12 +34,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7763B4356AC9C628C04E6A2 /* Pods_VenturaHR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13CFE897EAEEE7C33384E571 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3EE5AED728E6F0D6D7A72B29 /* Pods_VenturaHR.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6D285A7427E7F95D00FAED39 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -48,11 +65,21 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		6D285A7A27E80A9500FAED39 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				6D285A7B27E80AB900FAED39 /* Localizable.strings */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		6D8DED9227E6C5690062920E = {
 			isa = PBXGroup;
 			children = (
-				6D8DED9D27E6C5690062920E /* VenturaHR */,
+				13CFE897EAEEE7C33384E571 /* Frameworks */,
+				B6F27D23D4F2F266013A7E46 /* Pods */,
 				6D8DED9C27E6C5690062920E /* Products */,
+				6D8DED9D27E6C5690062920E /* VenturaHR */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,7 +113,9 @@
 		6D8DEDAC27E6C90D0062920E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6D285A7D27E80B1200FAED39 /* R.generated.swift */,
 				6D285A7527E7FB7400FAED39 /* Assets */,
+				6D285A7A27E80A9500FAED39 /* String */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -99,6 +128,15 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		B6F27D23D4F2F266013A7E46 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				367C572D40E9D82E652C2C04 /* Pods-VenturaHR.debug.xcconfig */,
+				77DFB3AFE143170AB14ABDA9 /* Pods-VenturaHR.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +144,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D8DEDA927E6C56D0062920E /* Build configuration list for PBXNativeTarget "VenturaHR" */;
 			buildPhases = (
+				C683818820F591391B0A998C /* [CP] Check Pods Manifest.lock */,
+				6D285A7727E8048300FAED39 /* R.Swift */,
 				6D8DED9727E6C5690062920E /* Sources */,
 				6D8DED9827E6C5690062920E /* Frameworks */,
 				6D8DED9927E6C5690062920E /* Resources */,
+				626A1374E51F6C725F48A015 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,11 +199,75 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D8DEDA627E6C56D0062920E /* Preview Assets.xcassets in Resources */,
+				6D285A7C27E80AB900FAED39 /* Localizable.strings in Resources */,
 				6D8DEDA327E6C56D0062920E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		626A1374E51F6C725F48A015 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VenturaHR/Pods-VenturaHR-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VenturaHR/Pods-VenturaHR-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VenturaHR/Pods-VenturaHR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D285A7727E8048300FAED39 /* R.Swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.Swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/VenturaHR/Resources/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/VenturaHR/Resources/R.generated.swift\"\n";
+		};
+		C683818820F591391B0A998C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VenturaHR-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6D8DED9727E6C5690062920E /* Sources */ = {
@@ -171,6 +276,7 @@
 			files = (
 				6D8DEDA127E6C5690062920E /* ContentView.swift in Sources */,
 				6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */,
+				6D285A7E27E80B1200FAED39 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +401,7 @@
 		};
 		6D8DEDAA27E6C56D0062920E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 367C572D40E9D82E652C2C04 /* Pods-VenturaHR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -307,6 +414,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,6 +432,7 @@
 		};
 		6D8DEDAB27E6C56D0062920E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77DFB3AFE143170AB14ABDA9 /* Pods-VenturaHR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -336,6 +445,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
