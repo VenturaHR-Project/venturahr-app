@@ -32,6 +32,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D285A7427E7F95D00FAED39 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		6D285A7527E7FB7400FAED39 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				6D8DEDA227E6C56D0062920E /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		6D8DED9227E6C5690062920E = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +67,10 @@
 		6D8DED9D27E6C5690062920E /* VenturaHR */ = {
 			isa = PBXGroup;
 			children = (
-				6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */,
 				6D8DEDA027E6C5690062920E /* ContentView.swift */,
-				6D8DEDA227E6C56D0062920E /* Assets.xcassets */,
 				6D8DEDA427E6C56D0062920E /* Preview Content */,
+				6D8DEDAC27E6C90D0062920E /* Resources */,
+				6D8DEDAD27E6C9170062920E /* Source */,
 			);
 			path = VenturaHR;
 			sourceTree = "<group>";
@@ -65,6 +81,22 @@
 				6D8DEDA527E6C56D0062920E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6D8DEDAC27E6C90D0062920E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6D285A7527E7FB7400FAED39 /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6D8DEDAD27E6C9170062920E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				6D285A7427E7F95D00FAED39 /* Application */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
