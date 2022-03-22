@@ -4,7 +4,7 @@ import SwiftUI
 struct VenturaHRApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashViewRouter.start()
         }
     }
 }
