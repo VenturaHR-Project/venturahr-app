@@ -20,9 +20,9 @@
 		6D39C4E627EA9B1F00CF69C0 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D39C4E527EA9B1F00CF69C0 /* InputFieldView.swift */; };
 		6D39C4E827EA9BC800CF69C0 /* InputFieldViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D39C4E727EA9BC800CF69C0 /* InputFieldViewData.swift */; };
 		6D39C4EA27EA9E2800CF69C0 /* CustomInputFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D39C4E927EA9E2800CF69C0 /* CustomInputFieldStyle.swift */; };
+		6D3C6B5427EE715500F8F433 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3C6B5327EE715500F8F433 /* User.swift */; };
 		6D4937FF27ED5977002AA2F7 /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4937FE27ED5977002AA2F7 /* UIState.swift */; };
-		6D49380227EE4599002AA2F7 /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D49380127EE4598002AA2F7 /* FormValidator.swift */; };
-		6D79D4FF27ED1D1200F9E961 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D4FE27ED1D1200F9E961 /* User.swift */; };
+		6D79D4FF27ED1D1200F9E961 /* User2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D4FE27ED1D1200F9E961 /* User2.swift */; };
 		6D79D50127ED1D3400F9E961 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50027ED1D3400F9E961 /* Company.swift */; };
 		6D79D50327ED1DD200F9E961 /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50227ED1DD200F9E961 /* Candidate.swift */; };
 		6D79D50627ED22BE00F9E961 /* LoadingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50527ED22BE00F9E961 /* LoadingButtonView.swift */; };
@@ -49,9 +49,9 @@
 		6D39C4E527EA9B1F00CF69C0 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		6D39C4E727EA9BC800CF69C0 /* InputFieldViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldViewData.swift; sourceTree = "<group>"; };
 		6D39C4E927EA9E2800CF69C0 /* CustomInputFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputFieldStyle.swift; sourceTree = "<group>"; };
+		6D3C6B5327EE715500F8F433 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6D4937FE27ED5977002AA2F7 /* UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
-		6D49380127EE4598002AA2F7 /* FormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
-		6D79D4FE27ED1D1200F9E961 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6D79D4FE27ED1D1200F9E961 /* User2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User2.swift; sourceTree = "<group>"; };
 		6D79D50027ED1D3400F9E961 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		6D79D50227ED1DD200F9E961 /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
 		6D79D50527ED22BE00F9E961 /* LoadingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButtonView.swift; sourceTree = "<group>"; };
@@ -95,6 +95,7 @@
 		6D20375B27E918A100377838 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				6D3C6B4D27EE6B2400F8F433 /* SignIn */,
 				6D20376A27E9595200377838 /* SignUp */,
 				6D20375C27E918C300377838 /* Splash */,
 			);
@@ -182,7 +183,6 @@
 		6D20377727E96BCA00377838 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				6D49380027EE4577002AA2F7 /* FormValidator */,
 				6D13E41B27EC6E1D00577DCD /* enums */,
 				6D20377827E96BE800377838 /* Components */,
 			);
@@ -232,20 +232,44 @@
 			path = String;
 			sourceTree = "<group>";
 		};
-		6D49380027EE4577002AA2F7 /* FormValidator */ = {
+		6D3C6B4D27EE6B2400F8F433 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				6D49380127EE4598002AA2F7 /* FormValidator.swift */,
+				6D3C6B5027EE6B4E00F8F433 /* ViewModel */,
+				6D3C6B4F27EE6B4900F8F433 /* View */,
+				6D3C6B4E27EE6B4100F8F433 /* Router */,
 			);
-			path = FormValidator;
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		6D3C6B4E27EE6B4100F8F433 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		6D3C6B4F27EE6B4900F8F433 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6D3C6B5027EE6B4E00F8F433 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6D79D4FD27ED1D0A00F9E961 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6D79D4FE27ED1D1200F9E961 /* User.swift */,
+				6D79D4FE27ED1D1200F9E961 /* User2.swift */,
 				6D79D50027ED1D3400F9E961 /* Company.swift */,
 				6D79D50227ED1DD200F9E961 /* Candidate.swift */,
+				6D3C6B5327EE715500F8F433 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -461,7 +485,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D49380227EE4599002AA2F7 /* FormValidator.swift in Sources */,
 				6D20376527E931BE00377838 /* SplashUIState.swift in Sources */,
 				6D79D50627ED22BE00F9E961 /* LoadingButtonView.swift in Sources */,
 				6D20375F27E918FE00377838 /* SplashView.swift in Sources */,
@@ -470,7 +493,8 @@
 				6D39C4E627EA9B1F00CF69C0 /* InputFieldView.swift in Sources */,
 				6D20376927E958A200377838 /* SplashViewRouter.swift in Sources */,
 				6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */,
-				6D79D4FF27ED1D1200F9E961 /* User.swift in Sources */,
+				6D79D4FF27ED1D1200F9E961 /* User2.swift in Sources */,
+				6D3C6B5427EE715500F8F433 /* User.swift in Sources */,
 				6D79D50327ED1DD200F9E961 /* Candidate.swift in Sources */,
 				6D20377627E96B3600377838 /* SignUpViewRouter.swift in Sources */,
 				6D79D50127ED1D3400F9E961 /* Company.swift in Sources */,
