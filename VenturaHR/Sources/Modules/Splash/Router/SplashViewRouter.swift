@@ -7,6 +7,6 @@ struct SplashViewRouter {
     }
     
     static func makeLandingView() -> some View {
-        return LandingView()
+        return SignUpViewRouter.start()
     }
 }

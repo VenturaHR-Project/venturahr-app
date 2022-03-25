@@ -18,7 +18,7 @@ struct SplashView: View {
     
     private var loadingView: some View {
         ZStack {
-            Color(R.color.primary.name)
+            Color(R.color.accentColor.name)
             
             Image(R.image.venturaIcon.name)
                 .resizable()
