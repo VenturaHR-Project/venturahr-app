@@ -22,6 +22,9 @@
 		6D39C4EA27EA9E2800CF69C0 /* CustomInputFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D39C4E927EA9E2800CF69C0 /* CustomInputFieldStyle.swift */; };
 		6D3C6B5427EE715500F8F433 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3C6B5327EE715500F8F433 /* User.swift */; };
 		6D4937FF27ED5977002AA2F7 /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4937FE27ED5977002AA2F7 /* UIState.swift */; };
+		6D4EA12E27F1455F00B13524 /* UserSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4EA12D27F1455F00B13524 /* UserSignIn.swift */; };
+		6D6AD72427EFEA550041A9F1 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6AD72327EFEA550041A9F1 /* SignInView.swift */; };
+		6D6AD72727EFEA650041A9F1 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6AD72627EFEA650041A9F1 /* SignInViewModel.swift */; };
 		6D79D4FF27ED1D1200F9E961 /* User2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D4FE27ED1D1200F9E961 /* User2.swift */; };
 		6D79D50127ED1D3400F9E961 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50027ED1D3400F9E961 /* Company.swift */; };
 		6D79D50327ED1DD200F9E961 /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50227ED1DD200F9E961 /* Candidate.swift */; };
@@ -51,6 +54,9 @@
 		6D39C4E927EA9E2800CF69C0 /* CustomInputFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputFieldStyle.swift; sourceTree = "<group>"; };
 		6D3C6B5327EE715500F8F433 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6D4937FE27ED5977002AA2F7 /* UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
+		6D4EA12D27F1455F00B13524 /* UserSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignIn.swift; sourceTree = "<group>"; };
+		6D6AD72327EFEA550041A9F1 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		6D6AD72627EFEA650041A9F1 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		6D79D4FE27ED1D1200F9E961 /* User2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User2.swift; sourceTree = "<group>"; };
 		6D79D50027ED1D3400F9E961 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		6D79D50227ED1DD200F9E961 /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
@@ -235,6 +241,7 @@
 		6D3C6B4D27EE6B2400F8F433 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				6D4EA12A27F144FE00B13524 /* Model */,
 				6D3C6B5027EE6B4E00F8F433 /* ViewModel */,
 				6D3C6B4F27EE6B4900F8F433 /* View */,
 				6D3C6B4E27EE6B4100F8F433 /* Router */,
@@ -252,6 +259,7 @@
 		6D3C6B4F27EE6B4900F8F433 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6D6AD72327EFEA550041A9F1 /* SignInView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -259,8 +267,17 @@
 		6D3C6B5027EE6B4E00F8F433 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				6D6AD72627EFEA650041A9F1 /* SignInViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6D4EA12A27F144FE00B13524 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6D4EA12D27F1455F00B13524 /* UserSignIn.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		6D79D4FD27ED1D0A00F9E961 /* Model */ = {
@@ -486,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D20376527E931BE00377838 /* SplashUIState.swift in Sources */,
+				6D4EA12E27F1455F00B13524 /* UserSignIn.swift in Sources */,
 				6D79D50627ED22BE00F9E961 /* LoadingButtonView.swift in Sources */,
 				6D20375F27E918FE00377838 /* SplashView.swift in Sources */,
 				6D20377327E96A7100377838 /* SignUpViewModel.swift in Sources */,
@@ -493,6 +511,7 @@
 				6D39C4E627EA9B1F00CF69C0 /* InputFieldView.swift in Sources */,
 				6D20376927E958A200377838 /* SplashViewRouter.swift in Sources */,
 				6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */,
+				6D6AD72727EFEA650041A9F1 /* SignInViewModel.swift in Sources */,
 				6D79D4FF27ED1D1200F9E961 /* User2.swift in Sources */,
 				6D3C6B5427EE715500F8F433 /* User.swift in Sources */,
 				6D79D50327ED1DD200F9E961 /* Candidate.swift in Sources */,
@@ -500,6 +519,7 @@
 				6D79D50127ED1D3400F9E961 /* Company.swift in Sources */,
 				6D39C4E827EA9BC800CF69C0 /* InputFieldViewData.swift in Sources */,
 				6D20376F27E96A4B00377838 /* SignUpView.swift in Sources */,
+				6D6AD72427EFEA550041A9F1 /* SignInView.swift in Sources */,
 				6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */,
 				6D285A7E27E80B1200FAED39 /* R.generated.swift in Sources */,
 				6D39C4EA27EA9E2800CF69C0 /* CustomInputFieldStyle.swift in Sources */,
