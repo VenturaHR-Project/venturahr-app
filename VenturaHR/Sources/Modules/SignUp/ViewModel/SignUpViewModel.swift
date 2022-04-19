@@ -1,4 +1,5 @@
 import Combine
+import Foundation
 
 final class SignUpViewModel: ObservableObject {
     @Published var signUpRequest = SignUpRequest()
@@ -11,6 +12,16 @@ final class SignUpViewModel: ObservableObject {
 }
 
 extension SignUpViewModel {
+    func isEmail() -> Bool {
+        let regEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        return NSPredicate(format:"SELF MATCHES %@", regEx).evaluate(with: signUpRequest.email)
+    }
+    
+    func hasMinLenght(value: String, min: Int) -> Bool {
+        return value.count < min
+    }
+    
     var isButtonDisabled: Bool {
         var isDisabled = false
         let areCommonUserFieldsEmpty = (

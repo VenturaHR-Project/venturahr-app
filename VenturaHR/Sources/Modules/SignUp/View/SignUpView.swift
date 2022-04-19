@@ -35,35 +35,59 @@ struct SignUpView: View {
     }
     
     var nameField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.name,
-                                       placeholder: "Entre com o seu nome *",
-                                       keyboard: .alphabet))
+        InputFieldView(
+            viewData: .init(
+                text: $viewModel.signUpRequest.name,
+                placeholder: "Entre com o seu nome *",
+                keyboard: .alphabet
+            )
+        )
     }
     
     var emailField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.email,
-                                       placeholder: "Entre com o seu e-mail *",
-                                       keyboard: .emailAddress))
+        InputFieldView(
+            viewData: .init(
+                text: $viewModel.signUpRequest.email,
+                placeholder: "Entre com o seu e-mail *",
+                keyboard: .emailAddress,
+                hasFailure: !viewModel.isEmail(),
+                errorMessage: "E-mail inválido"
+            )
+        )
     }
     
     var passwordField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.password,
-                                       isSecureField: true,
-                                       placeholder: "Entre com a sua senha *"))
+        InputFieldView(
+            viewData: .init(
+                text: $viewModel.signUpRequest.password,
+                isSecureField: true,
+                placeholder: "Entre com a sua senha *",
+                hasFailure: viewModel.hasMinLenght(value: viewModel.signUpRequest.password, min: 6),
+                errorMessage: "Senha precisa ter ao menos 6 caracteres"
+            )
+        )
     }
     
     var phoneField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.phone,
-                                       isSecureField: false,
-                                       placeholder: "Entre com o seu celular *",
-                                       keyboard: .phonePad))
+        InputFieldView(
+            viewData: .init(
+                text: $viewModel.signUpRequest.phone,
+                isSecureField: false,
+                placeholder: "Entre com o seu celular *",
+                keyboard: .phonePad
+            )
+        )
     }
     
     var addressField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.address,
-                                       isSecureField: false,
-                                       placeholder: "Entre com o seu Endereço *",
-                                       keyboard: .alphabet))
+        InputFieldView(
+            viewData: .init(
+                text: $viewModel.signUpRequest.address,
+                isSecureField: false,
+                placeholder: "Entre com o seu Endereço *",
+                keyboard: .alphabet
+            )
+        )
     }
     
     var accountTypeField: some View {
@@ -78,31 +102,47 @@ struct SignUpView: View {
     }
     
     var cpfField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.cpf,
-                                       isSecureField: false,
-                                       placeholder: "Entre com o seu CPF *",
-                                       keyboard: .alphabet))
+        InputFieldView(
+            viewData: .init(
+                text: $viewModel.signUpRequest.cpf,
+                isSecureField: false,
+                placeholder: "Entre com o seu CPF *",
+                keyboard: .alphabet
+            )
+        )
     }
     
     var cnpjField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.cnpj,
-                                       isSecureField: false,
-                                       placeholder: "Entre com o seu CNPJ *",
-                                       keyboard: .alphabet))
+        InputFieldView(
+            viewData: .init(
+                text: $viewModel.signUpRequest.cnpj,
+                isSecureField: false,
+                placeholder: "Entre com o seu CNPJ *",
+                keyboard: .alphabet
+            )
+        )
     }
     
     var corporateNameField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.corporateName,
-                                       isSecureField: false,
-                                       placeholder: "Entre com a razão social *",
-                                       keyboard: .alphabet))
+        InputFieldView(
+            viewData: .init(
+                text: $viewModel.signUpRequest.corporateName,
+                isSecureField: false,
+                placeholder: "Entre com a razão social *",
+                keyboard: .alphabet
+            )
+        )
     }
     
     var saveButton: some View {
-        LoadingButtonView(viewData: .init(action: viewModel.handleSignUp,
-                                          buttonTitle: "Cadastrar",
-                                          showProgress: viewModel.uiState == .loading,
-                                          disabled: viewModel.isButtonDisabled))
+        LoadingButtonView(
+            viewData: .init(
+                action: viewModel.handleSignUp,
+                buttonTitle: "Cadastrar",
+                showProgress: viewModel.uiState == .loading,
+                disabled: viewModel.isButtonDisabled
+            )
+        )
     }
 }
 
