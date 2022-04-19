@@ -1,5 +1,4 @@
 import Firebase
-import Combine
 
 protocol FirebaseServiceProtocol {
     var auth: Auth { get }
