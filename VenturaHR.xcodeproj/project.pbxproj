@@ -25,6 +25,7 @@
 		6D4EA12E27F1455F00B13524 /* UserSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4EA12D27F1455F00B13524 /* UserSignIn.swift */; };
 		6D6AD72427EFEA550041A9F1 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6AD72327EFEA550041A9F1 /* SignInView.swift */; };
 		6D6AD72727EFEA650041A9F1 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6AD72627EFEA650041A9F1 /* SignInViewModel.swift */; };
+		6D74BFBF280E380A00725883 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D74BFBE280E380A00725883 /* GoogleService-Info.plist */; };
 		6D79D4FF27ED1D1200F9E961 /* User2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D4FE27ED1D1200F9E961 /* User2.swift */; };
 		6D79D50127ED1D3400F9E961 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50027ED1D3400F9E961 /* Company.swift */; };
 		6D79D50327ED1DD200F9E961 /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50227ED1DD200F9E961 /* Candidate.swift */; };
@@ -57,6 +58,7 @@
 		6D4EA12D27F1455F00B13524 /* UserSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignIn.swift; sourceTree = "<group>"; };
 		6D6AD72327EFEA550041A9F1 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		6D6AD72627EFEA650041A9F1 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		6D74BFBE280E380A00725883 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6D79D4FE27ED1D1200F9E961 /* User2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User2.swift; sourceTree = "<group>"; };
 		6D79D50027ED1D3400F9E961 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		6D79D50227ED1DD200F9E961 /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 		6D8DED9D27E6C5690062920E /* VenturaHR */ = {
 			isa = PBXGroup;
 			children = (
+				6D74BFBE280E380A00725883 /* GoogleService-Info.plist */,
 				6D8DEDA427E6C56D0062920E /* Preview Content */,
 				6D8DEDAC27E6C90D0062920E /* Resources */,
 				6D8DEDAD27E6C9170062920E /* Sources */,
@@ -427,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D8DEDA627E6C56D0062920E /* Preview Assets.xcassets in Resources */,
+				6D74BFBF280E380A00725883 /* GoogleService-Info.plist in Resources */,
 				6D285A7C27E80AB900FAED39 /* Localizable.strings in Resources */,
 				6D8DEDA327E6C56D0062920E /* Assets.xcassets in Resources */,
 			);
