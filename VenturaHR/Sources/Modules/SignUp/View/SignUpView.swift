@@ -22,7 +22,7 @@ struct SignUpView: View {
                 
                 accountTypeField
                 
-                if viewModel.user.accountType == .candidate {
+                if viewModel.signUpRequest.accountType == .candidate {
                     cpfField
                 } else {
                     cnpjField
@@ -35,64 +35,64 @@ struct SignUpView: View {
     }
     
     var nameField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.user.name,
+        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.name,
                                        placeholder: "Entre com o seu nome *",
                                        keyboard: .alphabet))
     }
     
     var emailField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.user.email,
+        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.email,
                                        placeholder: "Entre com o seu e-mail *",
                                        keyboard: .emailAddress))
     }
     
     var passwordField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.user.password,
+        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.password,
                                        isSecureField: true,
                                        placeholder: "Entre com a sua senha *"))
     }
     
     var phoneField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.user.phone,
+        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.phone,
                                        isSecureField: false,
                                        placeholder: "Entre com o seu celular *",
                                        keyboard: .phonePad))
     }
     
     var addressField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.user.address,
+        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.address,
                                        isSecureField: false,
                                        placeholder: "Entre com o seu Endereço *",
                                        keyboard: .alphabet))
     }
     
     var accountTypeField: some View {
-        Picker("", selection: $viewModel.user.accountType) {
+        Picker("", selection: $viewModel.signUpRequest.accountType) {
             ForEach(AccountType.allCases, id: \.self) { type in
                 Text(type.rawValue)
                     .tag(type)
             }
         }
         .pickerStyle(SegmentedPickerStyle())
-        .padding(.init(top: 16, leading: 0, bottom: 32, trailing: 0))
+        .padding(.vertical, 10)
     }
     
     var cpfField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.user.cpf,
+        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.cpf,
                                        isSecureField: false,
                                        placeholder: "Entre com o seu CPF *",
                                        keyboard: .alphabet))
     }
     
     var cnpjField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.user.cnpj,
+        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.cnpj,
                                        isSecureField: false,
                                        placeholder: "Entre com o seu CNPJ *",
                                        keyboard: .alphabet))
     }
     
     var corporateNameField: some View {
-        InputFieldView(viewData: .init(text: $viewModel.user.corporateName,
+        InputFieldView(viewData: .init(text: $viewModel.signUpRequest.corporateName,
                                        isSecureField: false,
                                        placeholder: "Entre com a razão social *",
                                        keyboard: .alphabet))
