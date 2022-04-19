@@ -26,9 +26,6 @@
 		6D6AD72427EFEA550041A9F1 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6AD72327EFEA550041A9F1 /* SignInView.swift */; };
 		6D6AD72727EFEA650041A9F1 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6AD72627EFEA650041A9F1 /* SignInViewModel.swift */; };
 		6D74BFBF280E380A00725883 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D74BFBE280E380A00725883 /* GoogleService-Info.plist */; };
-		6D79D4FF27ED1D1200F9E961 /* User2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D4FE27ED1D1200F9E961 /* User2.swift */; };
-		6D79D50127ED1D3400F9E961 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50027ED1D3400F9E961 /* Company.swift */; };
-		6D79D50327ED1DD200F9E961 /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50227ED1DD200F9E961 /* Candidate.swift */; };
 		6D79D50627ED22BE00F9E961 /* LoadingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50527ED22BE00F9E961 /* LoadingButtonView.swift */; };
 		6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50727ED22D500F9E961 /* LoadingButtonViewData.swift */; };
 		6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */; };
@@ -59,9 +56,6 @@
 		6D6AD72327EFEA550041A9F1 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		6D6AD72627EFEA650041A9F1 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		6D74BFBE280E380A00725883 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		6D79D4FE27ED1D1200F9E961 /* User2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User2.swift; sourceTree = "<group>"; };
-		6D79D50027ED1D3400F9E961 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
-		6D79D50227ED1DD200F9E961 /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
 		6D79D50527ED22BE00F9E961 /* LoadingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButtonView.swift; sourceTree = "<group>"; };
 		6D79D50727ED22D500F9E961 /* LoadingButtonViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButtonViewData.swift; sourceTree = "<group>"; };
 		6D8DED9B27E6C5690062920E /* VenturaHR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenturaHR.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,9 +279,6 @@
 		6D79D4FD27ED1D0A00F9E961 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6D79D4FE27ED1D1200F9E961 /* User2.swift */,
-				6D79D50027ED1D3400F9E961 /* Company.swift */,
-				6D79D50227ED1DD200F9E961 /* Candidate.swift */,
 				6D3C6B5327EE715500F8F433 /* User.swift */,
 			);
 			path = Model;
@@ -516,11 +507,8 @@
 				6D20376927E958A200377838 /* SplashViewRouter.swift in Sources */,
 				6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */,
 				6D6AD72727EFEA650041A9F1 /* SignInViewModel.swift in Sources */,
-				6D79D4FF27ED1D1200F9E961 /* User2.swift in Sources */,
 				6D3C6B5427EE715500F8F433 /* User.swift in Sources */,
-				6D79D50327ED1DD200F9E961 /* Candidate.swift in Sources */,
 				6D20377627E96B3600377838 /* SignUpViewRouter.swift in Sources */,
-				6D79D50127ED1D3400F9E961 /* Company.swift in Sources */,
 				6D39C4E827EA9BC800CF69C0 /* InputFieldViewData.swift in Sources */,
 				6D20376F27E96A4B00377838 /* SignUpView.swift in Sources */,
 				6D6AD72427EFEA550041A9F1 /* SignInView.swift in Sources */,
