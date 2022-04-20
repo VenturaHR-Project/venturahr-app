@@ -4,7 +4,7 @@ typealias BoolCallback = (Result<Bool, HttpError>) -> Void
 
 struct Network {
     private static func completeURL(path: String) -> URLRequest? {
-        guard let url = URL(string: "\(Endpoint.base.value)") else { return nil }
+        guard let url = URL(string: "\(path)") else { return nil }
         return URLRequest(url: url)
     }
     
@@ -24,8 +24,9 @@ struct Network {
         data: Data?,
         callback: @escaping BoolCallback
     ) {
-        guard let urlRequest = makeUrlRequest(path: path, method: method) else { return }
+        guard var urlRequest = makeUrlRequest(path: path, method: method) else { return }
         
+        urlRequest.httpBody = data
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             guard let data = data, error == nil else {
                 print(error ?? "")
@@ -44,6 +45,8 @@ struct Network {
                 case 401:
                     callback(.failure(.unauthorized))
                     break
+                case 404:
+                    callback(.failure(.notFound))
                 default:
                     break
                 }

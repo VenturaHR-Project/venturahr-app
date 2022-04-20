@@ -32,9 +32,12 @@ extension SignUpRemoteDataSource: SignUpRemoteDataSourceProtocol {
                 self.userMicroservice.saveUser(user: request) { result in
                     switch result {
                     case .failure(let httpError):
+                        self.firebaseService.auth.currentUser?.delete()
                         promise(.failure(httpError))
+                        break
                     case .success(let created):
                         promise(.success(created))
+                        break
                     }
                 }
             }

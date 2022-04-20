@@ -5,9 +5,34 @@ final class SignUpViewModel: ObservableObject {
     @Published var signUpRequest = SignUpRequest()
     @Published var uiState: UIState = .none
     
+    private var cancellable: AnyCancellable?
+    private let interactor: SignUpInteractorProtocol
+    
+    init(interactor: SignUpInteractorProtocol =  SignUpInteractor()) {
+        self.interactor = interactor
+    }
+    
+    deinit {
+        cancellable?.cancel()
+    }
+    
     func handleSignUp() {
         uiState = .loading
-        // TODO: Implement SignUp method
+        
+        cancellable = interactor.handleSignUp(request: signUpRequest)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    self.uiState = .error(error.localizedDescription)
+                case .finished:
+                    break
+                }
+            }, receiveValue: { created in
+                if created {
+                    self.uiState = .success
+                }
+            })
     }
 }
 

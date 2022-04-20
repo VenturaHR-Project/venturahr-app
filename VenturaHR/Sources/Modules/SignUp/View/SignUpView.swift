@@ -4,34 +4,45 @@ struct SignUpView: View {
     @StateObject var viewModel = SignUpViewModel()
     
     var body: some View {
-        ScrollView(showsIndicators: true) {
-            VStack(alignment: .leading) {
-                Text("Cadastro")
-                    .foregroundColor(Color(R.color.blackWhite.name))
-                    .font(.system(.title).bold())
-                
-                nameField
-                
-                emailField
-                
-                passwordField
-                
-                phoneField
-                
-                addressField
-                
-                accountTypeField
-                
-                if viewModel.signUpRequest.accountType == .candidate {
-                    cpfField
-                } else {
-                    cnpjField
-                    corporateNameField
-                }
-                
-                saveButton
-            }.padding(.horizontal, 8)
-        }.padding()
+        ZStack {
+            ScrollView(showsIndicators: true) {
+                VStack(alignment: .leading) {
+                    Text("Cadastro")
+                        .foregroundColor(Color(R.color.blackWhite.name))
+                        .font(.system(.title).bold())
+                    
+                    nameField
+                    
+                    emailField
+                    
+                    passwordField
+                    
+                    phoneField
+                    
+                    addressField
+                    
+                    accountTypeField
+                    
+                    if viewModel.signUpRequest.accountType == .candidate {
+                        cpfField
+                    } else {
+                        cnpjField
+                        corporateNameField
+                    }
+                    
+                    saveButton
+                }.padding(.horizontal, 8)
+            }.padding()
+            
+            if case UIState.error(let value) = viewModel.uiState {
+                Text("")
+                    .alert(isPresented: .constant(true)) {
+                        Alert(
+                            title: Text("VenturaHR"), message: Text(value), dismissButton: .default(Text("Ok"))
+                        )
+                    }
+            }
+        }
     }
     
     var nameField: some View {
@@ -50,6 +61,7 @@ struct SignUpView: View {
                 text: $viewModel.signUpRequest.email,
                 placeholder: "Entre com o seu e-mail *",
                 keyboard: .emailAddress,
+                autocapitalization: .never,
                 hasFailure: !viewModel.isEmail(),
                 errorMessage: "E-mail inválido"
             )
