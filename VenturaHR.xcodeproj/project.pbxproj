@@ -39,6 +39,7 @@
 		6D7EC533280F9BB00034C58D /* CadidateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC532280F9BB00034C58D /* CadidateFactory.swift */; };
 		6D7EC535280F9BCB0034C58D /* CompanyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC534280F9BCB0034C58D /* CompanyFactory.swift */; };
 		6D7EC537280FA16E0034C58D /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC536280FA16E0034C58D /* SignUpInteractor.swift */; };
+		6D857A0F28107CC4007D51CD /* SignInViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857A0E28107CC4007D51CD /* SignInViewRouter.swift */; };
 		6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */; };
 		6D8DEDA327E6C56D0062920E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA227E6C56D0062920E /* Assets.xcassets */; };
 		6D8DEDA627E6C56D0062920E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA527E6C56D0062920E /* Preview Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		6D7EC532280F9BB00034C58D /* CadidateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadidateFactory.swift; sourceTree = "<group>"; };
 		6D7EC534280F9BCB0034C58D /* CompanyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyFactory.swift; sourceTree = "<group>"; };
 		6D7EC536280FA16E0034C58D /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
+		6D857A0E28107CC4007D51CD /* SignInViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewRouter.swift; sourceTree = "<group>"; };
 		6D8DED9B27E6C5690062920E /* VenturaHR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenturaHR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenturaHRApp.swift; sourceTree = "<group>"; };
 		6D8DEDA227E6C56D0062920E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -269,19 +271,12 @@
 		6D3C6B4D27EE6B2400F8F433 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				6D857A0D28107CB0007D51CD /* Router */,
 				6D4EA12A27F144FE00B13524 /* Model */,
 				6D3C6B5027EE6B4E00F8F433 /* ViewModel */,
 				6D3C6B4F27EE6B4900F8F433 /* View */,
-				6D3C6B4E27EE6B4100F8F433 /* Router */,
 			);
 			path = SignIn;
-			sourceTree = "<group>";
-		};
-		6D3C6B4E27EE6B4100F8F433 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		6D3C6B4F27EE6B4900F8F433 /* View */ = {
@@ -411,6 +406,14 @@
 				6D7EC532280F9BB00034C58D /* CadidateFactory.swift */,
 			);
 			path = Candidate;
+			sourceTree = "<group>";
+		};
+		6D857A0D28107CB0007D51CD /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				6D857A0E28107CC4007D51CD /* SignInViewRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		6D8DED9227E6C5690062920E = {
@@ -643,6 +646,7 @@
 				6D39C4E627EA9B1F00CF69C0 /* InputFieldView.swift in Sources */,
 				6D20376927E958A200377838 /* SplashViewRouter.swift in Sources */,
 				6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */,
+				6D857A0F28107CC4007D51CD /* SignInViewRouter.swift in Sources */,
 				6D7EC537280FA16E0034C58D /* SignUpInteractor.swift in Sources */,
 				6D6AD72727EFEA650041A9F1 /* SignInViewModel.swift in Sources */,
 				6D3C6B5427EE715500F8F433 /* SignUpRequest.swift in Sources */,

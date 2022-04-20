@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct SignUpViewRouter {
+struct SignInViewRouter {
     static func start() -> some View  {
-        return SignUpView()
+        return SignInView()
     }
 }

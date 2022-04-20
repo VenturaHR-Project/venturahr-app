@@ -6,7 +6,7 @@ struct SplashViewRouter {
         return SplashView(viewModel: viewModel)
     }
     
-    static func makeLandingView() -> some View {
-        return SignUpViewRouter.start()
+    static func makeSignInView() -> some View {
+        return SignInViewRouter.start()
     }
 }

@@ -9,7 +9,7 @@ struct SplashView: View {
             case .loading:
                 loadingView
             case .goToLandingScreen:
-                SplashViewRouter.makeLandingView()
+                SplashViewRouter.makeSignInView()
             }
         }
         .onAppear(perform: viewModel.handleOnAppear)
@@ -18,7 +18,7 @@ struct SplashView: View {
     
     private var loadingView: some View {
         ZStack {
-            Color(R.color.accentColor.name)
+            Color.orange
             
             Image(R.image.venturaIcon.name)
                 .resizable()
