@@ -1,9 +1,10 @@
 import Foundation
 
+typealias BoolCallback = (Result<Bool, HttpError>) -> Void
+
 struct Network {
     private static func completeURL(path: String) -> URLRequest? {
-        guard let url = URL(string: NetworkConstants.Endpoint.postUser) else { return nil }
-        
+        guard let url = URL(string: "\(Endpoint.base.value)") else { return nil }
         return URLRequest(url: url)
     }
     
@@ -21,27 +22,28 @@ struct Network {
         method: HttpMethod,
         contentType: ContentType,
         data: Data?,
-        completion: @escaping (Result) -> Void
+        callback: @escaping BoolCallback
     ) {
         guard let urlRequest = makeUrlRequest(path: path, method: method) else { return }
         
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             guard let data = data, error == nil else {
                 print(error ?? "")
-                completion(.failure(.internalServerError, nil))
+                callback(.failure(.internalServerError))
                 return
             }
 
             if let httpResponse = response as? HTTPURLResponse {
                 switch httpResponse.statusCode {
                 case 200, 201:
-                    completion(.success(data))
+                    callback(.success(true))
                     break
                 case 400:
-                    completion(.failure(.badRequest, data))
+                    callback(.failure(.badRequest))
                     break
                 case 401:
-                    completion(.failure(.unauthorized, data))
+                    callback(.failure(.unauthorized))
+                    break
                 default:
                     break
                 }
@@ -52,21 +54,20 @@ struct Network {
     
     
     public static func call<T: Encodable>(
-        path: String,
+        path: Endpoint,
         method: HttpMethod,
         body: T,
-        completion: @escaping (Result) -> Void
+        callback: @escaping BoolCallback
     ) {
         guard let jsonData = try? JSONEncoder().encode(body) else { return }
-        
-        handleCallRequest(path: path, method: method, contentType: .json, data: jsonData, completion: completion)
+        handleCallRequest(path: path.value, method: method, contentType: .json, data: jsonData, callback: callback)
     }
     
     public static func call(
-        path: String,
+        path: Endpoint,
         method: HttpMethod,
-        completion: @escaping (Result) -> Void
+        callback: @escaping BoolCallback
     ) {
-        handleCallRequest(path: path, method: method, contentType: .json, data: nil, completion: completion)
+        handleCallRequest(path: path.value, method: method, contentType: .json, data: nil, callback: callback)
     }
 }

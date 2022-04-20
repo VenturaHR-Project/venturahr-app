@@ -30,15 +30,21 @@
 		6D74BFCB280E49CF00725883 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFCA280E49CF00725883 /* FirebaseService.swift */; };
 		6D74BFD2280E4C2B00725883 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFD1280E4C2B00725883 /* Network.swift */; };
 		6D74BFD5280E4CBE00725883 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFD4280E4CBE00725883 /* ContentType.swift */; };
-		6D74BFDB280E4D1000725883 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFDA280E4D1000725883 /* NetworkConstants.swift */; };
 		6D74BFDD280E4D8100725883 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFDC280E4D8100725883 /* HttpMethod.swift */; };
-		6D74BFE0280E4D9700725883 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFDF280E4D9700725883 /* NetworkError.swift */; };
-		6D74BFE2280E4DB200725883 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFE1280E4DB200725883 /* Result.swift */; };
+		6D74BFE0280E4D9700725883 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFDF280E4D9700725883 /* HttpError.swift */; };
+		6D74BFE5280EFC3200725883 /* UserMicroservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFE4280EFC3200725883 /* UserMicroservice.swift */; };
 		6D79D50627ED22BE00F9E961 /* LoadingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50527ED22BE00F9E961 /* LoadingButtonView.swift */; };
 		6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50727ED22D500F9E961 /* LoadingButtonViewData.swift */; };
+		6D7EC52F280F98580034C58D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC52E280F98580034C58D /* Endpoint.swift */; };
+		6D7EC533280F9BB00034C58D /* CadidateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC532280F9BB00034C58D /* CadidateFactory.swift */; };
+		6D7EC535280F9BCB0034C58D /* CompanyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC534280F9BCB0034C58D /* CompanyFactory.swift */; };
+		6D7EC537280FA16E0034C58D /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC536280FA16E0034C58D /* SignUpInteractor.swift */; };
 		6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */; };
 		6D8DEDA327E6C56D0062920E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA227E6C56D0062920E /* Assets.xcassets */; };
 		6D8DEDA627E6C56D0062920E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA527E6C56D0062920E /* Preview Assets.xcassets */; };
+		6DE7BB97280F7F7500BE9D13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE7BB96280F7F7500BE9D13 /* User.swift */; };
+		6DE7BB99280F7F9A00BE9D13 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE7BB98280F7F9A00BE9D13 /* Company.swift */; };
+		6DE7BB9B280F7FA100BE9D13 /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE7BB9A280F7FA100BE9D13 /* Candidate.swift */; };
 		B7763B4356AC9C628C04E6A2 /* Pods_VenturaHR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE5AED728E6F0D6D7A72B29 /* Pods_VenturaHR.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,16 +74,22 @@
 		6D74BFCA280E49CF00725883 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		6D74BFD1280E4C2B00725883 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		6D74BFD4280E4CBE00725883 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
-		6D74BFDA280E4D1000725883 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		6D74BFDC280E4D8100725883 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
-		6D74BFDF280E4D9700725883 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		6D74BFE1280E4DB200725883 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		6D74BFDF280E4D9700725883 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
+		6D74BFE4280EFC3200725883 /* UserMicroservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMicroservice.swift; sourceTree = "<group>"; };
 		6D79D50527ED22BE00F9E961 /* LoadingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButtonView.swift; sourceTree = "<group>"; };
 		6D79D50727ED22D500F9E961 /* LoadingButtonViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButtonViewData.swift; sourceTree = "<group>"; };
+		6D7EC52E280F98580034C58D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		6D7EC532280F9BB00034C58D /* CadidateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadidateFactory.swift; sourceTree = "<group>"; };
+		6D7EC534280F9BCB0034C58D /* CompanyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyFactory.swift; sourceTree = "<group>"; };
+		6D7EC536280FA16E0034C58D /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		6D8DED9B27E6C5690062920E /* VenturaHR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VenturaHR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenturaHRApp.swift; sourceTree = "<group>"; };
 		6D8DEDA227E6C56D0062920E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D8DEDA527E6C56D0062920E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6DE7BB96280F7F7500BE9D13 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6DE7BB98280F7F9A00BE9D13 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		6DE7BB9A280F7FA100BE9D13 /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
 		77DFB3AFE143170AB14ABDA9 /* Pods-VenturaHR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenturaHR.release.xcconfig"; path = "Target Support Files/Pods-VenturaHR/Pods-VenturaHR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,9 +215,10 @@
 		6D20377727E96BCA00377838 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				6D74BFC9280E49AD00725883 /* Service */,
-				6D13E41B27EC6E1D00577DCD /* Enum */,
+				6D7EC52D280F83FF0034C58D /* Protocol */,
 				6D20377827E96BE800377838 /* Component */,
+				6D13E41B27EC6E1D00577DCD /* Enum */,
+				6D74BFC9280E49AD00725883 /* Service */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -298,6 +311,7 @@
 		6D74BFC4280E490000725883 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				6D7EC536280FA16E0034C58D /* SignUpInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -313,6 +327,7 @@
 		6D74BFC9280E49AD00725883 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				6D74BFE3280EFBEE00725883 /* UserMicroservice */,
 				6D74BFCF280E4BC700725883 /* FirebaseService */,
 			);
 			path = Service;
@@ -329,7 +344,7 @@
 		6D74BFD0280E4C1600725883 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				6D74BFD8280E4CF500725883 /* Constant */,
+				6DE7BB92280F7B5C00BE9D13 /* Codable */,
 				6D74BFD3280E4C9700725883 /* Enum */,
 				6D74BFD1280E4C2B00725883 /* Network.swift */,
 			);
@@ -341,18 +356,18 @@
 			children = (
 				6D74BFD4280E4CBE00725883 /* ContentType.swift */,
 				6D74BFDC280E4D8100725883 /* HttpMethod.swift */,
-				6D74BFDF280E4D9700725883 /* NetworkError.swift */,
-				6D74BFE1280E4DB200725883 /* Result.swift */,
+				6D74BFDF280E4D9700725883 /* HttpError.swift */,
+				6D7EC52E280F98580034C58D /* Endpoint.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		6D74BFD8280E4CF500725883 /* Constant */ = {
+		6D74BFE3280EFBEE00725883 /* UserMicroservice */ = {
 			isa = PBXGroup;
 			children = (
-				6D74BFDA280E4D1000725883 /* NetworkConstants.swift */,
+				6D74BFE4280EFC3200725883 /* UserMicroservice.swift */,
 			);
-			path = Constant;
+			path = UserMicroservice;
 			sourceTree = "<group>";
 		};
 		6D79D4FD27ED1D0A00F9E961 /* Model */ = {
@@ -370,6 +385,32 @@
 				6D79D50727ED22D500F9E961 /* LoadingButtonViewData.swift */,
 			);
 			path = LoadingButton;
+			sourceTree = "<group>";
+		};
+		6D7EC52D280F83FF0034C58D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				6DE7BB96280F7F7500BE9D13 /* User.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		6D7EC530280F9B890034C58D /* Company */ = {
+			isa = PBXGroup;
+			children = (
+				6DE7BB98280F7F9A00BE9D13 /* Company.swift */,
+				6D7EC534280F9BCB0034C58D /* CompanyFactory.swift */,
+			);
+			path = Company;
+			sourceTree = "<group>";
+		};
+		6D7EC531280F9B9E0034C58D /* Candidate */ = {
+			isa = PBXGroup;
+			children = (
+				6DE7BB9A280F7FA100BE9D13 /* Candidate.swift */,
+				6D7EC532280F9BB00034C58D /* CadidateFactory.swift */,
+			);
+			path = Candidate;
 			sourceTree = "<group>";
 		};
 		6D8DED9227E6C5690062920E = {
@@ -428,6 +469,15 @@
 				6D74BFD0280E4C1600725883 /* Network */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		6DE7BB92280F7B5C00BE9D13 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				6D7EC531280F9B9E0034C58D /* Candidate */,
+				6D7EC530280F9B890034C58D /* Company */,
+			);
+			path = Codable;
 			sourceTree = "<group>";
 		};
 		B6F27D23D4F2F266013A7E46 /* Pods */ = {
@@ -577,30 +627,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D74BFDB280E4D1000725883 /* NetworkConstants.swift in Sources */,
-				6D74BFE0280E4D9700725883 /* NetworkError.swift in Sources */,
+				6D74BFE0280E4D9700725883 /* HttpError.swift in Sources */,
 				6D20376527E931BE00377838 /* SplashUIState.swift in Sources */,
 				6D4EA12E27F1455F00B13524 /* UserSignIn.swift in Sources */,
 				6D74BFD2280E4C2B00725883 /* Network.swift in Sources */,
 				6D74BFCB280E49CF00725883 /* FirebaseService.swift in Sources */,
 				6D79D50627ED22BE00F9E961 /* LoadingButtonView.swift in Sources */,
 				6D20375F27E918FE00377838 /* SplashView.swift in Sources */,
+				6DE7BB97280F7F7500BE9D13 /* User.swift in Sources */,
+				6D74BFE5280EFC3200725883 /* UserMicroservice.swift in Sources */,
+				6D7EC52F280F98580034C58D /* Endpoint.swift in Sources */,
+				6D7EC533280F9BB00034C58D /* CadidateFactory.swift in Sources */,
 				6D20377327E96A7100377838 /* SignUpViewModel.swift in Sources */,
 				6D13E41D27EC6E6300577DCD /* AccountType.swift in Sources */,
 				6D39C4E627EA9B1F00CF69C0 /* InputFieldView.swift in Sources */,
 				6D20376927E958A200377838 /* SplashViewRouter.swift in Sources */,
 				6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */,
+				6D7EC537280FA16E0034C58D /* SignUpInteractor.swift in Sources */,
 				6D6AD72727EFEA650041A9F1 /* SignInViewModel.swift in Sources */,
 				6D3C6B5427EE715500F8F433 /* SignUpRequest.swift in Sources */,
 				6D20377627E96B3600377838 /* SignUpViewRouter.swift in Sources */,
 				6D74BFD5280E4CBE00725883 /* ContentType.swift in Sources */,
 				6D39C4E827EA9BC800CF69C0 /* InputFieldViewData.swift in Sources */,
 				6D20376F27E96A4B00377838 /* SignUpView.swift in Sources */,
+				6DE7BB9B280F7FA100BE9D13 /* Candidate.swift in Sources */,
+				6D7EC535280F9BCB0034C58D /* CompanyFactory.swift in Sources */,
 				6D74BFC8280E492400725883 /* SignUpRemoteDataSource.swift in Sources */,
 				6D6AD72427EFEA550041A9F1 /* SignInView.swift in Sources */,
+				6DE7BB99280F7F9A00BE9D13 /* Company.swift in Sources */,
 				6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */,
 				6D74BFDD280E4D8100725883 /* HttpMethod.swift in Sources */,
-				6D74BFE2280E4DB200725883 /* Result.swift in Sources */,
 				6D285A7E27E80B1200FAED39 /* R.generated.swift in Sources */,
 				6D39C4EA27EA9E2800CF69C0 /* CustomInputFieldStyle.swift in Sources */,
 				6D20376327E9317400377838 /* SplashViewModel.swift in Sources */,
