@@ -7,6 +7,10 @@ struct SplashViewRouter {
     }
     
     static func makeSignInView() -> some View {
-        return SignInViewRouter.start()
+        SignInViewRouter.start()
+    }
+    
+    static func makeMainView() -> some View {
+        MainViewRouter.start()
     }
 }

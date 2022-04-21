@@ -8,12 +8,13 @@ struct SplashView: View {
             switch viewModel.uiState {
             case .loading:
                 loadingView
-            case .goToLandingScreen:
-                SplashViewRouter.makeSignInView()
+            case .goToSignInScreen:
+                viewModel.goToSignInView()
+            case .goToMainScreen:
+                viewModel.goToMainView()
             }
         }
         .onAppear(perform: viewModel.handleOnAppear)
-
     }
     
     private var loadingView: some View {

@@ -1,4 +1,5 @@
 enum SplashUIState {
     case loading
-    case goToLandingScreen
+    case goToSignInScreen
+    case goToMainScreen
 }

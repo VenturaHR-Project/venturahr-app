@@ -1,25 +1,38 @@
 import Combine
-import Foundation
+import SwiftUI
 
 final class SignInViewModel: ObservableObject {
     @Published var signInRequest = SignInRequest()
-    @Published var uiState: SignInUIState = .none
+    @Published var uiState: UIState = .none
     
-    private var cancellable: AnyCancellable?
+    private var cancellableSignUp: AnyCancellable?
+    private var cancellableSignIn: AnyCancellable?
+    private var publisher = PassthroughSubject<Bool, Never>()
+    
     private let interactor: SignInInteractorProtocol
     
     init(interactor: SignInInteractorProtocol = SignInInteractor()) {
         self.interactor = interactor
+        observeSignUp()
     }
     
     deinit {
-        cancellable?.cancel()
+        cancellableSignIn?.cancel()
+        cancellableSignUp?.cancel()
+    }
+    
+    private func observeSignUp() {
+        cancellableSignUp = publisher.sink { value in
+            if value {
+                self.uiState = .success
+            }
+        }
     }
     
     func handleSignIn() {
         uiState = .loading
         
-        cancellable = interactor.handleSignIn(request: signInRequest)
+        cancellableSignIn = interactor.handleSignIn(request: signInRequest)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -28,7 +41,17 @@ final class SignInViewModel: ObservableObject {
                 case .finished: break
                 }
             }, receiveValue: { logged in
-                self.uiState = .goToMainScreen
+                self.uiState = .success
             })
+    }
+}
+
+extension SignInViewModel {
+    func goToSignUpView() -> some View {
+        return SignInViewRouter.makeSignUpView(publisher: publisher)
+    }
+    
+    func goToMainView() -> some View {
+        return SignInViewRouter.makeHomeView()
     }
 }

@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct SignInView: View {
-    @StateObject var viewModel = SignInViewModel()
+    @StateObject var viewModel: SignInViewModel
     
     @State var navigationBarHidden = true
     
     var body: some View {
         ZStack {
-            if case SignInUIState.error(let value) = viewModel.uiState {
+            if case UIState.error(let value) = viewModel.uiState {
                 Text("")
                     .alert(isPresented: .constant(true)) {
                         Alert(
@@ -18,8 +18,8 @@ struct SignInView: View {
                     }
             }
             
-            if case SignInUIState.goToMainScreen = viewModel.uiState {
-                SignInViewRouter.makeMainScreen()
+            if case UIState.success = viewModel.uiState {
+                viewModel.goToMainView()
             } else {
                 NavigationView {
                     ScrollView(showsIndicators: true) {
@@ -82,7 +82,7 @@ struct SignInView: View {
             viewData: .init(
                 action: viewModel.handleSignIn,
                 buttonTitle: "Entrar",
-                showProgress: viewModel.uiState == SignInUIState.loading,
+                showProgress: viewModel.uiState == UIState.loading,
                 disabled: isSignInButtonDisabled
             )
         )
@@ -97,7 +97,10 @@ struct SignInView: View {
             
             Spacer(minLength: 10)
             
-            NavigationLink("Realize seu cadastro", destination: SignUpViewRouter.start)
+            NavigationLink(
+                "Realize seu cadastro",
+                destination: viewModel.goToSignUpView
+            )
         }
     }
     
@@ -112,7 +115,7 @@ struct SignInView: View {
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            SignInView()
+            SignInView(viewModel: SignInViewModel())
                 .preferredColorScheme($0)
         }
     }

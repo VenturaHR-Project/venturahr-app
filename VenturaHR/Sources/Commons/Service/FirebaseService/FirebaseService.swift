@@ -4,6 +4,7 @@ protocol FirebaseServiceProtocol {
     var auth: Auth { get }
     func configureFirebaseApp()
     func getUID() -> String?
+    func getCurrentUser() -> User?
 }
 
 final class FirebaseService {
@@ -22,5 +23,10 @@ extension FirebaseService: FirebaseServiceProtocol {
     func getUID() -> String? {
         guard let uid = auth.currentUser?.uid else { return nil }
         return uid
+    }
+    
+    func getCurrentUser() -> User? {
+        guard let currentUser = auth.currentUser else { return nil }
+        return currentUser
     }
 }

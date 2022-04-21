@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @StateObject var viewModel = SignUpViewModel()
+    @StateObject var viewModel: SignUpViewModel
     
     var body: some View {
         ZStack {
@@ -161,7 +161,7 @@ struct SignUpView: View {
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            SignUpView()
+            SignUpView(viewModel: SignUpViewModel(publisher: .init()))
                 .preferredColorScheme($0)
         }
     }
