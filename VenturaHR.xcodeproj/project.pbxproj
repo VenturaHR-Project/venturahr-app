@@ -51,10 +51,8 @@
 		6DD7874E2813560B0032F6AA /* MainRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7874D2813560B0032F6AA /* MainRemoteDataSource.swift */; };
 		6DD78753281357330032F6AA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD78752281357330032F6AA /* UserData.swift */; };
 		6DD787582813579B0032F6AA /* UserDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD787572813579B0032F6AA /* UserDataFactory.swift */; };
-		6DD7875B281359980032F6AA /* UserTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7875A281359980032F6AA /* UserTypeProtocol.swift */; };
 		6DD7875E281359FB0032F6AA /* GenericUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7875D281359FB0032F6AA /* GenericUser.swift */; };
 		6DD7876128135A890032F6AA /* GenericUserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7876028135A890032F6AA /* GenericUserFactory.swift */; };
-		6DE7BB97280F7F7500BE9D13 /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE7BB96280F7F7500BE9D13 /* UserProtocol.swift */; };
 		B7763B4356AC9C628C04E6A2 /* Pods_VenturaHR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE5AED728E6F0D6D7A72B29 /* Pods_VenturaHR.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,10 +104,8 @@
 		6DD7874D2813560B0032F6AA /* MainRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRemoteDataSource.swift; sourceTree = "<group>"; };
 		6DD78752281357330032F6AA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		6DD787572813579B0032F6AA /* UserDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataFactory.swift; sourceTree = "<group>"; };
-		6DD7875A281359980032F6AA /* UserTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeProtocol.swift; sourceTree = "<group>"; };
 		6DD7875D281359FB0032F6AA /* GenericUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericUser.swift; sourceTree = "<group>"; };
 		6DD7876028135A890032F6AA /* GenericUserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericUserFactory.swift; sourceTree = "<group>"; };
-		6DE7BB96280F7F7500BE9D13 /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
 		77DFB3AFE143170AB14ABDA9 /* Pods-VenturaHR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenturaHR.release.xcconfig"; path = "Target Support Files/Pods-VenturaHR/Pods-VenturaHR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,7 +236,6 @@
 				6D13E41B27EC6E1D00577DCD /* Enum */,
 				6D857A222810B57F007D51CD /* Extension */,
 				6DD78751281357220032F6AA /* Model */,
-				6D7EC52D280F83FF0034C58D /* Protocol */,
 				6D74BFC9280E49AD00725883 /* Service */,
 			);
 			path = Commons;
@@ -396,15 +391,6 @@
 				6D79D50727ED22D500F9E961 /* LoadingButtonViewData.swift */,
 			);
 			path = LoadingButton;
-			sourceTree = "<group>";
-		};
-		6D7EC52D280F83FF0034C58D /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				6DE7BB96280F7F7500BE9D13 /* UserProtocol.swift */,
-				6DD7875A281359980032F6AA /* UserTypeProtocol.swift */,
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		6D857A0D28107CB0007D51CD /* Router */ = {
@@ -744,7 +730,6 @@
 				6D79D50627ED22BE00F9E961 /* LoadingButtonView.swift in Sources */,
 				6D857A1F2810A02D007D51CD /* MainView.swift in Sources */,
 				6D20375F27E918FE00377838 /* SplashView.swift in Sources */,
-				6DE7BB97280F7F7500BE9D13 /* UserProtocol.swift in Sources */,
 				6D857A242810B590007D51CD /* String+Extension.swift in Sources */,
 				6D74BFE5280EFC3200725883 /* UserMicroservice.swift in Sources */,
 				6D7EC52F280F98580034C58D /* UserMicroserviceEndpoint.swift in Sources */,
@@ -777,7 +762,6 @@
 				6D39C4EA27EA9E2800CF69C0 /* CustomInputFieldStyle.swift in Sources */,
 				6D20376327E9317400377838 /* SplashViewModel.swift in Sources */,
 				6D4937FF27ED5977002AA2F7 /* UIState.swift in Sources */,
-				6DD7875B281359980032F6AA /* UserTypeProtocol.swift in Sources */,
 				6DD7874A2813503A0032F6AA /* MainViewModel.swift in Sources */,
 				6DA8389C28118DDB009BE7F1 /* MainViewRouter.swift in Sources */,
 				6DD7874E2813560B0032F6AA /* MainRemoteDataSource.swift in Sources */,

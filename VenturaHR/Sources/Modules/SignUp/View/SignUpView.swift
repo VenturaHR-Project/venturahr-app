@@ -50,7 +50,12 @@ struct SignUpView: View {
             viewData: .init(
                 text: $viewModel.signUpRequest.name,
                 placeholder: "Entre com o seu nome *",
-                keyboard: .alphabet
+                keyboard: .alphabet,
+                hasFailure: viewModel.hasMinLenght(
+                    value: viewModel.signUpRequest.name,
+                    min: 2
+                ),
+                errorMessage: "Nome precisa ter ao menos 2 caracteres"
             )
         )
     }
