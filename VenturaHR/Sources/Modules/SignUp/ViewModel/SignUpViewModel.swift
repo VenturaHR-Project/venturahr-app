@@ -30,15 +30,12 @@ final class SignUpViewModel: ObservableObject {
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):
-                    self.uiState = .error(error.localizedDescription)
-                case .finished:
-                    break
+                    self.uiState = .error(error.description)
+                case .finished: break
                 }
             }, receiveValue: { created in
-                if created {
-                    self.publisher.send(created)
-                    self.uiState = .success
-                }
+                self.publisher.send(created)
+                self.uiState = .success
             })
     }
 }

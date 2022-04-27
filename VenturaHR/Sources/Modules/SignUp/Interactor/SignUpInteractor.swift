@@ -1,7 +1,7 @@
 import Combine
 
 protocol SignUpInteractorProtocol {
-    func handleSignUp(request: SignUpRequest) -> Future<Bool, Error>
+    func handleSignUp(request: SignUpRequest) -> Future<Bool, NetworkError>
 }
 
 final class SignUpInteractor {
@@ -13,7 +13,7 @@ final class SignUpInteractor {
 }
 
 extension SignUpInteractor: SignUpInteractorProtocol {
-    func handleSignUp(request: SignUpRequest) -> Future<Bool, Error> {
+    func handleSignUp(request: SignUpRequest) -> Future<Bool, NetworkError> {
         return signUpRemoteDataSource.createUser(request: request)
     }
 }

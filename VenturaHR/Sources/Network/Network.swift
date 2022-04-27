@@ -1,14 +1,29 @@
 import Foundation
 
-typealias BoolCallback = (Result<Bool, HttpError>) -> Void
+protocol NetworkProtocol {
+    func call<T: Encodable>(path: String,
+                            method: HttpMethod,
+                            body: T,
+                            completion: @escaping (NetworkResult) -> Void)
+    
+    func call(path: String,
+              method: HttpMethod,
+              completion: @escaping (NetworkResult) -> Void)
+}
 
-struct Network {
-    private static func completeURL(path: String) -> URLRequest? {
+final class Network {
+    static var shared: NetworkProtocol = Network()
+    
+    private lazy var sessionRest: URLSession? = {
+        URLSession(configuration: .default)
+    }()
+    
+    private func completeURL(path: String) -> URLRequest? {
         guard let url = URL(string: "\(path)") else { return nil }
         return URLRequest(url: url)
     }
     
-    private static func makeUrlRequest(path: String, method: HttpMethod) -> URLRequest? {
+    private func makeUrlRequest(path: String, method: HttpMethod) -> URLRequest? {
         guard var urlRequest = completeURL(path: path) else { return nil }
         
         urlRequest.httpMethod = method.rawValue
@@ -17,60 +32,59 @@ struct Network {
         return urlRequest
     }
     
-    private static func handleCallRequest(
+    private func handleCallRequest(
         path: String,
         method: HttpMethod,
         contentType: ContentType,
         data: Data?,
-        callback: @escaping BoolCallback
+        completion: @escaping (NetworkResult) -> Void
     ) {
         guard var urlRequest = makeUrlRequest(path: path, method: method) else { return }
         
         urlRequest.httpBody = data
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        sessionRest?.dataTask(with: urlRequest) { data, response, error in
             guard let data = data, error == nil else {
-                print(error ?? "")
-                callback(.failure(.internalServerError))
+                completion(.failure(.internalServerError, nil))
                 return
             }
-
+            
             if let httpResponse = response as? HTTPURLResponse {
                 switch httpResponse.statusCode {
                 case 200, 201:
-                    callback(.success(true))
+                    completion(.success(data))
                     break
                 case 400:
-                    callback(.failure(.badRequest))
-                    break
-                case 401:
-                    callback(.failure(.unauthorized))
+                    completion(.failure(.badRequest, data))
                     break
                 case 404:
-                    callback(.failure(.notFound))
+                    completion(.failure(.dataNotFound, data))
+                    break
+                case 500:
+                    completion(.failure(.internalServerError, data))
                 default:
                     break
                 }
             }
-        }
-        task.resume()
+        }.resume()
     }
-    
-    
-    public static func call<T: Encodable>(
-        path: Endpoint,
+}
+
+extension Network: NetworkProtocol {
+    func call<T: Encodable>(
+        path: String,
         method: HttpMethod,
         body: T,
-        callback: @escaping BoolCallback
+        completion: @escaping (NetworkResult) -> Void
     ) {
         guard let jsonData = try? JSONEncoder().encode(body) else { return }
-        handleCallRequest(path: path.value, method: method, contentType: .json, data: jsonData, callback: callback)
+        handleCallRequest(path: path, method: method, contentType: .json, data: jsonData, completion: completion)
     }
     
-    public static func call(
-        path: Endpoint,
+    func call(
+        path: String,
         method: HttpMethod,
-        callback: @escaping BoolCallback
+        completion: @escaping (NetworkResult) -> Void
     ) {
-        handleCallRequest(path: path.value, method: method, contentType: .json, data: nil, callback: callback)
+        handleCallRequest(path: path, method: method, contentType: .json, data: nil, completion: completion)
     }
 }

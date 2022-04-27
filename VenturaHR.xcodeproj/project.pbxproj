@@ -17,6 +17,7 @@
 		6D20377627E96B3600377838 /* SignUpViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D20377527E96B3600377838 /* SignUpViewRouter.swift */; };
 		6D285A7C27E80AB900FAED39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D285A7B27E80AB900FAED39 /* Localizable.strings */; };
 		6D285A7E27E80B1200FAED39 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D285A7D27E80B1200FAED39 /* R.generated.swift */; };
+		6D30C48F2818A29000A099E2 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D30C48E2818A29000A099E2 /* NetworkResult.swift */; };
 		6D39C4E627EA9B1F00CF69C0 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D39C4E527EA9B1F00CF69C0 /* InputFieldView.swift */; };
 		6D39C4E827EA9BC800CF69C0 /* InputFieldViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D39C4E727EA9BC800CF69C0 /* InputFieldViewData.swift */; };
 		6D39C4EA27EA9E2800CF69C0 /* CustomInputFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D39C4E927EA9E2800CF69C0 /* CustomInputFieldStyle.swift */; };
@@ -30,13 +31,11 @@
 		6D74BFD2280E4C2B00725883 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFD1280E4C2B00725883 /* Network.swift */; };
 		6D74BFD5280E4CBE00725883 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFD4280E4CBE00725883 /* ContentType.swift */; };
 		6D74BFDD280E4D8100725883 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFDC280E4D8100725883 /* HttpMethod.swift */; };
-		6D74BFE0280E4D9700725883 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFDF280E4D9700725883 /* HttpError.swift */; };
+		6D74BFE0280E4D9700725883 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFDF280E4D9700725883 /* NetworkError.swift */; };
 		6D74BFE5280EFC3200725883 /* UserMicroservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74BFE4280EFC3200725883 /* UserMicroservice.swift */; };
 		6D79D50627ED22BE00F9E961 /* LoadingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50527ED22BE00F9E961 /* LoadingButtonView.swift */; };
 		6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50727ED22D500F9E961 /* LoadingButtonViewData.swift */; };
-		6D7EC52F280F98580034C58D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC52E280F98580034C58D /* Endpoint.swift */; };
-		6D7EC533280F9BB00034C58D /* CadidateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC532280F9BB00034C58D /* CadidateFactory.swift */; };
-		6D7EC535280F9BCB0034C58D /* CompanyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC534280F9BCB0034C58D /* CompanyFactory.swift */; };
+		6D7EC52F280F98580034C58D /* UserMicroserviceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC52E280F98580034C58D /* UserMicroserviceEndpoint.swift */; };
 		6D7EC537280FA16E0034C58D /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC536280FA16E0034C58D /* SignUpInteractor.swift */; };
 		6D857A0F28107CC4007D51CD /* SignInViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857A0E28107CC4007D51CD /* SignInViewRouter.swift */; };
 		6D857A1328107EE1007D51CD /* SignInRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857A1228107EE1007D51CD /* SignInRemoteDataSource.swift */; };
@@ -48,9 +47,14 @@
 		6D8DEDA327E6C56D0062920E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA227E6C56D0062920E /* Assets.xcassets */; };
 		6D8DEDA627E6C56D0062920E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA527E6C56D0062920E /* Preview Assets.xcassets */; };
 		6DA8389C28118DDB009BE7F1 /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA8389B28118DDB009BE7F1 /* MainViewRouter.swift */; };
+		6DD7874A2813503A0032F6AA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD787492813503A0032F6AA /* MainViewModel.swift */; };
+		6DD7874E2813560B0032F6AA /* MainRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7874D2813560B0032F6AA /* MainRemoteDataSource.swift */; };
+		6DD78753281357330032F6AA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD78752281357330032F6AA /* UserData.swift */; };
+		6DD787582813579B0032F6AA /* UserDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD787572813579B0032F6AA /* UserDataFactory.swift */; };
+		6DD7875B281359980032F6AA /* UserTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7875A281359980032F6AA /* UserTypeProtocol.swift */; };
+		6DD7875E281359FB0032F6AA /* GenericUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7875D281359FB0032F6AA /* GenericUser.swift */; };
+		6DD7876128135A890032F6AA /* GenericUserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7876028135A890032F6AA /* GenericUserFactory.swift */; };
 		6DE7BB97280F7F7500BE9D13 /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE7BB96280F7F7500BE9D13 /* UserProtocol.swift */; };
-		6DE7BB99280F7F9A00BE9D13 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE7BB98280F7F9A00BE9D13 /* Company.swift */; };
-		6DE7BB9B280F7FA100BE9D13 /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE7BB9A280F7FA100BE9D13 /* Candidate.swift */; };
 		B7763B4356AC9C628C04E6A2 /* Pods_VenturaHR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE5AED728E6F0D6D7A72B29 /* Pods_VenturaHR.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +71,7 @@
 		6D20377527E96B3600377838 /* SignUpViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewRouter.swift; sourceTree = "<group>"; };
 		6D285A7B27E80AB900FAED39 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6D285A7D27E80B1200FAED39 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		6D30C48E2818A29000A099E2 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		6D39C4E527EA9B1F00CF69C0 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		6D39C4E727EA9BC800CF69C0 /* InputFieldViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldViewData.swift; sourceTree = "<group>"; };
 		6D39C4E927EA9E2800CF69C0 /* CustomInputFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputFieldStyle.swift; sourceTree = "<group>"; };
@@ -80,13 +85,11 @@
 		6D74BFD1280E4C2B00725883 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		6D74BFD4280E4CBE00725883 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		6D74BFDC280E4D8100725883 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
-		6D74BFDF280E4D9700725883 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
+		6D74BFDF280E4D9700725883 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		6D74BFE4280EFC3200725883 /* UserMicroservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMicroservice.swift; sourceTree = "<group>"; };
 		6D79D50527ED22BE00F9E961 /* LoadingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButtonView.swift; sourceTree = "<group>"; };
 		6D79D50727ED22D500F9E961 /* LoadingButtonViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButtonViewData.swift; sourceTree = "<group>"; };
-		6D7EC52E280F98580034C58D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		6D7EC532280F9BB00034C58D /* CadidateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadidateFactory.swift; sourceTree = "<group>"; };
-		6D7EC534280F9BCB0034C58D /* CompanyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyFactory.swift; sourceTree = "<group>"; };
+		6D7EC52E280F98580034C58D /* UserMicroserviceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMicroserviceEndpoint.swift; sourceTree = "<group>"; };
 		6D7EC536280FA16E0034C58D /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		6D857A0E28107CC4007D51CD /* SignInViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewRouter.swift; sourceTree = "<group>"; };
 		6D857A1228107EE1007D51CD /* SignInRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRemoteDataSource.swift; sourceTree = "<group>"; };
@@ -99,9 +102,14 @@
 		6D8DEDA227E6C56D0062920E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D8DEDA527E6C56D0062920E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6DA8389B28118DDB009BE7F1 /* MainViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
+		6DD787492813503A0032F6AA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		6DD7874D2813560B0032F6AA /* MainRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRemoteDataSource.swift; sourceTree = "<group>"; };
+		6DD78752281357330032F6AA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		6DD787572813579B0032F6AA /* UserDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataFactory.swift; sourceTree = "<group>"; };
+		6DD7875A281359980032F6AA /* UserTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeProtocol.swift; sourceTree = "<group>"; };
+		6DD7875D281359FB0032F6AA /* GenericUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericUser.swift; sourceTree = "<group>"; };
+		6DD7876028135A890032F6AA /* GenericUserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericUserFactory.swift; sourceTree = "<group>"; };
 		6DE7BB96280F7F7500BE9D13 /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
-		6DE7BB98280F7F9A00BE9D13 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
-		6DE7BB9A280F7FA100BE9D13 /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
 		77DFB3AFE143170AB14ABDA9 /* Pods-VenturaHR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VenturaHR.release.xcconfig"; path = "Target Support Files/Pods-VenturaHR/Pods-VenturaHR.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,10 +236,11 @@
 		6D20377727E96BCA00377838 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				6D857A222810B57F007D51CD /* Extension */,
-				6D7EC52D280F83FF0034C58D /* Protocol */,
 				6D20377827E96BE800377838 /* Component */,
 				6D13E41B27EC6E1D00577DCD /* Enum */,
+				6D857A222810B57F007D51CD /* Extension */,
+				6DD78751281357220032F6AA /* Model */,
+				6D7EC52D280F83FF0034C58D /* Protocol */,
 				6D74BFC9280E49AD00725883 /* Service */,
 			);
 			path = Commons;
@@ -357,8 +366,8 @@
 			children = (
 				6D74BFD4280E4CBE00725883 /* ContentType.swift */,
 				6D74BFDC280E4D8100725883 /* HttpMethod.swift */,
-				6D74BFDF280E4D9700725883 /* HttpError.swift */,
-				6D7EC52E280F98580034C58D /* Endpoint.swift */,
+				6D74BFDF280E4D9700725883 /* NetworkError.swift */,
+				6D30C48E2818A29000A099E2 /* NetworkResult.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -366,6 +375,7 @@
 		6D74BFE3280EFBEE00725883 /* UserMicroservice */ = {
 			isa = PBXGroup;
 			children = (
+				6DD7876228135EF40032F6AA /* Enum */,
 				6D74BFE4280EFC3200725883 /* UserMicroservice.swift */,
 			);
 			path = UserMicroservice;
@@ -392,26 +402,9 @@
 			isa = PBXGroup;
 			children = (
 				6DE7BB96280F7F7500BE9D13 /* UserProtocol.swift */,
+				6DD7875A281359980032F6AA /* UserTypeProtocol.swift */,
 			);
 			path = Protocol;
-			sourceTree = "<group>";
-		};
-		6D7EC530280F9B890034C58D /* Company */ = {
-			isa = PBXGroup;
-			children = (
-				6DE7BB98280F7F9A00BE9D13 /* Company.swift */,
-				6D7EC534280F9BCB0034C58D /* CompanyFactory.swift */,
-			);
-			path = Company;
-			sourceTree = "<group>";
-		};
-		6D7EC531280F9B9E0034C58D /* Candidate */ = {
-			isa = PBXGroup;
-			children = (
-				6DE7BB9A280F7FA100BE9D13 /* Candidate.swift */,
-				6D7EC532280F9BB00034C58D /* CadidateFactory.swift */,
-			);
-			path = Candidate;
 			sourceTree = "<group>";
 		};
 		6D857A0D28107CB0007D51CD /* Router */ = {
@@ -449,8 +442,10 @@
 		6D857A1B2810A015007D51CD /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				6D857A1E2810A02D007D51CD /* MainView.swift */,
-				6DA8389B28118DDB009BE7F1 /* MainViewRouter.swift */,
+				6DD7874B281355F10032F6AA /* DataSource */,
+				6DD78747281350170032F6AA /* Router */,
+				6DD78745281350060032F6AA /* View */,
+				6DD78746281350090032F6AA /* ViewModel */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -521,11 +516,76 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		6DD78745281350060032F6AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6D857A1E2810A02D007D51CD /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6DD78746281350090032F6AA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6DD787492813503A0032F6AA /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6DD78747281350170032F6AA /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				6DA8389B28118DDB009BE7F1 /* MainViewRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		6DD7874B281355F10032F6AA /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				6DD7874D2813560B0032F6AA /* MainRemoteDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		6DD78751281357220032F6AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6DD787542813577D0032F6AA /* UserData */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6DD787542813577D0032F6AA /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				6DD78752281357330032F6AA /* UserData.swift */,
+				6DD787572813579B0032F6AA /* UserDataFactory.swift */,
+			);
+			path = UserData;
+			sourceTree = "<group>";
+		};
+		6DD7875C281359EA0032F6AA /* GenericUser */ = {
+			isa = PBXGroup;
+			children = (
+				6DD7875D281359FB0032F6AA /* GenericUser.swift */,
+				6DD7876028135A890032F6AA /* GenericUserFactory.swift */,
+			);
+			path = GenericUser;
+			sourceTree = "<group>";
+		};
+		6DD7876228135EF40032F6AA /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				6D7EC52E280F98580034C58D /* UserMicroserviceEndpoint.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		6DE7BB92280F7B5C00BE9D13 /* Codable */ = {
 			isa = PBXGroup;
 			children = (
-				6D7EC531280F9B9E0034C58D /* Candidate */,
-				6D7EC530280F9B890034C58D /* Company */,
+				6DD7875C281359EA0032F6AA /* GenericUser */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -677,7 +737,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D74BFE0280E4D9700725883 /* HttpError.swift in Sources */,
+				6D74BFE0280E4D9700725883 /* NetworkError.swift in Sources */,
 				6D20376527E931BE00377838 /* SplashUIState.swift in Sources */,
 				6D74BFD2280E4C2B00725883 /* Network.swift in Sources */,
 				6D74BFCB280E49CF00725883 /* FirebaseService.swift in Sources */,
@@ -687,36 +747,40 @@
 				6DE7BB97280F7F7500BE9D13 /* UserProtocol.swift in Sources */,
 				6D857A242810B590007D51CD /* String+Extension.swift in Sources */,
 				6D74BFE5280EFC3200725883 /* UserMicroservice.swift in Sources */,
-				6D7EC52F280F98580034C58D /* Endpoint.swift in Sources */,
-				6D7EC533280F9BB00034C58D /* CadidateFactory.swift in Sources */,
+				6D7EC52F280F98580034C58D /* UserMicroserviceEndpoint.swift in Sources */,
 				6D20377327E96A7100377838 /* SignUpViewModel.swift in Sources */,
 				6D13E41D27EC6E6300577DCD /* AccountType.swift in Sources */,
+				6DD7875E281359FB0032F6AA /* GenericUser.swift in Sources */,
 				6D39C4E627EA9B1F00CF69C0 /* InputFieldView.swift in Sources */,
 				6D20376927E958A200377838 /* SplashViewRouter.swift in Sources */,
 				6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */,
 				6D857A0F28107CC4007D51CD /* SignInViewRouter.swift in Sources */,
 				6D7EC537280FA16E0034C58D /* SignUpInteractor.swift in Sources */,
+				6DD78753281357330032F6AA /* UserData.swift in Sources */,
 				6D857A1728107F75007D51CD /* SignInRequest.swift in Sources */,
+				6DD7876128135A890032F6AA /* GenericUserFactory.swift in Sources */,
 				6D857A1328107EE1007D51CD /* SignInRemoteDataSource.swift in Sources */,
 				6D6AD72727EFEA650041A9F1 /* SignInViewModel.swift in Sources */,
 				6D3C6B5427EE715500F8F433 /* SignUpRequest.swift in Sources */,
 				6D20377627E96B3600377838 /* SignUpViewRouter.swift in Sources */,
+				6DD787582813579B0032F6AA /* UserDataFactory.swift in Sources */,
 				6D74BFD5280E4CBE00725883 /* ContentType.swift in Sources */,
 				6D39C4E827EA9BC800CF69C0 /* InputFieldViewData.swift in Sources */,
 				6D20376F27E96A4B00377838 /* SignUpView.swift in Sources */,
-				6DE7BB9B280F7FA100BE9D13 /* Candidate.swift in Sources */,
-				6D7EC535280F9BCB0034C58D /* CompanyFactory.swift in Sources */,
 				6D857A212810A2E1007D51CD /* SignInInteractor.swift in Sources */,
 				6D74BFC8280E492400725883 /* SignUpRemoteDataSource.swift in Sources */,
 				6D6AD72427EFEA550041A9F1 /* SignInView.swift in Sources */,
-				6DE7BB99280F7F9A00BE9D13 /* Company.swift in Sources */,
 				6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */,
 				6D74BFDD280E4D8100725883 /* HttpMethod.swift in Sources */,
+				6D30C48F2818A29000A099E2 /* NetworkResult.swift in Sources */,
 				6D285A7E27E80B1200FAED39 /* R.generated.swift in Sources */,
 				6D39C4EA27EA9E2800CF69C0 /* CustomInputFieldStyle.swift in Sources */,
 				6D20376327E9317400377838 /* SplashViewModel.swift in Sources */,
 				6D4937FF27ED5977002AA2F7 /* UIState.swift in Sources */,
+				6DD7875B281359980032F6AA /* UserTypeProtocol.swift in Sources */,
+				6DD7874A2813503A0032F6AA /* MainViewModel.swift in Sources */,
 				6DA8389C28118DDB009BE7F1 /* MainViewRouter.swift in Sources */,
+				6DD7874E2813560B0032F6AA /* MainRemoteDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

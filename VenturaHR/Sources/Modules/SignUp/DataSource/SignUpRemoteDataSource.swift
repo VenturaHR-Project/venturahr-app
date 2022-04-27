@@ -1,7 +1,7 @@
 import Combine
 
 protocol SignUpRemoteDataSourceProtocol {
-    func createUser(request: SignUpRequest) -> Future<Bool, Error>
+    func createUser(request: SignUpRequest) -> Future<Bool, NetworkError>
 }
 
 final class SignUpRemoteDataSource {
@@ -18,26 +18,24 @@ final class SignUpRemoteDataSource {
 }
 
 extension SignUpRemoteDataSource: SignUpRemoteDataSourceProtocol {
-    func createUser(request: SignUpRequest) -> Future<Bool, Error> {
+    func createUser(request: SignUpRequest) -> Future<Bool, NetworkError> {
         return Future { promise in
             self.firebaseService.auth.createUser(
                 withEmail: request.email,
                 password: request.password
             ) { result, error in
                 if let error = error {
-                    promise(.failure(error))
+                    promise(.failure(.detail(error.localizedDescription)))
                     return
                 }
                 
-                self.userMicroservice.saveUser(user: request) { result in
+                self.userMicroservice.saveUser(request: request) { result in
                     switch result {
-                    case .failure(let httpError):
+                    case let .failure(networkError, _):
                         self.firebaseService.auth.currentUser?.delete()
-                        promise(.failure(httpError))
-                        break
-                    case .success(let created):
-                        promise(.success(created))
-                        break
+                        promise(.failure(networkError))
+                    case .success(_):
+                        promise(.success(true))
                     }
                 }
             }

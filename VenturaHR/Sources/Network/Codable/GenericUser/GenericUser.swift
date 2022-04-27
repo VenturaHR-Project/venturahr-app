@@ -1,4 +1,4 @@
-struct Company: UserProtocol {
+struct GenericUser {
     var uid: String
     var name: String
     var email: String
@@ -6,11 +6,12 @@ struct Company: UserProtocol {
     var accountType: String
     var phone: String
     var address: String
-    var cnpj: String
-    var corporateName: String
+    var cpf: String?
+    var cnpj: String?
+    var corporateName: String?
 }
 
-extension Company: Codable {
+extension GenericUser: Codable {
     enum CodingKeys: String, CodingKey {
         case uid
         case name
@@ -19,6 +20,7 @@ extension Company: Codable {
         case accountType
         case phone
         case address
+        case cpf
         case cnpj
         case corporateName
     }

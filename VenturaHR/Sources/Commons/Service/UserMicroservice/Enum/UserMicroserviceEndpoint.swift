@@ -1,20 +1,19 @@
-enum Endpoint {
-    case base
+enum UserMicroserviceEndpoint {
     case postUser
+    case getUserByUID
 }
 
-
-extension Endpoint {
+extension UserMicroserviceEndpoint {
     private var baseUrl: String {
         "http://localhost:3000"
     }
     
     var value: String {
         switch self {
-        case .base:
-            return "\(baseUrl)"
         case .postUser:
             return "\(baseUrl)/users"
+        case .getUserByUID:
+            return "\(baseUrl)/users/%d"
         }
     }
 }
