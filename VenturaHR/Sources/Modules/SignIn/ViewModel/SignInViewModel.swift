@@ -5,34 +5,58 @@ final class SignInViewModel: ObservableObject {
     @Published var signInRequest = SignInRequest()
     @Published var uiState: UIState = .none
     
-    private var cancellableSignUp: AnyCancellable?
-    private var cancellableSignIn: AnyCancellable?
-    private var publisher = PassthroughSubject<Bool, Never>()
-    
+    private var cancellables = Set<AnyCancellable>()
+    private let publisher = PassthroughSubject<Bool, Never>()
     private let interactor: SignInInteractorProtocol
     
-    init(interactor: SignInInteractorProtocol = SignInInteractor()) {
+    
+    init(
+        interactor: SignInInteractorProtocol = SignInInteractor()
+    ) {
         self.interactor = interactor
         observeSignUp()
     }
     
     deinit {
-        cancellableSignIn?.cancel()
-        cancellableSignUp?.cancel()
+        cancellCancellables()
     }
     
     private func observeSignUp() {
-        cancellableSignUp = publisher.sink { value in
+        publisher.sink { value in
             if value {
                 self.uiState = .success
             }
         }
+        .store(in: &cancellables)
+    }
+    
+    private func cancellCancellables() {
+        for cancellable in cancellables {
+            cancellable.cancel()
+        }
+    }
+    
+    private func handleSaveUserAccountType() {
+        guard let uid = interactor.handleGetUserUid() else { return }
+
+        interactor.fetchUser(by: uid)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure:
+                    self.uiState = .error("Internal server error: volte novamente mais tarde")
+                case .finished: break
+                }
+            }, receiveValue: { genericUser in
+                self.interactor.saveUserAccountTypeLocally(value: genericUser.accountType)
+            })
+            .store(in: &cancellables)
     }
     
     func handleSignIn() {
         uiState = .loading
         
-        cancellableSignIn = interactor.handleSignIn(request: signInRequest)
+        interactor.handleSignIn(request: signInRequest)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -41,8 +65,10 @@ final class SignInViewModel: ObservableObject {
                 case .finished: break
                 }
             }, receiveValue: { logged in
+                self.handleSaveUserAccountType()
                 self.uiState = .success
             })
+            .store(in: &cancellables)
     }
 }
 
