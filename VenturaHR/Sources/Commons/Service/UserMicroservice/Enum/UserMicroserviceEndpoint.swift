@@ -13,7 +13,7 @@ extension UserMicroserviceEndpoint {
         case .postUser:
             return "\(baseUrl)/users"
         case .getUserByUID:
-            return "\(baseUrl)/users/%d"
+            return "\(baseUrl)/users/%@"
         }
     }
 }
