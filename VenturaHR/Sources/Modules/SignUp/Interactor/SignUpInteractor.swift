@@ -1,19 +1,47 @@
 import Combine
 
 protocol SignUpInteractorProtocol {
-    func handleSignUp(request: SignUpRequest) -> Future<Bool, NetworkError>
+    func handleGetUserUid() -> String?
+    func saveUserInFirebaseAuth(email: String, password: String) -> Future<Bool, NetworkError>
+    func saveUserInMicroservice(request: SignUpRequest) -> Future<Bool, NetworkError>
+    func saveUserAccountTypeLocally(value: String)
+    func deleteFirabaseAuthUser()
 }
 
 final class SignUpInteractor {
-    private let signUpRemoteDataSource: SignUpRemoteDataSourceProtocol
+    private let firebaseRemoteDataSource: FirebaseRemoteDataSourceProtocol
+    private let signUpremoteDataSource: SignUpRemoteDataSourceProtocol
+    private let userLocalDataSource: UserLocalDataSourceProtocol
     
-    init(signUpRemoteDataSource: SignUpRemoteDataSourceProtocol = SignUpRemoteDataSource()) {
-        self.signUpRemoteDataSource = signUpRemoteDataSource
+    init(
+        firebaseRemoteDataSource: FirebaseRemoteDataSourceProtocol = FirebaseRemoteDataSource(),
+        signUpremoteDataSource: SignUpRemoteDataSourceProtocol = SignUpRemoteDataSource(),
+        userLocalDataSource: UserLocalDataSourceProtocol = UserLocalDataSource()
+    ) {
+        self.firebaseRemoteDataSource = firebaseRemoteDataSource
+        self.signUpremoteDataSource = signUpremoteDataSource
+        self.userLocalDataSource = userLocalDataSource
     }
 }
 
 extension SignUpInteractor: SignUpInteractorProtocol {
-    func handleSignUp(request: SignUpRequest) -> Future<Bool, NetworkError> {
-        return signUpRemoteDataSource.createUser(request: request)
+    func handleGetUserUid() -> String? {
+        return firebaseRemoteDataSource.getUid()
+    }
+    
+    func saveUserInFirebaseAuth(email: String, password: String) -> Future<Bool, NetworkError> {
+        return firebaseRemoteDataSource.createUserWith(email: email, password: password)
+    }
+    
+    func saveUserInMicroservice(request: SignUpRequest) -> Future<Bool, NetworkError> {
+        return signUpremoteDataSource.saveUserInMicroservice(request: request)
+    }
+    
+    func saveUserAccountTypeLocally(value: String) {
+        userLocalDataSource.saveAccountType(value: value)
+    }
+    
+    func deleteFirabaseAuthUser() {
+        firebaseRemoteDataSource.deleteUser()
     }
 }

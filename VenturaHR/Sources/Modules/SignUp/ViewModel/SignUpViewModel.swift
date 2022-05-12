@@ -5,27 +5,55 @@ final class SignUpViewModel: ObservableObject {
     @Published var signUpRequest = SignUpRequest()
     @Published var uiState: UIState = .none
     
-    private var cancellableSignUp: AnyCancellable?
-    private var publisher: PassthroughSubject<Bool, Never>
-    
+    private var cancellables: Set<AnyCancellable>
+    private let publisher: PassthroughSubject<Bool, Never>
     private let interactor: SignUpInteractorProtocol
     
     init(
+        cancellables: Set<AnyCancellable> = Set<AnyCancellable>(),
         interactor: SignUpInteractorProtocol = SignUpInteractor(),
         publisher: PassthroughSubject<Bool, Never>
     ) {
+        self.cancellables = cancellables
         self.interactor = interactor
         self.publisher = publisher
     }
     
     deinit {
-        cancellableSignUp?.cancel()
+        cancellCancellables()
     }
     
-    func handleSignUp() {
+    private func cancellCancellables() {
+        for cancellable in cancellables {
+            cancellable.cancel()
+        }
+    }
+    
+    private func saveUserInMicroservice() {
+        guard let uid = interactor.handleGetUserUid() else { return }
+        
+        signUpRequest.uid = uid
+        interactor.saveUserInMicroservice(request: signUpRequest)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    self.interactor.deleteFirabaseAuthUser()
+                    self.uiState = .error(error.description)
+                case .finished: break
+                }
+            } receiveValue: { created in
+                self.interactor.saveUserAccountTypeLocally(value: self.signUpRequest.accountType.rawValue)
+                self.publisher.send(created)
+                self.uiState = .success
+            }
+            .store(in: &cancellables)
+    }
+    
+    func saveUserInFirebaseAuth() {
         uiState = .loading
         
-        cancellableSignUp = interactor.handleSignUp(request: signUpRequest)
+        interactor.saveUserInFirebaseAuth(email: signUpRequest.email, password: signUpRequest.password)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -34,9 +62,9 @@ final class SignUpViewModel: ObservableObject {
                 case .finished: break
                 }
             }, receiveValue: { created in
-                self.publisher.send(created)
-                self.uiState = .success
+                self.saveUserInMicroservice()
             })
+            .store(in: &cancellables)
     }
 }
 

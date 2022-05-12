@@ -154,7 +154,7 @@ struct SignUpView: View {
     var saveButton: some View {
         LoadingButtonView(
             viewData: .init(
-                action: viewModel.handleSignUp,
+                action: viewModel.saveUserInFirebaseAuth,
                 buttonTitle: "Cadastrar",
                 showProgress: viewModel.uiState == .loading,
                 disabled: viewModel.isButtonDisabled
