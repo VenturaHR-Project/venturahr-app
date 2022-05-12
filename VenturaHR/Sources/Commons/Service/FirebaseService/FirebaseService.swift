@@ -3,7 +3,6 @@ import Firebase
 protocol FirebaseServiceProtocol {
     var auth: Auth { get }
     func configureFirebaseApp()
-    func getUID() -> String?
     func getCurrentUser() -> User?
 }
 
@@ -18,11 +17,6 @@ extension FirebaseService: FirebaseServiceProtocol {
     
     func configureFirebaseApp() {
         FirebaseApp.configure()
-    }
-    
-    func getUID() -> String? {
-        guard let uid = auth.currentUser?.uid else { return nil }
-        return uid
     }
     
     func getCurrentUser() -> User? {
