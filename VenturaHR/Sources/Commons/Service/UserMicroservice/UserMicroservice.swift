@@ -1,28 +1,24 @@
 import Foundation
-import Combine
 
 protocol UserMicroserviceProtocol {
     func saveUser(request: SignUpRequest, completion: @escaping (NetworkResult) -> Void)
-    func getUser(completion: @escaping (NetworkResult) -> Void)
+    func getUser(uid: String, completion: @escaping (NetworkResult) -> Void)
 }
 
 final class UserMicroservice {
-    private var firebaseService: FirebaseServiceProtocol
     private var network: NetworkProtocol
     
     init(
-        firebaseService: FirebaseServiceProtocol = FirebaseService(),
         network: NetworkProtocol = Network.shared
     ) {
-        self.firebaseService = firebaseService
         self.network = network
     }
     
-    private func buildUser(user: SignUpRequest, uid: String) -> GenericUser {
+    private func buildUser(user: SignUpRequest) -> GenericUser {
         switch user.accountType {
         case .candidate:
             let candidate = GenericUserFactory.create(
-                uid: uid,
+                uid: user.uid,
                 name: user.name,
                 email: user.email,
                 password: user.password,
@@ -34,7 +30,7 @@ final class UserMicroservice {
             return candidate
         case .company:
             let company = GenericUserFactory.create(
-                uid: uid,
+                uid: user.uid,
                 name: user.name,
                 email: user.email, password: user.password,
                 accountType: user.accountType.rawValue,
@@ -50,9 +46,7 @@ final class UserMicroservice {
 
 extension UserMicroservice: UserMicroserviceProtocol {
     func saveUser(request: SignUpRequest, completion: @escaping (NetworkResult) -> Void) {
-        guard let uid = firebaseService.getUID() else { return }
-        
-        let user = buildUser(user: request, uid: uid)
+        let user = buildUser(user: request)
         let path = UserMicroserviceEndpoint.postUser.value
         
         network.call(path: path, method: .post, body: user) { result in
@@ -66,9 +60,8 @@ extension UserMicroservice: UserMicroserviceProtocol {
         }
     }
     
-    func getUser(completion: @escaping (NetworkResult) -> Void) {
-        guard let uid = firebaseService.getUID() else { return }
-        let path = String(format: UserMicroserviceEndpoint.postUser.value, uid)
+    func getUser(uid: String, completion: @escaping (NetworkResult) -> Void) {
+        let path = String(format: UserMicroserviceEndpoint.getUserByUID.value, uid)
         
         network.call(path: path, method: .get) { result in
             switch result {
