@@ -1,4 +1,4 @@
 enum AccountType: String, CaseIterable {
-    case candidate = "Candidate"
-    case company = "Company"
+    case candidate = "Candidato"
+    case company = "Empresa"
 }
