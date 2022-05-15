@@ -2,6 +2,7 @@ import Combine
 
 protocol IbgeRemoteDataSourceProtocol {
     func getStates() -> Future<[IbgeState], NetworkError>
+    func getCities(uf: String) -> Future<[IbgeCity], NetworkError>
 }
 
 final class IbgeRemoteDataSource {
@@ -26,6 +27,24 @@ extension IbgeRemoteDataSource: IbgeRemoteDataSourceProtocol {
                     }
                     
                     promise(.success(states))
+                }
+            }
+        }
+    }
+    
+    func getCities(uf: String) -> Future<[IbgeCity], NetworkError> {
+        return Future { promise in
+            self.ibgeService.getCities(uf: uf) { result in
+                switch result {
+                case let .failure(networkError, _):
+                    promise(.failure(networkError))
+                case let .success(data):
+                    guard let cities = IbgeCity.decode(data: data) else {
+                        promise(.failure(.decodeFailure("An unexpected error occurred")))
+                        return
+                    }
+                    
+                    promise(.success(cities))
                 }
             }
         }

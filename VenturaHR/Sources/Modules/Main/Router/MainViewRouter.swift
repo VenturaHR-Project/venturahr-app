@@ -5,4 +5,8 @@ struct MainViewRouter {
         let viewModel = MainViewModel()
         return MainView(viewModel: viewModel)
     }
+    
+    static func makeVacancyView() -> some View {
+        VacancyViewRouter.start()
+    }
 }
