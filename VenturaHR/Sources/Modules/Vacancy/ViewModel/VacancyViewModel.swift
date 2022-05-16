@@ -21,6 +21,10 @@ final class VacancyViewModel: ObservableObject {
         cancellCancellables()
     }
     
+    var shouldDisableCitySelector: Bool {
+        vacancyRequest.state.isEmpty
+    }
+    
     private func cancellCancellables() {
         for cancellable in cancellables {
             cancellable.cancel()

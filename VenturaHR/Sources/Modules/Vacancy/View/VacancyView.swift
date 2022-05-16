@@ -21,30 +21,9 @@ struct VacancyView: View {
                                                  title: "Empresa",
                                                  placeholder: "Empresa de teste")
                             
-                            NavigationLink {
-                                StateSelectorView(
-                                    selectedState: $viewModel.vacancyRequest.state,
-                                    states: viewModel.ibgeStates
-                                ).onChange(of: viewModel.vacancyRequest.state) { newValue in
-                                    viewModel.fetchCities()
-                                }
-                            } label: {
-                                Text("UF")
-                                Spacer()
-                                Text(viewModel.vacancyRequest.state)
-                            }
+                            stateSelectorViewWithLink
                             
-                            NavigationLink {
-                                CitySelectorView(
-                                    selectedCity: $viewModel.vacancyRequest.city,
-                                    cities: viewModel.ibgeCities
-                                )
-                            } label: {
-                                Text("Cidade")
-                                Spacer()
-                                Text(viewModel.vacancyRequest.city)
-                            }
-                            
+                            citySelectorViewWithLink
                         }
                     }
                 }
@@ -53,6 +32,35 @@ struct VacancyView: View {
             }
         }
         .onAppear(perform: viewModel.fetchStates)
+    }
+    
+    var stateSelectorViewWithLink: some View {
+        NavigationLink {
+            StateSelectorView(
+                selectedState: $viewModel.vacancyRequest.state,
+                states: viewModel.ibgeStates
+            ).onChange(of: viewModel.vacancyRequest.state) { newValue in
+                viewModel.fetchCities()
+            }
+        } label: {
+            Text("UF")
+            Spacer()
+            Text(viewModel.vacancyRequest.state)
+        }
+    }
+    
+    var citySelectorViewWithLink: some View {
+        NavigationLink {
+            CitySelectorView(
+                selectedCity: $viewModel.vacancyRequest.city,
+                cities: viewModel.ibgeCities
+            )
+        } label: {
+            Text("Cidade")
+            Spacer()
+            Text(viewModel.vacancyRequest.city)
+        }
+        .disabled(viewModel.shouldDisableCitySelector)
     }
 }
 
