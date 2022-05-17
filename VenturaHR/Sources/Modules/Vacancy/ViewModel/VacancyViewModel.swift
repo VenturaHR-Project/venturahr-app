@@ -40,6 +40,20 @@ final class VacancyViewModel: ObservableObject {
         }
     }
     
+    private func clearCitySelector() {
+        vacancyRequest.city = ""
+    }
+    private func fetchCities() {
+        interactor.getCities(uf: vacancyRequest.state)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                self.handleDefaultCompletion(with: completion)
+            } receiveValue: { cities in
+                self.ibgeCities = cities
+            }
+            .store(in: &cancellables)
+    }
+    
     func fetchStates() {
         interactor.getStates()
             .receive(on: DispatchQueue.main)
@@ -51,14 +65,8 @@ final class VacancyViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func fetchCities() {
-        interactor.getCities(uf: vacancyRequest.state)
-            .receive(on: DispatchQueue.main)
-            .sink { completion in
-                self.handleDefaultCompletion(with: completion)
-            } receiveValue: { cities in
-                self.ibgeCities = cities
-            }
-            .store(in: &cancellables)
+    func handleChageSelectedState() {
+        clearCitySelector()
+        fetchCities()
     }
 }

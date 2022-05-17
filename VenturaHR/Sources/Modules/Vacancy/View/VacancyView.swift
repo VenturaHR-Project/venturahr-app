@@ -39,8 +39,8 @@ struct VacancyView: View {
             StateSelectorView(
                 selectedState: $viewModel.vacancyRequest.state,
                 states: viewModel.ibgeStates
-            ).onChange(of: viewModel.vacancyRequest.state) { newValue in
-                viewModel.fetchCities()
+            ).onDisappear {
+                viewModel.handleChageSelectedState()
             }
         } label: {
             Text("UF")
