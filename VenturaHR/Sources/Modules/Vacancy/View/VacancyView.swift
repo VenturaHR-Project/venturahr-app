@@ -34,7 +34,7 @@ struct VacancyView: View {
             VacancyEditTextField(text: $viewModel.vacancy.ocupation,
                                  title: "Ocupação",
                                  placeholder: "Digite a ocupação")
-            
+                
             VacancyEditTextField(text: $viewModel.vacancy.description,
                                  title: "Descrição",
                                  placeholder: "Digite a descrição")
@@ -46,6 +46,22 @@ struct VacancyView: View {
             stateSelectorViewWithLink
             
             citySelectorViewWithLink
+            
+            DatePicker(
+                "Data de criação",
+                selection: $viewModel.createdDate,
+                in: Date()...,
+                displayedComponents: .date
+            )
+            .accentColor(.orange)
+            
+            DatePicker(
+                "Data de expiração",
+                selection: $viewModel.expiresDate,
+                in: Date()...viewModel.getNextMonth(),
+                displayedComponents: .date
+            )
+            .accentColor(.orange)
         } header: {
             setSectionHeader(title: "Dados")
         }

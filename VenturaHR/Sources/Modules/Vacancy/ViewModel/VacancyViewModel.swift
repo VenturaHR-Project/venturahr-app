@@ -9,9 +9,15 @@ final class VacancyViewModel: ObservableObject {
     @Published var ibgeCities: [IbgeCity] = []
     @Published var showCitySelectorProgress: Bool = true
     @Published var shouldPresentExpectedSkiilsSheet = false
+    @Published var createdDate = Date()
+    @Published var expiresDate = Date()
     
     private var cancellables: Set<AnyCancellable>
     private var interactor: VacancyInteractorProtocol
+    
+    var shouldDisableCitySelector: Bool {
+        vacancy.state.isEmpty
+    }
     
     init(
         cancellables: Set<AnyCancellable> = Set<AnyCancellable>(),
@@ -23,10 +29,6 @@ final class VacancyViewModel: ObservableObject {
     
     deinit {
         cancellCancellables()
-    }
-    
-    var shouldDisableCitySelector: Bool {
-        vacancy.state.isEmpty
     }
     
     private func cancellCancellables() {
@@ -42,10 +44,6 @@ final class VacancyViewModel: ObservableObject {
         case .finished:
             break
         }
-    }
-    
-    private func clearCitySelector() {
-        vacancy.city = ""
     }
     
     private func fetchCities() {
@@ -72,12 +70,17 @@ final class VacancyViewModel: ObservableObject {
     }
     
     func handleChageSelectedState() {
-        clearCitySelector()
+        vacancy.city = ""
         fetchCities()
     }
     
     func showExpectedSkillsSheet() {
         shouldPresentExpectedSkiilsSheet = true
+    }
+    
+    func getNextMonth() -> Date {
+        guard let nextMonth = Calendar.current.date(byAdding: .month, value: 1, to: Date()) else { return Date() }
+        return nextMonth
     }
     
     func handleSaveVacancy() {
