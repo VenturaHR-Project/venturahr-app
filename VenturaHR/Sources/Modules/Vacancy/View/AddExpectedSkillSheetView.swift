@@ -26,14 +26,6 @@ struct AddExpectedSkillSheetView: View {
         }
     }
     
-    func saveSkills() {
-        let skill = ExpectedSkill(description: text,
-                                  desiredMinimumProfile: profile,
-                                  height: height)
-        
-        expectedSkills.append(skill)
-    }
-    
     var sectionHeader: some View {
         HStack {
             Text("Critérios")
@@ -44,8 +36,11 @@ struct AddExpectedSkillSheetView: View {
             Button(action: saveSkills) {
                 Text("Salvar")
                     .font(.system(size: 16, weight: .bold))
+                    .padding(5)
+                    .border(saveBarButtonColor)
             }
-            .foregroundColor(.orange)
+            .foregroundColor(saveBarButtonColor)
+            .disabled(isSaveButtonDisabled)
         }
     }
     
@@ -70,6 +65,22 @@ struct AddExpectedSkillSheetView: View {
             Text("Peso")
             Text("\(height)")
         }
+    }
+    
+    var saveBarButtonColor: Color {
+        isSaveButtonDisabled ? .gray : .orange
+    }
+    
+    var isSaveButtonDisabled: Bool {
+        text.isEmpty || height == 0
+    }
+    
+    func saveSkills() {
+        let skill = ExpectedSkill(description: text,
+                                  desiredMinimumProfile: profile,
+                                  height: height)
+        
+        expectedSkills.append(skill)
     }
 }
 
