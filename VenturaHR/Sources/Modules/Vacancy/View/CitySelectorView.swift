@@ -1,29 +1,36 @@
 import SwiftUI
 
 struct CitySelectorView: View {
+    @Binding var showCitySelectorProgress: Bool
     @Binding var selectedCity: String
     
     let cities: [IbgeCity]
     let title: String = "Escolha a cidade do estado"
     
     var body: some View {
-        Form {
-            Section(header: Text(title)) {
-                List(cities, id: \.id) { city in
-                    HStack {
-                        Text(city.name)
-                        Spacer()
-                        Image(R.image.checkmark.name)
-                            .foregroundColor(setCheckmarkIconColor(city: city.name))
-                    }
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        handleSelectState(city: city.name)
+        ZStack {
+            if showCitySelectorProgress {
+                ProgressView()
+            } else {
+                Form {
+                    Section(header: Text(title)) {
+                        List(cities, id: \.id) { city in
+                            HStack {
+                                Text(city.name)
+                                Spacer()
+                                Image(R.image.checkmark.name)
+                                    .foregroundColor(setCheckmarkIconColor(city: city.name))
+                            }
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                handleSelectState(city: city.name)
+                            }
+                        }
                     }
                 }
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
     }
     
     private func setCheckmarkIconColor(city: String) -> Color {
@@ -40,6 +47,7 @@ struct CitySelectorView: View {
 struct CitySelectorView_Previews: PreviewProvider {
     static var previews: some View {
         CitySelectorView(
+            showCitySelectorProgress: .constant(true),
             selectedCity: .constant("Rio de Janeiro"),
             cities: [IbgeCity(id: "21223", name: "Rio de Janeiro")]
         )

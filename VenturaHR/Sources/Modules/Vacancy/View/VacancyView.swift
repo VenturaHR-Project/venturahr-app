@@ -8,36 +8,53 @@ struct VacancyView: View {
             NavigationView {
                 VStack {
                     Form {
-                        Section("Dados da vaga") {
-                            VacancyEditTextField(text: $viewModel.vacancyRequest.ocupation,
-                                                 title: "Ocupação",
-                                                 placeholder: "Digite a ocupação")
-                            
-                            VacancyEditTextField(text: $viewModel.vacancyRequest.description,
-                                                 title: "Descrição",
-                                                 placeholder: "Digite a descrição")
-                            
-                            VacancyEditTextField(text: $viewModel.vacancyRequest.company,
-                                                 title: "Empresa",
-                                                 placeholder: "Empresa de teste")
-                            
-                            stateSelectorViewWithLink
-                            
-                            citySelectorViewWithLink
-                        }
+                        dataSection
+                        
+                        skillSection
                     }
                 }
                 .navigationBarTitleDisplayMode(.automatic)
-                .navigationTitle(Text("Cadastrar Vagas"))
+                .navigationTitle(Text("Nova vaga"))
+                .toolbar {
+                    Button(action: viewModel.handleSaveVacancy) {
+                        Text("Salvar")
+                            .bold()
+                            .padding(5)
+                            .border(.orange)
+                    }
+                    .foregroundColor(.orange)
+                }
             }
         }
         .onAppear(perform: viewModel.fetchStates)
     }
     
+    var dataSection: some View {
+        Section {
+            VacancyEditTextField(text: $viewModel.vacancy.ocupation,
+                                 title: "Ocupação",
+                                 placeholder: "Digite a ocupação")
+            
+            VacancyEditTextField(text: $viewModel.vacancy.description,
+                                 title: "Descrição",
+                                 placeholder: "Digite a descrição")
+            
+            VacancyEditTextField(text: $viewModel.vacancy.company,
+                                 title: "Empresa",
+                                 placeholder: "Empresa de teste")
+            
+            stateSelectorViewWithLink
+            
+            citySelectorViewWithLink
+        } header: {
+            setSectionHeader(title: "Dados")
+        }
+    }
+    
     var stateSelectorViewWithLink: some View {
         NavigationLink {
             StateSelectorView(
-                selectedState: $viewModel.vacancyRequest.state,
+                selectedState: $viewModel.vacancy.state,
                 states: viewModel.ibgeStates
             ).onDisappear {
                 viewModel.handleChageSelectedState()
@@ -45,22 +62,62 @@ struct VacancyView: View {
         } label: {
             Text("UF")
             Spacer()
-            Text(viewModel.vacancyRequest.state)
+            Text(viewModel.vacancy.state)
         }
     }
     
     var citySelectorViewWithLink: some View {
         NavigationLink {
             CitySelectorView(
-                selectedCity: $viewModel.vacancyRequest.city,
+                showCitySelectorProgress: $viewModel.showCitySelectorProgress,
+                selectedCity: $viewModel.vacancy.city,
                 cities: viewModel.ibgeCities
             )
         } label: {
             Text("Cidade")
             Spacer()
-            Text(viewModel.vacancyRequest.city)
+            Text(viewModel.vacancy.city)
         }
         .disabled(viewModel.shouldDisableCitySelector)
+    }
+    
+    var skillSection: some View {
+        Section {
+            ForEach(viewModel.expectedSkills) { skill in
+                Text(skill.desiredMinimumProfile.rawValue)
+                    .font(.system(size: 16, weight: .bold))
+            }
+            
+        } header: {
+            HStack {
+                setSectionHeader(title: "Critérios")
+                Spacer()
+                rightSectionHeaderButton
+            }
+        }
+    }
+    
+    var rightSectionHeaderButton: some View {
+        Button(action: viewModel.showExpectedSkillsSheet) {
+            Image(R.image.plus.name)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 18, height: 18, alignment: .center)
+        }
+        .foregroundColor(.orange)
+        .sheet(isPresented: $viewModel.shouldPresentExpectedSkiilsSheet) {
+            AddExpectedSkillSheetView(
+                expectedSkills: $viewModel.expectedSkills,
+                text: $viewModel.expectedSkill.description,
+                profile: $viewModel.expectedSkill.desiredMinimumProfile,
+                height: $viewModel.expectedSkill.height
+            )
+        }
+    }
+    
+    func setSectionHeader(title: String) -> some View {
+        Text(title)
+            .font(.system(size: 15, weight: .bold))
     }
 }
 

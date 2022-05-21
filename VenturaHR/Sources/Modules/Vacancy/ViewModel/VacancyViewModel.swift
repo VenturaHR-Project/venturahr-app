@@ -2,9 +2,13 @@ import Combine
 import Foundation
 
 final class VacancyViewModel: ObservableObject {
-    @Published var vacancyRequest = VacancyRequest()
+    @Published var vacancy = Vacancy()
+    @Published var expectedSkill = ExpectedSkill()
+    @Published var expectedSkills: [ExpectedSkill] = []
     @Published var ibgeStates: [IbgeState] = []
     @Published var ibgeCities: [IbgeCity] = []
+    @Published var showCitySelectorProgress: Bool = true
+    @Published var shouldPresentExpectedSkiilsSheet = false
     
     private var cancellables: Set<AnyCancellable>
     private var interactor: VacancyInteractorProtocol
@@ -22,7 +26,7 @@ final class VacancyViewModel: ObservableObject {
     }
     
     var shouldDisableCitySelector: Bool {
-        vacancyRequest.state.isEmpty
+        vacancy.state.isEmpty
     }
     
     private func cancellCancellables() {
@@ -41,15 +45,17 @@ final class VacancyViewModel: ObservableObject {
     }
     
     private func clearCitySelector() {
-        vacancyRequest.city = ""
+        vacancy.city = ""
     }
+    
     private func fetchCities() {
-        interactor.getCities(uf: vacancyRequest.state)
+        interactor.getCities(uf: vacancy.state)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 self.handleDefaultCompletion(with: completion)
             } receiveValue: { cities in
                 self.ibgeCities = cities
+                self.showCitySelectorProgress = false
             }
             .store(in: &cancellables)
     }
@@ -68,5 +74,13 @@ final class VacancyViewModel: ObservableObject {
     func handleChageSelectedState() {
         clearCitySelector()
         fetchCities()
+    }
+    
+    func showExpectedSkillsSheet() {
+        shouldPresentExpectedSkiilsSheet = true
+    }
+    
+    func handleSaveVacancy() {
+        print("ffdsfds")
     }
 }
