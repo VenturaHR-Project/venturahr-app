@@ -165,10 +165,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 4 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
+    /// Image `checkmarkSeal`.
+    static let checkmarkSeal = Rswift.ImageResource(bundle: R.hostingBundle, name: "checkmarkSeal")
     /// Image `checkmark`.
     static let checkmark = Rswift.ImageResource(bundle: R.hostingBundle, name: "checkmark")
+    /// Image `infoCircle`.
+    static let infoCircle = Rswift.ImageResource(bundle: R.hostingBundle, name: "infoCircle")
     /// Image `plus`.
     static let plus = Rswift.ImageResource(bundle: R.hostingBundle, name: "plus")
     /// Image `venturaIcon`.
@@ -180,6 +184,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "checkmark", bundle: ..., traitCollection: ...)`
     static func checkmark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.checkmark, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "checkmarkSeal", bundle: ..., traitCollection: ...)`
+    static func checkmarkSeal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.checkmarkSeal, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "infoCircle", bundle: ..., traitCollection: ...)`
+    static func infoCircle(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.infoCircle, compatibleWith: traitCollection)
     }
     #endif
 
