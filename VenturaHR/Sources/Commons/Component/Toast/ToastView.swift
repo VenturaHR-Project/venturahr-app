@@ -19,7 +19,8 @@ struct ToastView: View {
             }
             .padding(5)
         }
-        .frame(width: .infinity, height: 50, alignment: .center)
+        .frame(idealWidth: .infinity, idealHeight: 50, maxHeight: 100, alignment: .center)
+        .frame(width: 300, height: 50, alignment: .center)
         .cornerRadius(12)
         .padding(10)
     }
