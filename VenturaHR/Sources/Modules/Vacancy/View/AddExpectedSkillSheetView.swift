@@ -1,6 +1,9 @@
 import SwiftUI
+import PopupView
 
 struct AddExpectedSkillSheetView: View {
+    @State private var isShowingPopUp = false
+    
     @Binding var expectedSkills: [ExpectedSkill]
     @Binding var text: String
     @Binding var profile: DesiredMinimumProfile
@@ -22,6 +25,24 @@ struct AddExpectedSkillSheetView: View {
                 } header: {
                     sectionHeader
                 }
+            }
+            .popup(
+                isPresented: $isShowingPopUp,
+                type: .floater(verticalPadding: 0, useSafeAreaInset: true),
+                position: .bottom,
+                animation: .easeIn,
+                autohideIn: 3,
+                dragToDismiss: false,
+                closeOnTap: true,
+                closeOnTapOutside: false,
+                dismissCallback: {
+                    isShowingPopUp = false
+                }
+            ) {
+                ToastView(
+                    imageName: R.image.checkmarkSeal.name,
+                    message: "Critério salvo com sucesso!"
+                )
             }
         }
     }
@@ -81,6 +102,7 @@ struct AddExpectedSkillSheetView: View {
                                   height: height)
         
         expectedSkills.append(skill)
+        isShowingPopUp = true
     }
 }
 
