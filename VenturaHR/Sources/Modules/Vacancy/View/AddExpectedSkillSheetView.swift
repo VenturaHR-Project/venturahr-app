@@ -3,6 +3,7 @@ import PopupView
 
 struct AddExpectedSkillSheetView: View {
     @State private var isShowingPopUp = false
+    @State private var isDisabled = false
     
     @Binding var expectedSkills: [ExpectedSkill]
     @Binding var text: String
@@ -32,16 +33,18 @@ struct AddExpectedSkillSheetView: View {
                 position: .bottom,
                 animation: .easeIn,
                 autohideIn: 3,
-                dragToDismiss: false,
+                dragToDismiss: true,
                 closeOnTap: true,
-                closeOnTapOutside: false,
+                closeOnTapOutside: true,
                 dismissCallback: {
                     isShowingPopUp = false
+                    isDisabled = true
                 }
             ) {
                 ToastView(
                     imageName: R.image.checkmarkSeal.name,
-                    message: "Critério salvo com sucesso!"
+                    message: "Critério salvo com sucesso!",
+                    isDisabled: $isDisabled
                 )
             }
         }
@@ -103,6 +106,7 @@ struct AddExpectedSkillSheetView: View {
         
         expectedSkills.append(skill)
         isShowingPopUp = true
+        isDisabled = false
     }
 }
 
