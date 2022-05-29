@@ -2,7 +2,7 @@ import Combine
 import Foundation
 
 final class VacancyViewModel: ObservableObject {
-    @Published var vacancy = Vacancy()
+    @Published var vacancy = VacancyRequest()
     @Published var expectedSkill = ExpectedSkill()
     @Published var expectedSkills: [ExpectedSkill] = []
     @Published var ibgeStates: [IbgeState] = []

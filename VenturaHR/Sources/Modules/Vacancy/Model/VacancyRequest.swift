@@ -1,4 +1,4 @@
-struct Vacancy {
+struct VacancyRequest {
     var ocupation: String = ""
     var description: String = ""
     var company: String = ""
