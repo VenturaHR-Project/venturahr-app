@@ -58,7 +58,7 @@ struct VacancyView: View {
             DatePicker(
                 "Data de expiração",
                 selection: $viewModel.expiresDate,
-                in: Date()...viewModel.getNextMonth(),
+                in: viewModel.createdDate...viewModel.getNextMonth(),
                 displayedComponents: .date
             )
             .accentColor(.orange)

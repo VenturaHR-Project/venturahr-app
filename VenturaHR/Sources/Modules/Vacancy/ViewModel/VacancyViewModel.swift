@@ -79,7 +79,7 @@ final class VacancyViewModel: ObservableObject {
     }
     
     func getNextMonth() -> Date {
-        guard let nextMonth = Calendar.current.date(byAdding: .month, value: 1, to: Date()) else { return Date() }
+        guard let nextMonth = Calendar.current.date(byAdding: .month, value: 1, to: createdDate) else { return Date() }
         return nextMonth
     }
     
