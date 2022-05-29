@@ -34,7 +34,7 @@ struct VacancyView: View {
             VacancyEditTextField(text: $viewModel.vacancy.ocupation,
                                  title: "Ocupação",
                                  placeholder: "Digite a ocupação")
-                
+            
             VacancyEditTextField(text: $viewModel.vacancy.description,
                                  title: "Descrição",
                                  placeholder: "Digite a descrição")
@@ -100,8 +100,13 @@ struct VacancyView: View {
     var skillSection: some View {
         Section {
             ForEach(viewModel.expectedSkills) { skill in
-                Text(skill.desiredMinimumProfile.rawValue)
+                Text(skill.description)
                     .font(.system(size: 16, weight: .bold))
+                    .swipeActions(edge: .trailing) {
+                        Button (action: { viewModel.handleSelectDeleteSkill(skill: skill) }) {
+                            Label("Delete", systemImage: "trash")
+                        }.tint(.red)
+                    }
             }
             
         } header: {
@@ -122,9 +127,9 @@ struct VacancyView: View {
         }
         .foregroundColor(.orange)
         .sheet(isPresented: $viewModel.shouldPresentExpectedSkiilsSheet) {
-            AddExpectedSkillSheetView(
+            ExpectedSkillSheetView(
                 expectedSkills: $viewModel.expectedSkills,
-                text: $viewModel.expectedSkill.description,
+                description: $viewModel.expectedSkill.description,
                 profile: $viewModel.expectedSkill.desiredMinimumProfile,
                 height: $viewModel.expectedSkill.height
             )

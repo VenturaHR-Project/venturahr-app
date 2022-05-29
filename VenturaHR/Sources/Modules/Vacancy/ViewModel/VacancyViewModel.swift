@@ -83,6 +83,12 @@ final class VacancyViewModel: ObservableObject {
         return nextMonth
     }
     
+    func handleSelectDeleteSkill(skill: ExpectedSkill) {
+        expectedSkills.removeAll {
+            $0 == skill
+        }
+    }
+    
     func handleSaveVacancy() {
         print("ffdsfds")
     }

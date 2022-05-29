@@ -72,7 +72,7 @@
 		6DD7876128135A890032F6AA /* GenericUserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7876028135A890032F6AA /* GenericUserFactory.swift */; };
 		6DDB4DCE2830894C00CE2A3B /* VacancyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB4DCD2830894C00CE2A3B /* VacancyInteractor.swift */; };
 		6DDB4DD028308D1D00CE2A3B /* VacancyViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB4DCF28308D1C00CE2A3B /* VacancyViewRouter.swift */; };
-		6DE3315A28370DA50029C783 /* AddExpectedSkillSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE3315928370DA50029C783 /* AddExpectedSkillSheetView.swift */; };
+		6DE3315A28370DA50029C783 /* ExpectedSkillSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE3315928370DA50029C783 /* ExpectedSkillSheetView.swift */; };
 		6DE71533282DDEFF0007A5E8 /* StateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE71532282DDEFF0007A5E8 /* StateSelectorView.swift */; };
 		6DE71539282DE36B0007A5E8 /* IbgeRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE71538282DE36B0007A5E8 /* IbgeRemoteDataSource.swift */; };
 		6DEE7F14281A22350059EB98 /* IbgeCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEE7F13281A22350059EB98 /* IbgeCity.swift */; };
@@ -150,7 +150,7 @@
 		6DD7876028135A890032F6AA /* GenericUserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericUserFactory.swift; sourceTree = "<group>"; };
 		6DDB4DCD2830894C00CE2A3B /* VacancyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyInteractor.swift; sourceTree = "<group>"; };
 		6DDB4DCF28308D1C00CE2A3B /* VacancyViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyViewRouter.swift; sourceTree = "<group>"; };
-		6DE3315928370DA50029C783 /* AddExpectedSkillSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpectedSkillSheetView.swift; sourceTree = "<group>"; };
+		6DE3315928370DA50029C783 /* ExpectedSkillSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedSkillSheetView.swift; sourceTree = "<group>"; };
 		6DE71532282DDEFF0007A5E8 /* StateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSelectorView.swift; sourceTree = "<group>"; };
 		6DE71538282DE36B0007A5E8 /* IbgeRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbgeRemoteDataSource.swift; sourceTree = "<group>"; };
 		6DEE7F13281A22350059EB98 /* IbgeCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbgeCity.swift; sourceTree = "<group>"; };
@@ -690,7 +690,7 @@
 				6D3DC69028259E1B00B77C03 /* VacancyEditTextField.swift */,
 				6DE71532282DDEFF0007A5E8 /* StateSelectorView.swift */,
 				6DB22EFA2831C0590060E31B /* CitySelectorView.swift */,
-				6DE3315928370DA50029C783 /* AddExpectedSkillSheetView.swift */,
+				6DE3315928370DA50029C783 /* ExpectedSkillSheetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1013,7 +1013,7 @@
 				6D39C4EA27EA9E2800CF69C0 /* CustomInputFieldStyle.swift in Sources */,
 				6D20376327E9317400377838 /* SplashViewModel.swift in Sources */,
 				6D4937FF27ED5977002AA2F7 /* UIState.swift in Sources */,
-				6DE3315A28370DA50029C783 /* AddExpectedSkillSheetView.swift in Sources */,
+				6DE3315A28370DA50029C783 /* ExpectedSkillSheetView.swift in Sources */,
 				6D69FDA22819F516003D2BDB /* IbgeState.swift in Sources */,
 				6D08EFA52829CBB600547499 /* SplashInteractor.swift in Sources */,
 				6D386D7C283D91C4006BB328 /* ToastView.swift in Sources */,

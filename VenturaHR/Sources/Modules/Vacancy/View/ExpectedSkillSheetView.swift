@@ -1,12 +1,12 @@
 import SwiftUI
 import PopupView
 
-struct AddExpectedSkillSheetView: View {
+struct ExpectedSkillSheetView: View {
     @State private var isShowingPopUp = false
     @State private var isDisabled = false
     
     @Binding var expectedSkills: [ExpectedSkill]
-    @Binding var text: String
+    @Binding var description: String
     @Binding var profile: DesiredMinimumProfile
     @Binding var height: Int
     
@@ -15,7 +15,7 @@ struct AddExpectedSkillSheetView: View {
             Form {
                 Section {
                     VacancyEditTextField(
-                        text: $text,
+                        text: $description,
                         title: "Descrição",
                         placeholder: "Digite a Descrição da vaga"
                     )
@@ -96,11 +96,11 @@ struct AddExpectedSkillSheetView: View {
     }
     
     var isSaveButtonDisabled: Bool {
-        text.isEmpty || height == 0
+        description.isEmpty || height == 0
     }
     
     func saveSkills() {
-        let skill = ExpectedSkill(description: text,
+        let skill = ExpectedSkill(description: description,
                                   desiredMinimumProfile: profile,
                                   height: height)
         
@@ -110,16 +110,16 @@ struct AddExpectedSkillSheetView: View {
     }
 }
 
-struct AddExpectedSkillSheetView_Previews: PreviewProvider {
+struct ExpectedSkillSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExpectedSkillSheetView(
+        ExpectedSkillSheetView(
             expectedSkills: .constant(
                 [.init(description: "",
                        desiredMinimumProfile: .medium,
                        height: 1)
                 ]
             ),
-            text: .constant("Desenvolvedor Java"),
+            description: .constant("Desenvolvedor Java"),
             profile: .constant(.medium),
             height: .constant(3)
         )
