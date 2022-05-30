@@ -48,7 +48,7 @@ final class SignInViewModel: ObservableObject {
                 case .finished: break
                 }
             }, receiveValue: { genericUser in
-                self.interactor.saveUserAccountTypeLocally(value: genericUser.accountType)
+                self.interactor.saveUserAccountLocally(data: genericUser)
             })
             .store(in: &cancellables)
     }

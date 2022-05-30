@@ -4,7 +4,7 @@ protocol SplashInteractorProtocol {
     func hasCurrentUser() -> Bool
     func handleGetUserUid() -> String?
     func fetchUser(by uid: String) -> Future<GenericUser, NetworkError>
-    func saveUserAccountTypeLocally(value: String)
+    func saveUserAccountLocally(data: GenericUser)
 }
 
 final class SplashInteractor {
@@ -36,7 +36,7 @@ extension SplashInteractor: SplashInteractorProtocol {
         return userRemoteDataSource.fetchUser(by: uid)
     }
     
-    func saveUserAccountTypeLocally(value: String) {
-        userLocalDataSource.saveAccountType(value: value)
+    func saveUserAccountLocally(data: GenericUser) {
+        userLocalDataSource.saveAccountLocally(data: data)
     }
 }

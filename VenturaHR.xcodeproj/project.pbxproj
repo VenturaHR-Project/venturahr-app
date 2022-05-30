@@ -36,11 +36,17 @@
 		6D3C6B5427EE715500F8F433 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3C6B5327EE715500F8F433 /* SignUpRequest.swift */; };
 		6D3DC69128259E1B00B77C03 /* VacancyEditTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3DC69028259E1B00B77C03 /* VacancyEditTextField.swift */; };
 		6D3DC6942825AB1D00B77C03 /* VacancyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3DC6932825AB1D00B77C03 /* VacancyViewModel.swift */; };
-		6D3DC6962825AB7B00B77C03 /* Vacancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3DC6952825AB7B00B77C03 /* Vacancy.swift */; };
+		6D3DC6962825AB7B00B77C03 /* VacancyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3DC6952825AB7B00B77C03 /* VacancyRequest.swift */; };
 		6D4937FF27ED5977002AA2F7 /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4937FE27ED5977002AA2F7 /* UIState.swift */; };
 		6D4BB48A282B11650012A792 /* UserRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4BB489282B11650012A792 /* UserRemoteDataSource.swift */; };
 		6D4BB48F282B256E0012A792 /* FirebaseRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4BB48E282B256E0012A792 /* FirebaseRemoteDataSource.swift */; };
 		6D4BB492282B3D9F0012A792 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4BB491282B3D9F0012A792 /* MainInteractor.swift */; };
+		6D653DF72843AE3500582649 /* CompanyMicroserviceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D653DF62843AE3500582649 /* CompanyMicroserviceEndpoint.swift */; };
+		6D653DF92843AE4500582649 /* CompanyMicroservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D653DF82843AE4500582649 /* CompanyMicroservice.swift */; };
+		6D653DFD2843B24100582649 /* Vacancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D653DFC2843B24100582649 /* Vacancy.swift */; };
+		6D653DFF2843B63400582649 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D653DFE2843B63400582649 /* Skill.swift */; };
+		6D653E022843E58100582649 /* CompanyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D653E012843E58100582649 /* CompanyDataSource.swift */; };
+		6D653E062843EAA400582649 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D653E052843EAA400582649 /* DateHelper.swift */; };
 		6D69FDA22819F516003D2BDB /* IbgeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D69FDA12819F516003D2BDB /* IbgeState.swift */; };
 		6D6AD72427EFEA550041A9F1 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6AD72327EFEA550041A9F1 /* SignInView.swift */; };
 		6D6AD72727EFEA650041A9F1 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6AD72627EFEA650041A9F1 /* SignInViewModel.swift */; };
@@ -111,11 +117,17 @@
 		6D3C6B5327EE715500F8F433 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		6D3DC69028259E1B00B77C03 /* VacancyEditTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyEditTextField.swift; sourceTree = "<group>"; };
 		6D3DC6932825AB1D00B77C03 /* VacancyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyViewModel.swift; sourceTree = "<group>"; };
-		6D3DC6952825AB7B00B77C03 /* Vacancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vacancy.swift; sourceTree = "<group>"; };
+		6D3DC6952825AB7B00B77C03 /* VacancyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyRequest.swift; sourceTree = "<group>"; };
 		6D4937FE27ED5977002AA2F7 /* UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
 		6D4BB489282B11650012A792 /* UserRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRemoteDataSource.swift; sourceTree = "<group>"; };
 		6D4BB48E282B256E0012A792 /* FirebaseRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteDataSource.swift; sourceTree = "<group>"; };
 		6D4BB491282B3D9F0012A792 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		6D653DF62843AE3500582649 /* CompanyMicroserviceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyMicroserviceEndpoint.swift; sourceTree = "<group>"; };
+		6D653DF82843AE4500582649 /* CompanyMicroservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyMicroservice.swift; sourceTree = "<group>"; };
+		6D653DFC2843B24100582649 /* Vacancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vacancy.swift; sourceTree = "<group>"; };
+		6D653DFE2843B63400582649 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		6D653E012843E58100582649 /* CompanyDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDataSource.swift; sourceTree = "<group>"; };
+		6D653E052843EAA400582649 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		6D69FDA12819F516003D2BDB /* IbgeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbgeState.swift; sourceTree = "<group>"; };
 		6D6AD72327EFEA550041A9F1 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		6D6AD72627EFEA650041A9F1 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -207,6 +219,7 @@
 		6D08EFAB2829EA4B00547499 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				6D653E002843E56900582649 /* CompanyDataSource */,
 				6DE71534282DE22E0007A5E8 /* IbgeDataSource */,
 				6D4BB48C282B25530012A792 /* FirebaseDataSource */,
 				6D4BB48B282B11F60012A792 /* UserDataSource */,
@@ -319,10 +332,11 @@
 		6D20377727E96BCA00377838 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				6D08EFAB2829EA4B00547499 /* DataSource */,
 				6D20377827E96BE800377838 /* Component */,
+				6D08EFAB2829EA4B00547499 /* DataSource */,
 				6D13E41B27EC6E1D00577DCD /* Enum */,
 				6D857A222810B57F007D51CD /* Extension */,
+				6D653E032843EA6300582649 /* Helper */,
 				6DD78751281357220032F6AA /* Model */,
 				6D74BFC9280E49AD00725883 /* Service */,
 			);
@@ -357,17 +371,6 @@
 				6D24FE352838601E00B2FA93 /* DesiredMinimumProfile.swift */,
 			);
 			path = Enum;
-			sourceTree = "<group>";
-		};
-		6D24FE2E28385EED00B2FA93 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				6DA85D842824989D006A9896 /* DataSource */,
-				6D24FE2D28385EDE00B2FA93 /* Enum */,
-				6DA85D85282498B0006A9896 /* Interactor */,
-				6DA85D832824989A006A9896 /* Router */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		6D285A7427E7F95D00FAED39 /* Application */ = {
@@ -450,7 +453,7 @@
 		6D3DC6922825AAEA00B77C03 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6D3DC6952825AB7B00B77C03 /* Vacancy.swift */,
+				6D3DC6952825AB7B00B77C03 /* VacancyRequest.swift */,
 				6D24FE3328385FBF00B2FA93 /* ExpectedSkill.swift */,
 			);
 			path = Model;
@@ -481,6 +484,48 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		6D653DF42843ADF000582649 /* CompanyMicroservice */ = {
+			isa = PBXGroup;
+			children = (
+				6D653DF52843AE1D00582649 /* Enum */,
+				6D653DF82843AE4500582649 /* CompanyMicroservice.swift */,
+			);
+			path = CompanyMicroservice;
+			sourceTree = "<group>";
+		};
+		6D653DF52843AE1D00582649 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				6D653DF62843AE3500582649 /* CompanyMicroserviceEndpoint.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		6D653DFA2843B20900582649 /* Vacancy */ = {
+			isa = PBXGroup;
+			children = (
+				6D653DFC2843B24100582649 /* Vacancy.swift */,
+				6D653DFE2843B63400582649 /* Skill.swift */,
+			);
+			path = Vacancy;
+			sourceTree = "<group>";
+		};
+		6D653E002843E56900582649 /* CompanyDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				6D653E012843E58100582649 /* CompanyDataSource.swift */,
+			);
+			path = CompanyDataSource;
+			sourceTree = "<group>";
+		};
+		6D653E032843EA6300582649 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				6D653E052843EAA400582649 /* DateHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		6D74BFC4280E490000725883 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,9 +545,10 @@
 		6D74BFC9280E49AD00725883 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				6D653DF42843ADF000582649 /* CompanyMicroservice */,
+				6D74BFCF280E4BC700725883 /* FirebaseService */,
 				6D30C4902818C73300A099E2 /* IbgeService */,
 				6D74BFE3280EFBEE00725883 /* UserMicroservice */,
-				6D74BFCF280E4BC700725883 /* FirebaseService */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -518,9 +564,9 @@
 		6D74BFD0280E4C1600725883 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				6D74BFD1280E4C2B00725883 /* Network.swift */,
 				6DE7BB92280F7B5C00BE9D13 /* Codable */,
 				6D74BFD3280E4C9700725883 /* Enum */,
-				6D74BFD1280E4C2B00725883 /* Network.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -667,8 +713,11 @@
 		6DA85D8028249840006A9896 /* Vacancy */ = {
 			isa = PBXGroup;
 			children = (
-				6D24FE2E28385EED00B2FA93 /* Helpers */,
+				6DA85D842824989D006A9896 /* DataSource */,
+				6D24FE2D28385EDE00B2FA93 /* Enum */,
+				6DA85D85282498B0006A9896 /* Interactor */,
 				6D3DC6922825AAEA00B77C03 /* Model */,
+				6DA85D832824989A006A9896 /* Router */,
 				6DA85D8228249895006A9896 /* View */,
 				6DA85D812824988D006A9896 /* ViewModel */,
 			);
@@ -787,6 +836,7 @@
 		6DE7BB92280F7B5C00BE9D13 /* Codable */ = {
 			isa = PBXGroup;
 			children = (
+				6D653DFA2843B20900582649 /* Vacancy */,
 				6DEE7F11281A21A60059EB98 /* ibge */,
 				6DD7875C281359EA0032F6AA /* GenericUser */,
 			);
@@ -964,6 +1014,7 @@
 				6D74BFD2280E4C2B00725883 /* Network.swift in Sources */,
 				6D74BFCB280E49CF00725883 /* FirebaseService.swift in Sources */,
 				6D4BB48F282B256E0012A792 /* FirebaseRemoteDataSource.swift in Sources */,
+				6D653E022843E58100582649 /* CompanyDataSource.swift in Sources */,
 				6D79D50627ED22BE00F9E961 /* LoadingButtonView.swift in Sources */,
 				6D857A1F2810A02D007D51CD /* MainView.swift in Sources */,
 				6D20375F27E918FE00377838 /* SplashView.swift in Sources */,
@@ -974,9 +1025,11 @@
 				6D13E41D27EC6E6300577DCD /* AccountType.swift in Sources */,
 				6DB22EFB2831C0590060E31B /* CitySelectorView.swift in Sources */,
 				6D3DC6942825AB1D00B77C03 /* VacancyViewModel.swift in Sources */,
+				6D653DFF2843B63400582649 /* Skill.swift in Sources */,
 				6DD7875E281359FB0032F6AA /* GenericUser.swift in Sources */,
 				6D39C4E627EA9B1F00CF69C0 /* InputFieldView.swift in Sources */,
 				6DEE7F17281A22750059EB98 /* IbgeStateRegion.swift in Sources */,
+				6D653DF92843AE4500582649 /* CompanyMicroservice.swift in Sources */,
 				6D30C4922818C78600A099E2 /* IbgeService.swift in Sources */,
 				6D20376927E958A200377838 /* SplashViewRouter.swift in Sources */,
 				6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */,
@@ -992,7 +1045,7 @@
 				6DE71539282DE36B0007A5E8 /* IbgeRemoteDataSource.swift in Sources */,
 				6D20377627E96B3600377838 /* SignUpViewRouter.swift in Sources */,
 				6D24FE362838601E00B2FA93 /* DesiredMinimumProfile.swift in Sources */,
-				6D3DC6962825AB7B00B77C03 /* Vacancy.swift in Sources */,
+				6D3DC6962825AB7B00B77C03 /* VacancyRequest.swift in Sources */,
 				6D4BB48A282B11650012A792 /* UserRemoteDataSource.swift in Sources */,
 				6DEE7F14281A22350059EB98 /* IbgeCity.swift in Sources */,
 				6D08EFA02829CAEF00547499 /* UserDefaultsKeys.swift in Sources */,
@@ -1007,13 +1060,16 @@
 				6D08EFB02829EC1A00547499 /* UserLocalDataSource.swift in Sources */,
 				6D24FE3028385F6800B2FA93 /* JobType.swift in Sources */,
 				6D30C48F2818A29000A099E2 /* NetworkResult.swift in Sources */,
+				6D653DF72843AE3500582649 /* CompanyMicroserviceEndpoint.swift in Sources */,
 				6D24FE3428385FBF00B2FA93 /* ExpectedSkill.swift in Sources */,
 				6D285A7E27E80B1200FAED39 /* R.generated.swift in Sources */,
 				6D4BB492282B3D9F0012A792 /* MainInteractor.swift in Sources */,
 				6D39C4EA27EA9E2800CF69C0 /* CustomInputFieldStyle.swift in Sources */,
+				6D653DFD2843B24100582649 /* Vacancy.swift in Sources */,
 				6D20376327E9317400377838 /* SplashViewModel.swift in Sources */,
 				6D4937FF27ED5977002AA2F7 /* UIState.swift in Sources */,
 				6DE3315A28370DA50029C783 /* ExpectedSkillSheetView.swift in Sources */,
+				6D653E062843EAA400582649 /* DateHelper.swift in Sources */,
 				6D69FDA22819F516003D2BDB /* IbgeState.swift in Sources */,
 				6D08EFA52829CBB600547499 /* SplashInteractor.swift in Sources */,
 				6D386D7C283D91C4006BB328 /* ToastView.swift in Sources */,

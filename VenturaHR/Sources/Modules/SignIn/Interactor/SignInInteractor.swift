@@ -5,7 +5,7 @@ protocol SignInInteractorProtocol {
     func handleSignIn(request: SignInRequest) -> Future<Bool, Error>
     func handleSignOut() -> Future<Bool, NetworkError>
     func fetchUser(by uid: String) -> Future<GenericUser, NetworkError>
-    func saveUserAccountTypeLocally(value: String)
+    func saveUserAccountLocally(data: GenericUser)
 }
 
 final class SignInInteractor {
@@ -41,7 +41,7 @@ extension SignInInteractor: SignInInteractorProtocol {
         return userRemoteDataSource.fetchUser(by: uid)
     }
     
-    func saveUserAccountTypeLocally(value: String) {
-        userLocalDataSource.saveAccountType(value: value)
+    func saveUserAccountLocally(data: GenericUser) {
+        userLocalDataSource.saveAccountLocally(data: data)
     }
 }

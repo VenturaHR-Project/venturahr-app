@@ -11,4 +11,3 @@ extension IbgeStateRegion: Codable {
         case name = "nome"
     }
 }
-

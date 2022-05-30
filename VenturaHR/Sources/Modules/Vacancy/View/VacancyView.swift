@@ -26,7 +26,7 @@ struct VacancyView: View {
                 }
             }
         }
-        .onAppear(perform: viewModel.fetchStates)
+        .onAppear(perform: viewModel.handleOnAppear)
     }
     
     var dataSection: some View {

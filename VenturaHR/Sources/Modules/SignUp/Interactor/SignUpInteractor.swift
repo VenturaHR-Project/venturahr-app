@@ -4,7 +4,7 @@ protocol SignUpInteractorProtocol {
     func handleGetUserUid() -> String?
     func saveUserInFirebaseAuth(email: String, password: String) -> Future<Bool, NetworkError>
     func saveUserInMicroservice(request: SignUpRequest) -> Future<Bool, NetworkError>
-    func saveUserAccountTypeLocally(value: String)
+    func saveUserAccountLocally(data: GenericUser)
     func deleteFirabaseAuthUser()
 }
 
@@ -37,8 +37,8 @@ extension SignUpInteractor: SignUpInteractorProtocol {
         return signUpremoteDataSource.saveUserInMicroservice(request: request)
     }
     
-    func saveUserAccountTypeLocally(value: String) {
-        userLocalDataSource.saveAccountType(value: value)
+    func saveUserAccountLocally(data: GenericUser) {
+        userLocalDataSource.saveAccountLocally(data: data)
     }
     
     func deleteFirabaseAuthUser() {

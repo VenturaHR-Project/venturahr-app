@@ -43,7 +43,18 @@ final class SignUpViewModel: ObservableObject {
                 case .finished: break
                 }
             } receiveValue: { created in
-                self.interactor.saveUserAccountTypeLocally(value: self.signUpRequest.accountType.rawValue)
+                let genericUser: GenericUser = GenericUser(uid: self.signUpRequest.uid,
+                                                           name: self.signUpRequest.name,
+                                                           email: self.signUpRequest.email,
+                                                           password: self.signUpRequest.password,
+                                                           accountType: self.signUpRequest.accountType.rawValue,
+                                                           phone: self.signUpRequest.phone,
+                                                           address: self.signUpRequest.address,
+                                                           cpf: self.signUpRequest.cpf,
+                                                           cnpj: self.signUpRequest.cnpj,
+                                                           corporateName: self.signUpRequest.corporateName)
+                
+                self.interactor.saveUserAccountLocally(data: genericUser)
                 self.publisher.send(created)
                 self.uiState = .success
             }

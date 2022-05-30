@@ -58,6 +58,30 @@ final class VacancyViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    private func setUserValues() {
+        guard
+            let uid = interactor.handleGetUserUid(),
+            let name = interactor.handleGetUserName()
+        else { return }
+        
+        vacancy.uid = uid
+        vacancy.company = name
+    }
+    
+    private func setDatesFormatted() {
+        let dateHelper = DateHelper()
+        let createdDateFormatted = dateHelper.parseDateToString(value: createdDate)
+        let expiresDateFormatted = dateHelper.parseDateToString(value: expiresDate)
+    
+        vacancy.createdAt = createdDateFormatted
+        vacancy.expiresAt = expiresDateFormatted
+    }
+    
+    func handleOnAppear() {
+        setUserValues()
+        fetchStates()
+    }
+    
     func fetchStates() {
         interactor.getStates()
             .receive(on: DispatchQueue.main)
@@ -90,6 +114,16 @@ final class VacancyViewModel: ObservableObject {
     }
     
     func handleSaveVacancy() {
-        print("ffdsfds")
+        setDatesFormatted()
+        
+        vacancy.expectedSkills = expectedSkills
+        interactor.saveVacancy(request: vacancy)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                self.handleDefaultCompletion(with: completion)
+            } receiveValue: { _ in
+                print("salvou")
+            }
+            .store(in: &cancellables)
     }
 }
