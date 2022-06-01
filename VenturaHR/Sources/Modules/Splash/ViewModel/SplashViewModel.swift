@@ -25,7 +25,6 @@ final class SplashViewModel: ObservableObject {
         guard let uid = interactor.handleGetUserUid() else { return }
         
         cancellable = interactor.fetchUser(by: uid)
-            .delay(for: .seconds(2), scheduler: RunLoop.main)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -35,7 +34,7 @@ final class SplashViewModel: ObservableObject {
                 }
             }, receiveValue: { genericUser in
                 self.interactor.saveUserAccountLocally(data: genericUser)
-                self.uiState = .goToSignInScreen
+                self.uiState = .goToMainScreen
             })
     }
 }
