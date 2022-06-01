@@ -1,6 +1,6 @@
 import Foundation
 
-struct Vacancy {
+struct Vacancy: Codable {
     var uid: String
     var ocupation: String
     var description: String
@@ -12,20 +12,11 @@ struct Vacancy {
     var expectedSkills: [Skill]
     var createdAt: String
     var expiresAt: String
-}
-
-extension Vacancy: Codable {
-    enum CodingKeys: String, CodingKey {
-        case uid
-        case ocupation
-        case description
-        case company
-        case state
-        case city
-        case jobType
-        case hiringPeriod
-        case expectedSkills
-        case createdAt
-        case expiresAt
+    var score: Double?
+    var status: String?
+    
+    static func decode(data: Data) -> [Vacancy]? {
+        let decoder = JSONDecoder()
+        return try? decoder.decode([Vacancy].self, from: data)
     }
 }
