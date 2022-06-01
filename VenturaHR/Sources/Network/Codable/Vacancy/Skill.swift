@@ -18,7 +18,7 @@ struct Skill {
 
 extension Skill: Codable {
     enum CodingKeys: String, CodingKey {
-        case id
+        case id = "_id"
         case description
         case desiredMinimumProfile
         case height
