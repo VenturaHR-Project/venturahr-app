@@ -1,5 +1,6 @@
 protocol CompanyMicroserviceProtocol {
     func saveVacancy(request: VacancyRequest, completion: @escaping (NetworkResult) -> Void)
+    func getVacanciesByCompany(name: String, completion: @escaping (NetworkResult) -> Void)
 }
 
 final class CompanyMicroservice {
@@ -34,6 +35,20 @@ extension CompanyMicroservice: CompanyMicroserviceProtocol {
         let vacancy = buildVacancy(request: request)
         
         network.call(path: path, method: .post, body: vacancy) { result in
+            switch result {
+            case let .failure(httpError, data):
+                completion(.failure(httpError, data))
+                break
+            case let .success(data):
+                completion(.success(data))
+            }
+        }
+    }
+    
+    func getVacanciesByCompany(name: String, completion: @escaping (NetworkResult) -> Void) {
+        let path = String(format: CompanyMicroserviceEndpoint.getVacancyByCompany.value, name)
+        
+        network.call(path: path, method: .get) { result in
             switch result {
             case let .failure(httpError, data):
                 completion(.failure(httpError, data))

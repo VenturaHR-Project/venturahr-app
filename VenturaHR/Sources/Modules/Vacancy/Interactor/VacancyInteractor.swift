@@ -6,6 +6,7 @@ protocol VacancyInteractorProtocol {
     func saveVacancy(request: VacancyRequest) -> Future<Bool, NetworkError>
     func getStates() -> Future<[IbgeState], NetworkError>
     func getCities(uf: String) -> Future<[IbgeCity], NetworkError>
+    func handleGetVacanciesByCompany(name: String) -> Future<[Vacancy], NetworkError>
 }
 
 final class VacancyInteractor {
@@ -44,5 +45,9 @@ extension VacancyInteractor: VacancyInteractorProtocol {
     
     func getCities(uf: String) -> Future<[IbgeCity], NetworkError> {
         return ibgeRemoteDataSource.getCities(uf: uf)
+    }
+    
+    func handleGetVacanciesByCompany(name: String) -> Future<[Vacancy], NetworkError> {
+        return companyRemoteDataSource.getVacanciesByCompany(name: name)
     }
 }
