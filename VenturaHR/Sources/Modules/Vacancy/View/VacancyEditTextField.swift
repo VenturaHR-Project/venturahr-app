@@ -9,7 +9,6 @@ struct VacancyEditTextField: View {
     var autocapitalization: TextInputAutocapitalization = .words
     
     var body: some View {
-        //VStack(alignment: .leading) {
         HStack {
             Text(title)
             Spacer()
@@ -19,7 +18,6 @@ struct VacancyEditTextField: View {
                 .textInputAutocapitalization(autocapitalization)
                 .multilineTextAlignment(.trailing)
         }
-        //}
     }
 }
 
