@@ -2,8 +2,10 @@ import Combine
 import Foundation
 
 class VacancyViewModel: ObservableObject {
-    @Published var uiState: VacancyUIState = .fullList
-    @Published var isOpened: Bool = false
+    @Published private(set) var uiState: VacancyUIState = .loading
+    @Published private(set) var opened: Bool = false
+    @Published private(set) var accountType: AccountType = .candidate
+    @Published private(set) var vacancies: [VacancyViewData] = []
     
     private var cancellables: Set<AnyCancellable>
     private let vacancyCreatePublisher: PassthroughSubject<Bool, Never>
@@ -36,13 +38,17 @@ class VacancyViewModel: ObservableObject {
         }
         .store(in: &cancellables)
     }
-    
+
     func handleOnAppear() {
-        guard let name = interactor.handleGetUserName() else { return }
-        
         uiState = .loading
-        isOpened = true
         
+        if opened {
+            self.uiState = .fullList
+            return
+        }
+        
+        opened = true
+        guard let name = interactor.handleGetUserName() else { return }
         interactor.handleGetVacanciesByCompany(name: name)
             .receive(on: DispatchQueue.main)
             .sink { completion in
@@ -52,8 +58,8 @@ class VacancyViewModel: ObservableObject {
                 case .finished: break
                 }
             } receiveValue: { vacancies in
-                let teste = vacancies
-                print(teste)
+                self.vacancies = VacancyViewData.map(vacancies: vacancies)
+                self.uiState = .fullList
             }
             .store(in: &cancellables)
     }
