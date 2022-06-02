@@ -14,4 +14,15 @@ enum DesiredMinimumProfile: String, CaseIterable {
         case .veryHight: return 5
         }
     }
+    
+    static func convertValueToEnum(value: Int) -> DesiredMinimumProfile {
+        switch value {
+        case 1: return .veryLow
+        case 2: return .short
+        case 3: return .medium
+        case 4: return .hight
+        case 5: return .veryHight
+        default: return .veryLow
+        }
+    }
 }
