@@ -9,6 +9,7 @@ struct VacancyViewData: Identifiable {
     var jobType: JobType = .clt
     var hiringPeriod: HiringPeriod = .full
     var expectedSkills: [ExpectedSkill] = []
+    var status: String = ""
     var createdAt = ""
     var expiresAt = ""
     
@@ -17,7 +18,8 @@ struct VacancyViewData: Identifiable {
             guard
                 let id = vacancy.id,
                 let jobType = JobType(rawValue: vacancy.jobType),
-                let hiringPeriod = HiringPeriod(rawValue: vacancy.hiringPeriod)
+                let hiringPeriod = HiringPeriod(rawValue: vacancy.hiringPeriod),
+                let status = vacancy.status
             else { return VacancyViewData() }
             
             let expectedSkills = ExpectedSkill.map(expectedSkills: vacancy.expectedSkills)
@@ -32,9 +34,29 @@ struct VacancyViewData: Identifiable {
                                    jobType: jobType,
                                    hiringPeriod: hiringPeriod,
                                    expectedSkills: expectedSkills,
+                                   status: status,
                                    createdAt: vacancy.createdAt,
                                    expiresAt: vacancy.expiresAt)
         }
         return mappedVacancies
+    }
+}
+ 
+extension VacancyViewData {
+    static var vacancyViewDataMock: VacancyViewData {
+        .init(id: "",
+              uid: "",
+              ocupation: "Desenvolvedor Mobile II",
+              description: "Lorem ipsum metus ante sollicitudin quisque maecenas consequat primis.",
+              company: "Infnet",
+              state: "RJ",
+              city: "Rio de Janeiro",
+              jobType: .clt,
+              hiringPeriod: .full,
+              expectedSkills: [
+                .init(id: "", description: "", desiredMinimumProfile: .veryLow, height: 1)
+              ],
+              createdAt: "02/05/2022",
+              expiresAt: "03/06/2022")
     }
 }
