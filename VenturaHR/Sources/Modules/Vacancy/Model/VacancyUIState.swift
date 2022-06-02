@@ -1,4 +1,4 @@
-enum VacancyUIState: Equatable {
+enum VacancyUIState {    
     case hasError(message: String)
     case loading
     case emptyList
