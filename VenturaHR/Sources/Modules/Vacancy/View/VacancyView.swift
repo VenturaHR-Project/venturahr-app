@@ -7,43 +7,83 @@ struct VacancyView: View {
         ZStack {
             switch viewModel.uiState {
             case let .hasError(message):
-                errorState(message: message)
+                errorStateView(message: message)
             case .loading:
                 ProgressView()
             case .emptyList:
-                emptyState
+                emptyStateView
             case .fullList:
-                fullState
+                fullStateView
             }
         }
         .onAppear(perform: viewModel.handleOnAppear)
     }
-    
-    var emptyState: some View {
+}
+
+private extension VacancyView {
+    var emptyStateView: some View {
         Text("Hello word")
     }
     
-    var fullState: some View {
+    var headerView: some View {
+        VStack {
+            Image(R.image.venturaOrageIcon.name)
+                .resizable()
+                .scaledToFill()
+                .frame(maxWidth: 80)
+            
+            Divider()
+        }
+    }
+    
+    var fullStateView: some View {
         NavigationView {
-            VStack {
-                Text("Hello word")
+            ScrollView {
+                Divider()
+                    .padding(.vertical, 10)
+                
+                LazyVStack {
+                    Spacer()
+                    
+                    ForEach(viewModel.vacancies) { vacancy in
+                        VacancyCardView(accountType: .candidate)
+                            .padding(.bottom)
+                    }
+                }.lineLimit(2)
             }
-            .navigationBarTitleDisplayMode(.automatic)
-            .navigationTitle(Text("Vagas"))
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                Button(action: { }) {
-                    Text("Adicionar")
-                        .bold()
-                        .padding(5)
-                        .border(.orange)
-                        .font(.system(size: 16, weight: .bold))
+                ToolbarItem(
+                    id: "appIconToolbarItem",
+                    placement: .principal,
+                    showsByDefault: true
+                ) {
+                    Image(R.image.venturaOrageIcon.name)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxWidth: 2)
                 }
-                .foregroundColor(.orange)
+                ToolbarItem(
+                    id: "addVacancyButtonToolbarItem",
+                    placement: .principal,
+                    showsByDefault: viewModel.accountType.isCompany
+                ) {
+                    HStack {
+                        Button(action: { }) {
+                            Text("Adicionar")
+                                .bold()
+                                .padding(5)
+                                .border(.orange)
+                                .font(.system(size: 16, weight: .bold))
+                        }
+                        .foregroundColor(.orange)
+                    }
+                }
             }
         }
     }
     
-    func errorState(message: String) -> some View {
+    func errorStateView(message: String) -> some View {
         Text("")
             .alert(isPresented: .constant(true)) {
                 Alert(
