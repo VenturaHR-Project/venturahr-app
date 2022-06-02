@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct VacancyCardView: View {
-    
     @State var accountType: AccountType
+    @State var viewData: VacancyViewData
     
     var body: some View {
         ZStack {
@@ -49,14 +49,14 @@ private extension VacancyCardView {
     var header: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
-                Text("Desenvolvedor Mobile II")
+                Text(viewData.ocupation)
                     .font(.system(size: 14, weight: .bold))
                     .padding(.bottom, 5)
                 
                 Spacer()
                 
                 Label {
-                    Text("Publicada")
+                    Text(viewData.status)
                         .font(.system(size: 11, weight: .bold))
                         .foregroundColor(.gray)
                 } icon: {
@@ -66,7 +66,7 @@ private extension VacancyCardView {
                 }
             }
             
-            Label("Rio de Janeiro - RJ", systemImage: "mappin.and.ellipse")
+            Label("\(viewData.city) - \(viewData.state)", systemImage: "mappin.and.ellipse")
                 .font(.system(size: 12, weight: .bold))
                 .foregroundColor(.gray)
                 .padding(.bottom, 10)
@@ -76,30 +76,30 @@ private extension VacancyCardView {
     
     var content: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("Lorem ipsum metus ante sollicitudin quisque maecenas consequat primis.")
+            Text(viewData.description)
                 .font(.system(size: 14, weight: .bold))
                 .foregroundColor(.gray)
                 .padding(.bottom)
                 .lineLimit(5)
             
             HStack {
-                Label("Infnet", systemImage: "building")
+                Label(viewData.company, systemImage: "building")
                     .font(.system(size: 14, weight: .bold))
                     .foregroundColor(.gray)
                     .padding(.bottom, 10)
                 
-                Label("CLT", systemImage: "doc.text")
+                Label(viewData.jobType.rawValue, systemImage: "doc.text")
                     .font(.system(size: 14, weight: .bold))
                     .foregroundColor(.gray)
                     .padding(.bottom, 10)
                 
-                Label("Período integral", systemImage: "timer")
+                Label(viewData.hiringPeriod.rawValue, systemImage: "timer")
                     .font(.system(size: 14, weight: .bold))
                     .foregroundColor(.gray)
                     .padding(.bottom, 10)
             }
             
-            Label("Expira em 01/07/2022", systemImage: "calendar")
+            Label("Expira em \(viewData.expiresAt)", systemImage: "calendar")
                 .font(.system(size: 14, weight: .bold))
                 .foregroundColor(.gray)
                 .padding(.bottom, 10)
@@ -146,6 +146,8 @@ private extension VacancyCardView {
 
 struct VacancyCardView_Previews: PreviewProvider {
     static var previews: some View {
-        VacancyCardView(accountType: .company)
+        VacancyCardView(
+            accountType: .company, viewData: VacancyViewData.vacancyViewDataMock
+        )
     }
 }

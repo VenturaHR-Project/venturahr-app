@@ -46,7 +46,7 @@ private extension VacancyView {
                     Spacer()
                     
                     ForEach(viewModel.vacancies) { vacancy in
-                        VacancyCardView(accountType: .candidate)
+                        VacancyCardView(accountType: .candidate, viewData: vacancy)
                             .padding(.bottom)
                     }
                 }.lineLimit(2)
