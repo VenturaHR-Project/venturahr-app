@@ -1,6 +1,7 @@
 enum CompanyMicroserviceEndpoint {
     case postVacancy
-    case getVacancyByCompany
+    case getVacancies
+    case getVacanciesByCompany
 }
 
 extension CompanyMicroserviceEndpoint {
@@ -12,7 +13,9 @@ extension CompanyMicroserviceEndpoint {
         switch self {
         case .postVacancy:
             return "\(baseUrl)/companys"
-        case .getVacancyByCompany:
+        case .getVacancies:
+            return "\(baseUrl)/companys"
+        case .getVacanciesByCompany:
             return "\(baseUrl)/companys/%@"
         }
     }

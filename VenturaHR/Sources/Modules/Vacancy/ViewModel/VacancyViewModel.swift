@@ -1,11 +1,12 @@
 import Combine
-import Foundation
+import SwiftUI
 
 class VacancyViewModel: ObservableObject {
     @Published private(set) var uiState: VacancyUIState = .loading
-    @Published private(set) var opened: Bool = false
-    @Published private(set) var accountType: AccountType = .candidate
+    @Published private(set) var updatedVacancies: Bool = false
+    @Published private(set) var accountType: AccountType = .company
     @Published private(set) var vacancies: [VacancyViewData] = []
+    @Published var shouldPresentVacancyCreateView: Bool = false
     
     private var cancellables: Set<AnyCancellable>
     private let vacancyCreatePublisher: PassthroughSubject<Bool, Never>
@@ -20,6 +21,7 @@ class VacancyViewModel: ObservableObject {
         self.vacancyCreatePublisher = vacancyCreatePublisher
         self.interactor = interactor
         observeVacancyCreate()
+        getAccountType()
     }
     
     deinit {
@@ -34,20 +36,30 @@ class VacancyViewModel: ObservableObject {
     
     private func observeVacancyCreate() {
         vacancyCreatePublisher.sink { _ in
+            self.updatedVacancies = false
             self.handleOnAppear()
         }
         .store(in: &cancellables)
+    }
+    
+    private func getAccountType()  {
+        guard
+            let type = interactor.handleGetAccountType(),
+            let result = AccountType(rawValue: type)
+        else { return }
+        
+        accountType = result
     }
 
     func handleOnAppear() {
         uiState = .loading
         
-        if opened {
+        if updatedVacancies {
             self.uiState = .fullList
             return
         }
         
-        opened = true
+        updatedVacancies = true
         guard let name = interactor.handleGetUserName() else { return }
         interactor.handleGetVacanciesByCompany(name: name)
             .receive(on: DispatchQueue.main)
@@ -62,5 +74,15 @@ class VacancyViewModel: ObservableObject {
                 self.uiState = .fullList
             }
             .store(in: &cancellables)
+    }
+    
+    func handleSelectAddVacancyButton() {
+        shouldPresentVacancyCreateView = true
+    }
+}
+
+extension VacancyViewModel {
+    func goToVacancyCreateView() -> some View {
+        return VacancyViewRouter.makeVacancyCreateView(publisher: vacancyCreatePublisher)
     }
 }

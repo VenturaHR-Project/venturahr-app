@@ -46,7 +46,7 @@ private extension VacancyView {
                     Spacer()
                     
                     ForEach(viewModel.vacancies) { vacancy in
-                        VacancyCardView(accountType: .candidate, viewData: vacancy)
+                        VacancyCardView(accountType: viewModel.accountType, viewData: vacancy)
                             .padding(.bottom)
                     }
                 }.lineLimit(2)
@@ -65,18 +65,23 @@ private extension VacancyView {
                 }
                 ToolbarItem(
                     id: "addVacancyButtonToolbarItem",
-                    placement: .principal,
+                    placement: .navigationBarTrailing,
                     showsByDefault: viewModel.accountType.isCompany
                 ) {
                     HStack {
-                        Button(action: { }) {
-                            Text("Adicionar")
-                                .bold()
-                                .padding(5)
-                                .border(.orange)
-                                .font(.system(size: 16, weight: .bold))
+                        NavigationLink(
+                            isActive: $viewModel.shouldPresentVacancyCreateView,
+                            destination: viewModel.goToVacancyCreateView
+                        ) {
+                            Button(action: viewModel.handleSelectAddVacancyButton) {
+                                Text("Adicionar")
+                                    .bold()
+                                    .padding(5)
+                                    .border(.orange)
+                                    .font(.system(size: 16, weight: .bold))
+                            }
+                            .foregroundColor(.orange)
                         }
-                        .foregroundColor(.orange)
                     }
                 }
             }

@@ -13,16 +13,20 @@ final class VacancyCreateViewModel: ObservableObject {
     @Published var expiresDate = Date()
     
     private var cancellables: Set<AnyCancellable>
-    private var interactor: VacancyInteractorProtocol
+    private let interactor: VacancyInteractorProtocol
+    private let publisher: PassthroughSubject<Bool, Never>
+    
     
     var shouldDisableCitySelector: Bool {
         vacancy.state.isEmpty
     }
     
     init(
+        publisher: PassthroughSubject<Bool, Never>,
         cancellables: Set<AnyCancellable> = Set<AnyCancellable>(),
         interactor: VacancyInteractorProtocol = VacancyInteractor()
     ) {
+        self.publisher = publisher
         self.cancellables = cancellables
         self.interactor = interactor
     }
@@ -121,8 +125,8 @@ final class VacancyCreateViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 self.handleDefaultCompletion(with: completion)
-            } receiveValue: { _ in
-                print("salvou")
+            } receiveValue: { created in
+                self.publisher.send(created)
             }
             .store(in: &cancellables)
     }

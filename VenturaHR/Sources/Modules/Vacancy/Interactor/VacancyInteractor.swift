@@ -3,9 +3,11 @@ import Combine
 protocol VacancyInteractorProtocol {
     func handleGetUserUid() -> String?
     func handleGetUserName() -> String?
+    func handleGetAccountType() -> String?
     func saveVacancy(request: VacancyRequest) -> Future<Bool, NetworkError>
     func getStates() -> Future<[IbgeState], NetworkError>
     func getCities(uf: String) -> Future<[IbgeCity], NetworkError>
+    func handleGetVacancies() -> Future<[Vacancy], NetworkError>
     func handleGetVacanciesByCompany(name: String) -> Future<[Vacancy], NetworkError>
 }
 
@@ -35,6 +37,10 @@ extension VacancyInteractor: VacancyInteractorProtocol {
         return userLocalDataSource.getUserName()
     }
     
+    func handleGetAccountType() -> String? {
+        return userLocalDataSource.getAccountType()
+    }
+    
     func saveVacancy(request: VacancyRequest) -> Future<Bool, NetworkError> {
         return companyRemoteDataSource.saveVacancy(request: request)
     }
@@ -45,6 +51,10 @@ extension VacancyInteractor: VacancyInteractorProtocol {
     
     func getCities(uf: String) -> Future<[IbgeCity], NetworkError> {
         return ibgeRemoteDataSource.getCities(uf: uf)
+    }
+    
+    func handleGetVacancies() -> Future<[Vacancy], NetworkError> {
+        return companyRemoteDataSource.getVacancies()
     }
     
     func handleGetVacanciesByCompany(name: String) -> Future<[Vacancy], NetworkError> {
