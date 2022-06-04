@@ -9,5 +9,6 @@ target 'VenturaHR' do
   # Pods for VenturaHR
   pod 'R.swift'
   pod 'Firebase/Auth'
+  pod 'FirebaseFirestoreSwift'
 
 end
