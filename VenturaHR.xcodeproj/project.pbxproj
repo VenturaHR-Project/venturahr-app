@@ -458,6 +458,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		6D3C7DD5284D05DD00E9B305 /* CandidateMicroservice */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CandidateMicroservice;
+			sourceTree = "<group>";
+		};
 		6D3DC6922825AAEA00B77C03 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,6 +561,7 @@
 		6D74BFC9280E49AD00725883 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				6D3C7DD5284D05DD00E9B305 /* CandidateMicroservice */,
 				6D653DF42843ADF000582649 /* CompanyMicroservice */,
 				6D74BFCF280E4BC700725883 /* FirebaseService */,
 				6D30C4902818C73300A099E2 /* IbgeService */,

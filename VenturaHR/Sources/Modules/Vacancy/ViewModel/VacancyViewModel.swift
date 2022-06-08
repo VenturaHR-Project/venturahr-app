@@ -4,7 +4,7 @@ import SwiftUI
 class VacancyViewModel: ObservableObject {
     @Published private(set) var uiState: VacancyUIState = .loading
     @Published private(set) var updatedVacancies: Bool = false
-    @Published private(set) var accountType: AccountType = .company
+    @Published private(set) var accountType: AccountType = .candidate
     @Published private(set) var vacancies: [VacancyViewData] = []
     @Published var shouldPresentVacancyCreateView: Bool = false
     

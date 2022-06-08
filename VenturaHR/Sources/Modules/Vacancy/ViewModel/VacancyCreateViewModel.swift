@@ -2,6 +2,7 @@ import Combine
 import Foundation
 
 final class VacancyCreateViewModel: ObservableObject {
+    @Published var uiState: UIState = .none
     @Published var vacancy = VacancyRequest()
     @Published var expectedSkill = ExpectedSkill()
     @Published var expectedSkills: [ExpectedSkill] = []
@@ -11,11 +12,10 @@ final class VacancyCreateViewModel: ObservableObject {
     @Published var shouldPresentExpectedSkiilsSheet = false
     @Published var createdDate = Date()
     @Published var expiresDate = Date()
-    
-    private var cancellables: Set<AnyCancellable>
+
     private let interactor: VacancyInteractorProtocol
     private let publisher: PassthroughSubject<Bool, Never>
-    
+    var cancellables: Set<AnyCancellable>
     
     var shouldDisableCitySelector: Bool {
         vacancy.state.isEmpty
@@ -43,7 +43,8 @@ final class VacancyCreateViewModel: ObservableObject {
     
     private func handleDefaultCompletion(with completion: Subscribers.Completion<NetworkError>) {
         switch completion {
-        case .failure(_):
+        case let .failure(networkError):
+            uiState = .error(networkError.localizedDescription)
             break
         case .finished:
             break
@@ -126,6 +127,7 @@ final class VacancyCreateViewModel: ObservableObject {
             .sink { completion in
                 self.handleDefaultCompletion(with: completion)
             } receiveValue: { created in
+                self.uiState = .success
                 self.publisher.send(created)
             }
             .store(in: &cancellables)

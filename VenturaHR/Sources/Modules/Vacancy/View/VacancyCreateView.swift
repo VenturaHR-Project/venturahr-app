@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct VacancyCreateView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @StateObject var viewModel: VacancyCreateViewModel
     
     var body: some View {
@@ -24,6 +26,10 @@ struct VacancyCreateView: View {
                     }
                     .foregroundColor(.orange)
                 }
+            }
+            
+            if case UIState.error(let value) = viewModel.uiState {
+                errorStateView(message: value)
             }
         }
         .onAppear(perform: viewModel.handleOnAppear)
@@ -139,6 +145,15 @@ struct VacancyCreateView: View {
     func setSectionHeader(title: String) -> some View {
         Text(title)
             .font(.system(size: 15, weight: .bold))
+    }
+    
+    func errorStateView(message: String) -> some View {
+        Text("")
+            .alert(isPresented: .constant(true)) {
+                Alert(
+                    title: Text("VenturaHR"), message: Text(message), dismissButton: .default(Text("Ok"))
+                )
+            }
     }
 }
 

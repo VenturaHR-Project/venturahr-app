@@ -55,18 +55,17 @@ private extension VacancyView {
             .toolbar {
                 ToolbarItem(
                     id: "appIconToolbarItem",
-                    placement: .principal,
-                    showsByDefault: true
+                    placement: .principal
                 ) {
                     Image(R.image.venturaOrageIcon.name)
                         .resizable()
                         .scaledToFill()
                         .frame(maxWidth: 2)
                 }
+                
                 ToolbarItem(
                     id: "addVacancyButtonToolbarItem",
-                    placement: .navigationBarTrailing,
-                    showsByDefault: viewModel.accountType.isCompany
+                    placement: .navigationBarTrailing
                 ) {
                     HStack {
                         NavigationLink(
@@ -83,6 +82,8 @@ private extension VacancyView {
                             .foregroundColor(.orange)
                         }
                     }
+                    .disabled(viewModel.accountType.isCandidate)
+                    .opacity(viewModel.accountType.isCompany ? 1 : 0 )
                 }
             }
         }
