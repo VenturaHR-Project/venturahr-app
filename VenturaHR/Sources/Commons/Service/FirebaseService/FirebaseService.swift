@@ -2,6 +2,7 @@ import Firebase
 
 protocol FirebaseServiceProtocol {
     var auth: Auth { get }
+    var firestore: Firestore { get }
     func configureFirebaseApp()
     func getCurrentUser() -> User?
 }
@@ -11,6 +12,10 @@ final class FirebaseService {
 }
 
 extension FirebaseService: FirebaseServiceProtocol {
+    var firestore: Firestore {
+        Firestore.firestore()
+    }
+    
     var auth: Auth {
         Auth.auth()
     }
