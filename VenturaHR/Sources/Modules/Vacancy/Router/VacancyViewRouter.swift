@@ -7,8 +7,8 @@ struct VacancyViewRouter {
         return VacancyView(viewModel: viewModel)
     }
     
-    static func makeVacancyCreateView(publisher: PassthroughSubject<Bool, Never>) -> some View {
-        let viewModel = VacancyCreateViewModel(publisher: publisher)
+    static func makeVacancyCreateView() -> some View {
+        let viewModel = VacancyCreateViewModel()
         return VacancyCreateView(viewModel: viewModel)
     }
 }

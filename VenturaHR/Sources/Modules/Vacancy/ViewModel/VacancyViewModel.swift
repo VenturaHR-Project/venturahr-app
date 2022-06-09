@@ -3,24 +3,19 @@ import SwiftUI
 
 class VacancyViewModel: ObservableObject {
     @Published private(set) var uiState: VacancyUIState = .loading
-    @Published private(set) var updatedVacancies: Bool = false
     @Published private(set) var accountType: AccountType = .candidate
     @Published private(set) var vacancies: [VacancyViewData] = []
     @Published var shouldPresentVacancyCreateView: Bool = false
     
     private var cancellables: Set<AnyCancellable>
-    private let vacancyCreatePublisher: PassthroughSubject<Bool, Never>
     private let interactor: VacancyInteractorProtocol
     
     init(
         cancellables: Set<AnyCancellable> = Set<AnyCancellable>(),
-        vacancyCreatePublisher: PassthroughSubject<Bool, Never> = PassthroughSubject<Bool, Never>(),
         interactor: VacancyInteractorProtocol = VacancyInteractor()
     ) {
         self.cancellables = cancellables
-        self.vacancyCreatePublisher = vacancyCreatePublisher
         self.interactor = interactor
-        observeVacancyCreate()
         getAccountType()
     }
     
@@ -34,14 +29,6 @@ class VacancyViewModel: ObservableObject {
         }
     }
     
-    private func observeVacancyCreate() {
-        vacancyCreatePublisher.sink { _ in
-            self.updatedVacancies = false
-            self.handleOnAppear()
-        }
-        .store(in: &cancellables)
-    }
-    
     private func getAccountType()  {
         guard
             let type = interactor.handleGetAccountType(),
@@ -50,30 +37,48 @@ class VacancyViewModel: ObservableObject {
         
         accountType = result
     }
-
-    func handleOnAppear() {
-        uiState = .loading
-        
-        if updatedVacancies {
-            self.uiState = .fullList
-            return
+    
+    private func handleDefaultCompletion(with completion: Subscribers.Completion<NetworkError>) {
+        switch completion {
+        case let .failure(networkError):
+            uiState = .hasError(message: networkError.localizedDescription)
+            break
+        case .finished:
+            break
         }
-        
-        updatedVacancies = true
+    }
+    
+    private func handleReceiveValue(data: [Vacancy]) {
+        vacancies = VacancyViewData.map(vacancies: data)
+        uiState = .fullList
+    }
+    
+    private func getVacanciesByCompany() {
         guard let name = interactor.handleGetUserName() else { return }
         interactor.handleGetVacanciesByCompany(name: name)
             .receive(on: DispatchQueue.main)
             .sink { completion in
-                switch completion {
-                case .failure(let error):
-                    self.uiState = .hasError(message: error.localizedDescription)
-                case .finished: break
-                }
+                self.handleDefaultCompletion(with: completion)
             } receiveValue: { vacancies in
-                self.vacancies = VacancyViewData.map(vacancies: vacancies)
-                self.uiState = .fullList
+                self.handleReceiveValue(data: vacancies)
             }
             .store(in: &cancellables)
+    }
+    
+    private func getVacancies() {
+        interactor.handleGetVacancies()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                self.handleDefaultCompletion(with: completion)
+            } receiveValue: { vacancies in
+                self.handleReceiveValue(data: vacancies)
+            }
+            .store(in: &cancellables)
+    }
+
+    func handleOnAppear() {
+        uiState = .loading
+        accountType.isCandidate ? getVacancies() : getVacanciesByCompany()
     }
     
     func handleSelectAddVacancyButton() {
@@ -83,6 +88,6 @@ class VacancyViewModel: ObservableObject {
 
 extension VacancyViewModel {
     func goToVacancyCreateView() -> some View {
-        return VacancyViewRouter.makeVacancyCreateView(publisher: vacancyCreatePublisher)
+        return VacancyViewRouter.makeVacancyCreateView()
     }
 }

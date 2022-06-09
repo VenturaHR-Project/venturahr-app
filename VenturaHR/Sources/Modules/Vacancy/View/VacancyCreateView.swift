@@ -160,7 +160,7 @@ struct VacancyCreateView: View {
 struct VacancyCreateView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            VacancyCreateView(viewModel: VacancyCreateViewModel(publisher: .init()))
+            VacancyCreateView(viewModel: VacancyCreateViewModel())
                 .preferredColorScheme($0)
         }
     }
