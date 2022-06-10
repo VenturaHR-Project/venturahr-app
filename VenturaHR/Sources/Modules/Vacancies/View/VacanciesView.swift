@@ -16,7 +16,7 @@ struct VacanciesView: View {
                 fullStateView
             }
         }
-        .onAppear(perform: viewModel.handleOnAppear)
+        .onAppear(perform: viewModel.fetchVacancies)
     }
 }
 
@@ -81,7 +81,9 @@ private extension VacanciesView {
             }
         }
         .sheet(isPresented: $viewModel.shouldPresentVacancyCreateView) {
-            viewModel.goToVacancyCreateView()
+            viewModel.goToVacancyCreateView().onDisappear() {
+                viewModel.fetchVacancies()
+            }
         }
     }
     

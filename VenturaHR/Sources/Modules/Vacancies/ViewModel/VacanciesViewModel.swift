@@ -76,7 +76,7 @@ class VacanciesViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    func handleOnAppear() {
+    func fetchVacancies() {
         uiState = .loading
         accountType.isCandidate ? getVacancies() : getVacanciesByCompany()
     }
