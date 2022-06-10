@@ -20,9 +20,10 @@ struct VacancyCreateView: View {
                         Text("Salvar")
                             .bold()
                             .padding(5)
-                            .border(.orange)
+                            .border(saveBarButtonColor)
                     }
-                    .foregroundColor(.orange)
+                    .foregroundColor(saveBarButtonColor)
+                    .disabled(viewModel.isSaveButtonDisabled)
                 }
             }
             
@@ -31,6 +32,10 @@ struct VacancyCreateView: View {
             }
         }
         .onAppear(perform: viewModel.handleOnAppear)
+    }
+    
+    var saveBarButtonColor: Color {
+        viewModel.isSaveButtonDisabled ? .gray : .orange
     }
 }
 

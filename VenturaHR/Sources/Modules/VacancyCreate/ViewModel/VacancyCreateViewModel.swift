@@ -129,3 +129,14 @@ final class VacancyCreateViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 }
+
+extension VacancyCreateViewModel {
+    var isSaveButtonDisabled: Bool {
+        vacancy.ocupation.isEmpty ||
+        vacancy.description.isEmpty ||
+        vacancy.company.isEmpty ||
+        vacancy.state.isEmpty ||
+        vacancy.city.isEmpty ||
+        expectedSkills.isEmpty
+    }
+}
