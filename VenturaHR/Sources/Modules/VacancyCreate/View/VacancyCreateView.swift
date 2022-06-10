@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct VacancyCreateView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: VacancyCreateViewModel
     
     var body: some View {
@@ -31,7 +32,19 @@ struct VacancyCreateView: View {
                 errorStateView(message: value)
             }
         }
-        .onAppear(perform: viewModel.handleOnAppear)
+        .onAppear() {
+            viewModel.handleOnAppear()
+            observerSaveBarButton()
+        }
+    }
+    
+    func observerSaveBarButton() {
+        viewModel.$uiState.sink { uiState in
+            if uiState == .success {
+                dismiss()
+                
+            }
+        }.store(in: &viewModel.cancellables)
     }
     
     var saveBarButtonColor: Color {

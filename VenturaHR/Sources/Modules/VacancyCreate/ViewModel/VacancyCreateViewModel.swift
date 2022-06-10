@@ -14,7 +14,7 @@ final class VacancyCreateViewModel: ObservableObject {
     @Published var expiresDate = Date()
 
     private let interactor: VacancyCreateInteractorProtocol
-    private var cancellables: Set<AnyCancellable>
+    var cancellables: Set<AnyCancellable>
     
     var shouldDisableCitySelector: Bool {
         vacancy.state.isEmpty
