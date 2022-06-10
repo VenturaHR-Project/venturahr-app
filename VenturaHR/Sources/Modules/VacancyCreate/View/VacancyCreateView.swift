@@ -89,7 +89,6 @@ private extension VacancyCreateView {
                 }
             }
             .pickerStyle(MenuPickerStyle())
-            .padding(.vertical, 10)
         }
     }
     
@@ -105,7 +104,6 @@ private extension VacancyCreateView {
                 }
             }
             .pickerStyle(MenuPickerStyle())
-            //.padding(.vertical, 10)
         }
     }
     
