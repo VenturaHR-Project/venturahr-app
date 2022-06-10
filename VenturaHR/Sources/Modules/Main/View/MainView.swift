@@ -12,7 +12,7 @@ struct MainView: View {
                     Text("Home")
                 }.tag(0)
             
-            MainViewRouter.makeVacancyView()
+            MainViewRouter.makeVacanciesView()
                 .tabItem {
                     Image(systemName: "bag")
                     //Image(systemName: "chart.bar")

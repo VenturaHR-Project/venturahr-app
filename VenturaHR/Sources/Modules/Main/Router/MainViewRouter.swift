@@ -6,7 +6,7 @@ struct MainViewRouter {
         return MainView(viewModel: viewModel)
     }
     
-    static func makeVacancyView() -> some View {
-        VacancyViewRouter.start()
+    static func makeVacanciesView() -> some View {
+        VacanciesViewRouter.start()
     }
 }

@@ -1,10 +1,10 @@
 import SwiftUI
 import Combine
 
-struct VacancyViewRouter {
+struct VacanciesViewRouter {
     static func start() -> some View  {
-        let viewModel = VacancyViewModel()
-        return VacancyView(viewModel: viewModel)
+        let viewModel = VacanciesViewModel()
+        return VacanciesView(viewModel: viewModel)
     }
     
     static func makeVacancyCreateView() -> some View {

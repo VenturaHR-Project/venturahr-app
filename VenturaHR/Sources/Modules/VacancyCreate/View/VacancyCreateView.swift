@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct VacancyCreateView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     @StateObject var viewModel: VacancyCreateViewModel
     
     var body: some View {
@@ -15,7 +13,7 @@ struct VacancyCreateView: View {
                         skillSection
                     }
                 }
-                .navigationBarTitleDisplayMode(.automatic)
+                .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle(Text("Nova vaga"))
                 .toolbar {
                     Button(action: viewModel.handleSaveVacancy) {
@@ -34,7 +32,9 @@ struct VacancyCreateView: View {
         }
         .onAppear(perform: viewModel.handleOnAppear)
     }
-    
+}
+
+private extension VacancyCreateView {
     var dataSection: some View {
         Section {
             VacancyEditTextField(text: $viewModel.vacancy.ocupation,

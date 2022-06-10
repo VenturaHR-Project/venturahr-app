@@ -1,4 +1,4 @@
-enum VacancyUIState {    
+enum VacanciesUIState {    
     case hasError(message: String)
     case loading
     case emptyList

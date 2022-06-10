@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct VacancyCardView: View {
+struct VacanciesCardView: View {
     @State var accountType: AccountType
     @State var viewData: VacancyViewData
     
@@ -45,7 +45,7 @@ struct VacancyCardView: View {
     }
 }
 
-private extension VacancyCardView {
+private extension VacanciesCardView {
     var header: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
@@ -144,9 +144,9 @@ private extension VacancyCardView {
     }
 }
 
-struct VacancyCardView_Previews: PreviewProvider {
+struct VacanciesCardView_Previews: PreviewProvider {
     static var previews: some View {
-        VacancyCardView(
+        VacanciesCardView(
             accountType: .company, viewData: VacancyViewData.vacancyViewDataMock
         )
     }

@@ -1,18 +1,18 @@
 import Combine
 import SwiftUI
 
-class VacancyViewModel: ObservableObject {
-    @Published private(set) var uiState: VacancyUIState = .loading
+class VacanciesViewModel: ObservableObject {
+    @Published private(set) var uiState: VacanciesUIState = .loading
     @Published private(set) var accountType: AccountType = .candidate
     @Published private(set) var vacancies: [VacancyViewData] = []
     @Published var shouldPresentVacancyCreateView: Bool = false
     
     private var cancellables: Set<AnyCancellable>
-    private let interactor: VacancyInteractorProtocol
+    private let interactor: VacanciesInteractorProtocol
     
     init(
         cancellables: Set<AnyCancellable> = Set<AnyCancellable>(),
-        interactor: VacancyInteractorProtocol = VacancyInteractor()
+        interactor: VacanciesInteractorProtocol = VacanciesInteractor()
     ) {
         self.cancellables = cancellables
         self.interactor = interactor
@@ -86,8 +86,8 @@ class VacancyViewModel: ObservableObject {
     }
 }
 
-extension VacancyViewModel {
+extension VacanciesViewModel {
     func goToVacancyCreateView() -> some View {
-        return VacancyViewRouter.makeVacancyCreateView()
+        return VacanciesViewRouter.makeVacancyCreateView()
     }
 }

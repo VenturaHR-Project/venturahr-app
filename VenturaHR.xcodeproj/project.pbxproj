@@ -70,19 +70,21 @@
 		6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */; };
 		6D8DEDA327E6C56D0062920E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA227E6C56D0062920E /* Assets.xcassets */; };
 		6D8DEDA627E6C56D0062920E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA527E6C56D0062920E /* Preview Assets.xcassets */; };
-		6DA80B062846FFC1005ED991 /* VacancyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA80B052846FFC1005ED991 /* VacancyCardView.swift */; };
+		6DA80B062846FFC1005ED991 /* VacanciesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA80B052846FFC1005ED991 /* VacanciesCardView.swift */; };
 		6DA8389C28118DDB009BE7F1 /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA8389B28118DDB009BE7F1 /* MainViewRouter.swift */; };
-		6DA85D8828249929006A9896 /* VacancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA85D8728249929006A9896 /* VacancyView.swift */; };
+		6DA85D8828249929006A9896 /* VacanciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA85D8728249929006A9896 /* VacanciesView.swift */; };
 		6DB22EFB2831C0590060E31B /* CitySelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB22EFA2831C0590060E31B /* CitySelectorView.swift */; };
+		6DC2079E2852D135007DCBF5 /* VacancyCreateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC2079D2852D135007DCBF5 /* VacancyCreateInteractor.swift */; };
+		6DC207A12852D1B9007DCBF5 /* VacancyCreateViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC207A02852D1B9007DCBF5 /* VacancyCreateViewRouter.swift */; };
 		6DD7874A2813503A0032F6AA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD787492813503A0032F6AA /* MainViewModel.swift */; };
 		6DD7875E281359FB0032F6AA /* GenericUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7875D281359FB0032F6AA /* GenericUser.swift */; };
 		6DD7876128135A890032F6AA /* GenericUserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7876028135A890032F6AA /* GenericUserFactory.swift */; };
 		6DD8EF3228484F7200E5B477 /* VacancyViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD8EF3128484F7200E5B477 /* VacancyViewData.swift */; };
-		6DDB4DCE2830894C00CE2A3B /* VacancyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB4DCD2830894C00CE2A3B /* VacancyInteractor.swift */; };
-		6DDB4DD028308D1D00CE2A3B /* VacancyViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB4DCF28308D1C00CE2A3B /* VacancyViewRouter.swift */; };
+		6DDB4DCE2830894C00CE2A3B /* VacanciesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB4DCD2830894C00CE2A3B /* VacanciesInteractor.swift */; };
+		6DDB4DD028308D1D00CE2A3B /* VacanciesViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB4DCF28308D1C00CE2A3B /* VacanciesViewRouter.swift */; };
 		6DE2C01D2845860200FE3A5D /* VacancyCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2C01C2845860200FE3A5D /* VacancyCreateView.swift */; };
-		6DE2C0202845872200FE3A5D /* VacancyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2C01F2845872200FE3A5D /* VacancyViewModel.swift */; };
-		6DE2C023284591C300FE3A5D /* VacancyUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2C022284591C300FE3A5D /* VacancyUIState.swift */; };
+		6DE2C0202845872200FE3A5D /* VacanciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2C01F2845872200FE3A5D /* VacanciesViewModel.swift */; };
+		6DE2C023284591C300FE3A5D /* VacanciesUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE2C022284591C300FE3A5D /* VacanciesUIState.swift */; };
 		6DE3315A28370DA50029C783 /* ExpectedSkillSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE3315928370DA50029C783 /* ExpectedSkillSheetView.swift */; };
 		6DE71533282DDEFF0007A5E8 /* StateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE71532282DDEFF0007A5E8 /* StateSelectorView.swift */; };
 		6DE71539282DE36B0007A5E8 /* IbgeRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE71538282DE36B0007A5E8 /* IbgeRemoteDataSource.swift */; };
@@ -157,19 +159,21 @@
 		6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenturaHRApp.swift; sourceTree = "<group>"; };
 		6D8DEDA227E6C56D0062920E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D8DEDA527E6C56D0062920E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6DA80B052846FFC1005ED991 /* VacancyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyCardView.swift; sourceTree = "<group>"; };
+		6DA80B052846FFC1005ED991 /* VacanciesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesCardView.swift; sourceTree = "<group>"; };
 		6DA8389B28118DDB009BE7F1 /* MainViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
-		6DA85D8728249929006A9896 /* VacancyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyView.swift; sourceTree = "<group>"; };
+		6DA85D8728249929006A9896 /* VacanciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesView.swift; sourceTree = "<group>"; };
 		6DB22EFA2831C0590060E31B /* CitySelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectorView.swift; sourceTree = "<group>"; };
+		6DC2079D2852D135007DCBF5 /* VacancyCreateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyCreateInteractor.swift; sourceTree = "<group>"; };
+		6DC207A02852D1B9007DCBF5 /* VacancyCreateViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyCreateViewRouter.swift; sourceTree = "<group>"; };
 		6DD787492813503A0032F6AA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		6DD7875D281359FB0032F6AA /* GenericUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericUser.swift; sourceTree = "<group>"; };
 		6DD7876028135A890032F6AA /* GenericUserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericUserFactory.swift; sourceTree = "<group>"; };
 		6DD8EF3128484F7200E5B477 /* VacancyViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyViewData.swift; sourceTree = "<group>"; };
-		6DDB4DCD2830894C00CE2A3B /* VacancyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyInteractor.swift; sourceTree = "<group>"; };
-		6DDB4DCF28308D1C00CE2A3B /* VacancyViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyViewRouter.swift; sourceTree = "<group>"; };
+		6DDB4DCD2830894C00CE2A3B /* VacanciesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesInteractor.swift; sourceTree = "<group>"; };
+		6DDB4DCF28308D1C00CE2A3B /* VacanciesViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesViewRouter.swift; sourceTree = "<group>"; };
 		6DE2C01C2845860200FE3A5D /* VacancyCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyCreateView.swift; sourceTree = "<group>"; };
-		6DE2C01F2845872200FE3A5D /* VacancyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyViewModel.swift; sourceTree = "<group>"; };
-		6DE2C022284591C300FE3A5D /* VacancyUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyUIState.swift; sourceTree = "<group>"; };
+		6DE2C01F2845872200FE3A5D /* VacanciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesViewModel.swift; sourceTree = "<group>"; };
+		6DE2C022284591C300FE3A5D /* VacanciesUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesUIState.swift; sourceTree = "<group>"; };
 		6DE3315928370DA50029C783 /* ExpectedSkillSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedSkillSheetView.swift; sourceTree = "<group>"; };
 		6DE71532282DDEFF0007A5E8 /* StateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSelectorView.swift; sourceTree = "<group>"; };
 		6DE71538282DE36B0007A5E8 /* IbgeRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbgeRemoteDataSource.swift; sourceTree = "<group>"; };
@@ -238,6 +242,9 @@
 		6D13E41B27EC6E1D00577DCD /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				6D24FE352838601E00B2FA93 /* DesiredMinimumProfile.swift */,
+				6D24FE3128385F8F00B2FA93 /* HiringPeriod.swift */,
+				6D24FE2F28385F6800B2FA93 /* JobType.swift */,
 				6D13E41C27EC6E6300577DCD /* AccountType.swift */,
 				6D4937FE27ED5977002AA2F7 /* UIState.swift */,
 			);
@@ -251,7 +258,8 @@
 				6D3C6B4D27EE6B2400F8F433 /* SignIn */,
 				6D20376A27E9595200377838 /* SignUp */,
 				6D20375C27E918C300377838 /* Splash */,
-				6DA85D8028249840006A9896 /* Vacancy */,
+				6DA85D8028249840006A9896 /* Vacancies */,
+				6DC207982852D098007DCBF5 /* VacancyCreate */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -371,16 +379,6 @@
 			path = InputField;
 			sourceTree = "<group>";
 		};
-		6D24FE2D28385EDE00B2FA93 /* Enum */ = {
-			isa = PBXGroup;
-			children = (
-				6D24FE2F28385F6800B2FA93 /* JobType.swift */,
-				6D24FE3128385F8F00B2FA93 /* HiringPeriod.swift */,
-				6D24FE352838601E00B2FA93 /* DesiredMinimumProfile.swift */,
-			);
-			path = Enum;
-			sourceTree = "<group>";
-		};
 		6D285A7427E7F95D00FAED39 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,19 +456,10 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		6D3C7DD5284D05DD00E9B305 /* CandidateMicroservice */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CandidateMicroservice;
-			sourceTree = "<group>";
-		};
 		6D3DC6922825AAEA00B77C03 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6D3DC6952825AB7B00B77C03 /* VacancyRequest.swift */,
-				6D24FE3328385FBF00B2FA93 /* ExpectedSkill.swift */,
-				6DE2C022284591C300FE3A5D /* VacancyUIState.swift */,
+				6DE2C022284591C300FE3A5D /* VacanciesUIState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -561,7 +550,6 @@
 		6D74BFC9280E49AD00725883 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				6D3C7DD5284D05DD00E9B305 /* CandidateMicroservice */,
 				6D653DF42843ADF000582649 /* CompanyMicroservice */,
 				6D74BFCF280E4BC700725883 /* FirebaseService */,
 				6D30C4902818C73300A099E2 /* IbgeService */,
@@ -727,37 +715,33 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		6DA80B032846FF6D005ED991 /* Fragments */ = {
+		6DA80B032846FF6D005ED991 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				6DB22EFA2831C0590060E31B /* CitySelectorView.swift */,
 				6DE3315928370DA50029C783 /* ExpectedSkillSheetView.swift */,
 				6DE71532282DDEFF0007A5E8 /* StateSelectorView.swift */,
 				6D3DC69028259E1B00B77C03 /* VacancyEditTextField.swift */,
-				6DA80B052846FFC1005ED991 /* VacancyCardView.swift */,
 			);
-			path = Fragments;
+			path = Util;
 			sourceTree = "<group>";
 		};
-		6DA85D8028249840006A9896 /* Vacancy */ = {
+		6DA85D8028249840006A9896 /* Vacancies */ = {
 			isa = PBXGroup;
 			children = (
-				6DA85D842824989D006A9896 /* DataSource */,
-				6D24FE2D28385EDE00B2FA93 /* Enum */,
 				6DA85D85282498B0006A9896 /* Interactor */,
 				6D3DC6922825AAEA00B77C03 /* Model */,
 				6DA85D832824989A006A9896 /* Router */,
 				6DA85D8228249895006A9896 /* View */,
 				6DA85D812824988D006A9896 /* ViewModel */,
 			);
-			path = Vacancy;
+			path = Vacancies;
 			sourceTree = "<group>";
 		};
 		6DA85D812824988D006A9896 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				6D3DC6932825AB1D00B77C03 /* VacancyCreateViewModel.swift */,
-				6DE2C01F2845872200FE3A5D /* VacancyViewModel.swift */,
+				6DE2C01F2845872200FE3A5D /* VacanciesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -765,9 +749,8 @@
 		6DA85D8228249895006A9896 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6DA80B032846FF6D005ED991 /* Fragments */,
-				6DE2C01C2845860200FE3A5D /* VacancyCreateView.swift */,
-				6DA85D8728249929006A9896 /* VacancyView.swift */,
+				6DA80B052846FFC1005ED991 /* VacanciesCardView.swift */,
+				6DA85D8728249929006A9896 /* VacanciesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -775,22 +758,59 @@
 		6DA85D832824989A006A9896 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				6DDB4DCF28308D1C00CE2A3B /* VacancyViewRouter.swift */,
+				6DDB4DCF28308D1C00CE2A3B /* VacanciesViewRouter.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		6DA85D842824989D006A9896 /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DataSource;
 			sourceTree = "<group>";
 		};
 		6DA85D85282498B0006A9896 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				6DDB4DCD2830894C00CE2A3B /* VacancyInteractor.swift */,
+				6DDB4DCD2830894C00CE2A3B /* VacanciesInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		6DC207982852D098007DCBF5 /* VacancyCreate */ = {
+			isa = PBXGroup;
+			children = (
+				6DC2079C2852D113007DCBF5 /* Interactor */,
+				6DC2079B2852D10B007DCBF5 /* Router */,
+				6DC2079A2852D102007DCBF5 /* View */,
+				6DC207992852D0FB007DCBF5 /* ViewModel */,
+			);
+			path = VacancyCreate;
+			sourceTree = "<group>";
+		};
+		6DC207992852D0FB007DCBF5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6D3DC6932825AB1D00B77C03 /* VacancyCreateViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6DC2079A2852D102007DCBF5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6DA80B032846FF6D005ED991 /* Util */,
+				6DE2C01C2845860200FE3A5D /* VacancyCreateView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6DC2079B2852D10B007DCBF5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				6DC207A02852D1B9007DCBF5 /* VacancyCreateViewRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		6DC2079C2852D113007DCBF5 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				6DC2079D2852D135007DCBF5 /* VacancyCreateInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -822,6 +842,8 @@
 		6DD78751281357220032F6AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6D24FE3328385FBF00B2FA93 /* ExpectedSkill.swift */,
+				6D3DC6952825AB7B00B77C03 /* VacancyRequest.swift */,
 				6DD8EF3128484F7200E5B477 /* VacancyViewData.swift */,
 			);
 			path = Model;
@@ -1048,20 +1070,21 @@
 				6DD7875E281359FB0032F6AA /* GenericUser.swift in Sources */,
 				6D39C4E627EA9B1F00CF69C0 /* InputFieldView.swift in Sources */,
 				6DEE7F17281A22750059EB98 /* IbgeStateRegion.swift in Sources */,
+				6DC2079E2852D135007DCBF5 /* VacancyCreateInteractor.swift in Sources */,
 				6D653DF92843AE4500582649 /* CompanyMicroservice.swift in Sources */,
 				6D30C4922818C78600A099E2 /* IbgeService.swift in Sources */,
 				6D20376927E958A200377838 /* SplashViewRouter.swift in Sources */,
 				6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */,
 				6D857A0F28107CC4007D51CD /* SignInViewRouter.swift in Sources */,
-				6DDB4DCE2830894C00CE2A3B /* VacancyInteractor.swift in Sources */,
+				6DDB4DCE2830894C00CE2A3B /* VacanciesInteractor.swift in Sources */,
 				6D7EC537280FA16E0034C58D /* SignUpInteractor.swift in Sources */,
-				6DE2C0202845872200FE3A5D /* VacancyViewModel.swift in Sources */,
+				6DE2C0202845872200FE3A5D /* VacanciesViewModel.swift in Sources */,
 				6D857A1728107F75007D51CD /* SignInRequest.swift in Sources */,
 				6DD7876128135A890032F6AA /* GenericUserFactory.swift in Sources */,
 				6D6AD72727EFEA650041A9F1 /* SignInViewModel.swift in Sources */,
 				6DE71533282DDEFF0007A5E8 /* StateSelectorView.swift in Sources */,
 				6D3C6B5427EE715500F8F433 /* SignUpRequest.swift in Sources */,
-				6DDB4DD028308D1D00CE2A3B /* VacancyViewRouter.swift in Sources */,
+				6DDB4DD028308D1D00CE2A3B /* VacanciesViewRouter.swift in Sources */,
 				6DE71539282DE36B0007A5E8 /* IbgeRemoteDataSource.swift in Sources */,
 				6D20377627E96B3600377838 /* SignUpViewRouter.swift in Sources */,
 				6DE2C01D2845860200FE3A5D /* VacancyCreateView.swift in Sources */,
@@ -1079,8 +1102,9 @@
 				6D6AD72427EFEA550041A9F1 /* SignInView.swift in Sources */,
 				6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */,
 				6D74BFDD280E4D8100725883 /* HttpMethod.swift in Sources */,
-				6DA80B062846FFC1005ED991 /* VacancyCardView.swift in Sources */,
+				6DA80B062846FFC1005ED991 /* VacanciesCardView.swift in Sources */,
 				6D08EFB02829EC1A00547499 /* UserLocalDataSource.swift in Sources */,
+				6DC207A12852D1B9007DCBF5 /* VacancyCreateViewRouter.swift in Sources */,
 				6D24FE3028385F6800B2FA93 /* JobType.swift in Sources */,
 				6D30C48F2818A29000A099E2 /* NetworkResult.swift in Sources */,
 				6D653DF72843AE3500582649 /* CompanyMicroserviceEndpoint.swift in Sources */,
@@ -1096,8 +1120,8 @@
 				6D69FDA22819F516003D2BDB /* IbgeState.swift in Sources */,
 				6D08EFA52829CBB600547499 /* SplashInteractor.swift in Sources */,
 				6D386D7C283D91C4006BB328 /* ToastView.swift in Sources */,
-				6DE2C023284591C300FE3A5D /* VacancyUIState.swift in Sources */,
-				6DA85D8828249929006A9896 /* VacancyView.swift in Sources */,
+				6DE2C023284591C300FE3A5D /* VacanciesUIState.swift in Sources */,
+				6DA85D8828249929006A9896 /* VacanciesView.swift in Sources */,
 				6D24FE3228385F8F00B2FA93 /* HiringPeriod.swift in Sources */,
 				6DD7874A2813503A0032F6AA /* MainViewModel.swift in Sources */,
 				6DA8389C28118DDB009BE7F1 /* MainViewRouter.swift in Sources */,

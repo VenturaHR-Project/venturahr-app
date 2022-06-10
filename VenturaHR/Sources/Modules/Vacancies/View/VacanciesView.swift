@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct VacancyView: View {
-    @StateObject var viewModel: VacancyViewModel
+struct VacanciesView: View {
+    @StateObject var viewModel: VacanciesViewModel
     
     var body: some View {
         ZStack {
@@ -20,7 +20,7 @@ struct VacancyView: View {
     }
 }
 
-private extension VacancyView {
+private extension VacanciesView {
     var emptyStateView: some View {
         Text("Hello word")
     }
@@ -46,7 +46,7 @@ private extension VacancyView {
                     Spacer()
                     
                     ForEach(viewModel.vacancies) { vacancy in
-                        VacancyCardView(accountType: viewModel.accountType, viewData: vacancy)
+                        VacanciesCardView(accountType: viewModel.accountType, viewData: vacancy)
                             .padding(.bottom)
                     }
                 }.lineLimit(2)
@@ -67,25 +67,21 @@ private extension VacancyView {
                     id: "addVacancyButtonToolbarItem",
                     placement: .navigationBarTrailing
                 ) {
-                    HStack {
-                        NavigationLink(
-                            isActive: $viewModel.shouldPresentVacancyCreateView,
-                            destination: viewModel.goToVacancyCreateView
-                        ) {
-                            Button(action: viewModel.handleSelectAddVacancyButton) {
-                                Text("Adicionar")
-                                    .bold()
-                                    .padding(5)
-                                    .border(.orange)
-                                    .font(.system(size: 16, weight: .bold))
-                            }
-                            .foregroundColor(.orange)
-                        }
+                    Button(action: viewModel.handleSelectAddVacancyButton) {
+                        Text("Adicionar")
+                            .bold()
+                            .padding(5)
+                            .border(.orange)
+                            .font(.system(size: 16, weight: .bold))
                     }
+                    .foregroundColor(.orange)
                     .disabled(viewModel.accountType.isCandidate)
                     .opacity(viewModel.accountType.isCompany ? 1 : 0 )
                 }
             }
+        }
+        .sheet(isPresented: $viewModel.shouldPresentVacancyCreateView) {
+            viewModel.goToVacancyCreateView()
         }
     }
     
@@ -99,10 +95,10 @@ private extension VacancyView {
     }
 }
 
-struct VacancyView_Previews: PreviewProvider {
+struct VacanciesView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            VacancyView(viewModel: VacancyViewModel())
+            VacanciesView(viewModel: VacanciesViewModel())
                 .preferredColorScheme($0)
         }
     }
