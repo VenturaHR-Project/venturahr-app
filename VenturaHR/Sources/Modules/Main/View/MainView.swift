@@ -6,18 +6,33 @@ struct MainView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            Text("View 1")
+            MainViewRouter.makeVacanciesView()
                 .tabItem {
                     Image(systemName: "square.grid.2x2")
                     Text("Home")
                 }.tag(0)
             
-            MainViewRouter.makeVacanciesView()
-                .tabItem {
-                    Image(systemName: "bag")
-                    //Image(systemName: "chart.bar")
-                    Text("Vagas")
-                }.tag(1)
+            if viewModel.accountType.isCompany {
+                Text("Ranking de Candidatos")
+                    .tabItem {
+                        Image(systemName: "chart.bar.fill")
+                        Text("Ranking")
+                    }.tag(2)
+                
+                MainViewRouter.makeVacancyCreateView()
+                    .tabItem {
+                        Image(systemName: "bag.fill.badge.plus")
+                        Text("Nova Vaga")
+                    }.tag(2)
+            } else {
+                MainViewRouter.makeVacanciesView()
+                    .tabItem {
+                        Image(systemName: "bag")
+                        //Image(systemName: "chart.bar")
+                        Text("Candidaturas")
+                    }.tag(1)
+                
+            }
             
             Text("View 3")
                 .tabItem {
@@ -27,6 +42,8 @@ struct MainView: View {
         }
         .accentColor(.orange)
     }
+    
+    
 }
 
 struct MainView_Previews: PreviewProvider {

@@ -9,4 +9,8 @@ struct MainViewRouter {
     static func makeVacanciesView() -> some View {
         VacanciesViewRouter.start()
     }
+    
+    static func makeVacancyCreateView() -> some View {
+        VacancyCreateViewRouter.start()
+    }
 }
