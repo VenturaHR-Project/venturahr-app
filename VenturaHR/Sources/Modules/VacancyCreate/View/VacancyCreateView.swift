@@ -49,6 +49,10 @@ private extension VacancyCreateView {
                                  title: "Empresa",
                                  placeholder: "Empresa de teste")
             
+            hiringPeriodField
+            
+            jobTypeField
+            
             stateSelectorViewWithLink
             
             citySelectorViewWithLink
@@ -70,6 +74,38 @@ private extension VacancyCreateView {
             .accentColor(.orange)
         } header: {
             setSectionHeader(title: "Dados")
+        }
+    }
+    
+    var hiringPeriodField: some View {
+        HStack {
+            Text("Período")
+            
+            Spacer()
+            Picker("", selection: $viewModel.vacancy.hiringPeriod) {
+                ForEach(HiringPeriod.allCases, id: \.self) { type in
+                    Text(type.rawValue)
+                        .tag(type)
+                }
+            }
+            .pickerStyle(MenuPickerStyle())
+            .padding(.vertical, 10)
+        }
+    }
+    
+    var jobTypeField: some View {
+        HStack {
+            Text("Contratação")
+            
+            Spacer()
+            Picker("", selection: $viewModel.vacancy.jobType) {
+                ForEach(JobType.allCases, id: \.self) { type in
+                    Text(type.rawValue)
+                        .tag(type)
+                }
+            }
+            .pickerStyle(MenuPickerStyle())
+            //.padding(.vertical, 10)
         }
     }
     
