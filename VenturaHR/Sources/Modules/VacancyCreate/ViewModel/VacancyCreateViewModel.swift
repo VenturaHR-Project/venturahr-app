@@ -8,13 +8,15 @@ final class VacancyCreateViewModel: ObservableObject {
     @Published var expectedSkills: [ExpectedSkill] = []
     @Published var ibgeStates: [IbgeState] = []
     @Published var ibgeCities: [IbgeCity] = []
-    @Published var showCitySelectorProgress: Bool = true
-    @Published var shouldPresentExpectedSkiilsSheet = false
     @Published var createdDate = Date()
     @Published var expiresDate = Date()
+    @Published var showCitySelectorProgress: Bool = true
+    @Published var shouldPresentExpectedSkiilsSheet: Bool = false
+    @Published var shouldPresentPopup : Bool = false
+    
 
     private let interactor: VacancyCreateInteractorProtocol
-    var cancellables: Set<AnyCancellable>
+    private var cancellables: Set<AnyCancellable>
     
     var shouldDisableCitySelector: Bool {
         vacancy.state.isEmpty
@@ -79,6 +81,19 @@ final class VacancyCreateViewModel: ObservableObject {
         vacancy.expiresAt = expiresDateFormatted
     }
     
+    private func clearFormFields() {
+        vacancy.ocupation = ""
+        vacancy.description = ""
+        vacancy.state = ""
+        vacancy.city = ""
+        createdDate = Date()
+        expiresDate = Date()
+        expectedSkills = []
+        expectedSkill.description = ""
+        expectedSkill.desiredMinimumProfile = .veryLow
+        expectedSkill.height = 1
+    }
+    
     func handleOnAppear() {
         setUserValues()
         fetchStates()
@@ -124,7 +139,9 @@ final class VacancyCreateViewModel: ObservableObject {
             .sink { completion in
                 self.handleDefaultCompletion(with: completion)
             } receiveValue: { created in
+                self.clearFormFields()
                 self.uiState = .success
+                self.shouldPresentPopup = true
             }
             .store(in: &cancellables)
     }

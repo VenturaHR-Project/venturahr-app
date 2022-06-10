@@ -17,7 +17,7 @@ struct MainView: View {
                     .tabItem {
                         Image(systemName: "chart.bar.fill")
                         Text("Ranking")
-                    }.tag(2)
+                    }.tag(1)
                 
                 MainViewRouter.makeVacancyCreateView()
                     .tabItem {
@@ -30,7 +30,7 @@ struct MainView: View {
                         Image(systemName: "bag")
                         //Image(systemName: "chart.bar")
                         Text("Candidaturas")
-                    }.tag(1)
+                    }.tag(3)
                 
             }
             
@@ -38,7 +38,7 @@ struct MainView: View {
                 .tabItem {
                     Image(systemName: "person.crop.circle")
                     Text("Perfil")
-                }.tag(2)
+                }.tag(4)
         }
         .accentColor(.orange)
     }

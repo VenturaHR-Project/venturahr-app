@@ -1,4 +1,5 @@
 import SwiftUI
+import PopupView
 
 struct VacancyCreateView: View {
     @Environment(\.dismiss) var dismiss
@@ -27,24 +28,28 @@ struct VacancyCreateView: View {
                     .disabled(viewModel.isSaveButtonDisabled)
                 }
             }
+            .popup(
+                isPresented: $viewModel.shouldPresentPopup,
+                type: .floater(verticalPadding: 0, useSafeAreaInset: true),
+                position: .bottom,
+                animation: .easeIn,
+                autohideIn: 3,
+                dragToDismiss: true,
+                closeOnTap: true,
+                closeOnTapOutside: true
+            ) {
+                ToastView(
+                    imageName: R.image.checkmarkSeal.name,
+                    message: "Vaga cadastrada com sucesso!",
+                    isDisabled: .constant(false)
+                )
+            }
             
             if case UIState.error(let value) = viewModel.uiState {
                 errorStateView(message: value)
             }
         }
-        .onAppear() {
-            viewModel.handleOnAppear()
-            observerSaveBarButton()
-        }
-    }
-    
-    func observerSaveBarButton() {
-        viewModel.$uiState.sink { uiState in
-            if uiState == .success {
-                dismiss()
-                
-            }
-        }.store(in: &viewModel.cancellables)
+        .onAppear(perform: viewModel.handleOnAppear)
     }
     
     var saveBarButtonColor: Color {

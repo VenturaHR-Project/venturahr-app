@@ -62,27 +62,6 @@ private extension VacanciesView {
                         .scaledToFill()
                         .frame(maxWidth: 2)
                 }
-                
-                ToolbarItem(
-                    id: "addVacancyButtonToolbarItem",
-                    placement: .navigationBarTrailing
-                ) {
-                    Button(action: viewModel.handleSelectAddVacancyButton) {
-                        Text("Adicionar")
-                            .bold()
-                            .padding(5)
-                            .border(.orange)
-                            .font(.system(size: 16, weight: .bold))
-                    }
-                    .foregroundColor(.orange)
-                    .disabled(viewModel.accountType.isCandidate)
-                    .opacity(viewModel.accountType.isCompany ? 1 : 0 )
-                }
-            }
-        }
-        .sheet(isPresented: $viewModel.shouldPresentVacancyCreateView) {
-            viewModel.goToVacancyCreateView().onDisappear() {
-                viewModel.fetchVacancies()
             }
         }
     }

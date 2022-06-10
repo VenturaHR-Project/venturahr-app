@@ -5,7 +5,6 @@ class VacanciesViewModel: ObservableObject {
     @Published private(set) var uiState: VacanciesUIState = .loading
     @Published private(set) var accountType: AccountType = .candidate
     @Published private(set) var vacancies: [VacancyViewData] = []
-    @Published var shouldPresentVacancyCreateView: Bool = false
     
     private var cancellables: Set<AnyCancellable>
     private let interactor: VacanciesInteractorProtocol
@@ -79,10 +78,6 @@ class VacanciesViewModel: ObservableObject {
     func fetchVacancies() {
         uiState = .loading
         accountType.isCandidate ? getVacancies() : getVacanciesByCompany()
-    }
-    
-    func handleSelectAddVacancyButton() {
-        shouldPresentVacancyCreateView = true
     }
 }
 
