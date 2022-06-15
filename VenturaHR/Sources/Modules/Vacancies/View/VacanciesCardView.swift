@@ -3,6 +3,7 @@ import SwiftUI
 struct VacanciesCardView: View {
     @State var accountType: AccountType
     @State var viewData: VacancyViewData
+    @State var viewModel: VacanciesViewModel
     
     var body: some View {
         ZStack {
@@ -110,7 +111,7 @@ private extension VacanciesCardView {
     var candidateFooter: some View {
         LoadingButtonView(
             viewData: LoadingButtonViewData(
-                action: { print("teste") },
+                action: { viewModel.handleShowAnswerVacancySheet(viewData: viewData) },
                 buttonTitle: "Quero me candidatar",
                 showProgress: false,
                 disabled: false,
@@ -147,7 +148,9 @@ private extension VacanciesCardView {
 struct VacanciesCardView_Previews: PreviewProvider {
     static var previews: some View {
         VacanciesCardView(
-            accountType: .company, viewData: VacancyViewData.vacancyViewDataMock
+            accountType: .company,
+            viewData: VacancyViewData.vacancyViewDataMock,
+            viewModel: VacanciesViewModel()
         )
     }
 }

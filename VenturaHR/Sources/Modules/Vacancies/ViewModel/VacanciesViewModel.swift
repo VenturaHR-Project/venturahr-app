@@ -5,9 +5,14 @@ class VacanciesViewModel: ObservableObject {
     @Published private(set) var uiState: VacanciesUIState = .loading
     @Published private(set) var accountType: AccountType = .candidate
     @Published private(set) var vacancies: [VacancyViewData] = []
+    @Published var showAnswerVacancySheet: Bool = false
     
     private var cancellables: Set<AnyCancellable>
     private let interactor: VacanciesInteractorProtocol
+    
+    var userUid: String = ""
+    var selectedVacacyId: String = ""
+    @Published var selectedVacacyExpectedSkills: [ExpectedSkill] = []
     
     init(
         cancellables: Set<AnyCancellable> = Set<AnyCancellable>(),
@@ -15,7 +20,7 @@ class VacanciesViewModel: ObservableObject {
     ) {
         self.cancellables = cancellables
         self.interactor = interactor
-        getAccountType()
+        getUserAccountData()
     }
     
     deinit {
@@ -28,12 +33,14 @@ class VacanciesViewModel: ObservableObject {
         }
     }
     
-    private func getAccountType()  {
+    private func getUserAccountData()  {
         guard
             let type = interactor.handleGetAccountType(),
-            let result = AccountType(rawValue: type)
+            let result = AccountType(rawValue: type),
+            let uid = interactor.handleGetUserUid()
         else { return }
         
+        userUid = uid
         accountType = result
     }
     
@@ -78,6 +85,12 @@ class VacanciesViewModel: ObservableObject {
     func fetchVacancies() {
         uiState = .loading
         accountType.isCandidate ? getVacancies() : getVacanciesByCompany()
+    }
+    
+    func handleShowAnswerVacancySheet(viewData: VacancyViewData) {
+        self.showAnswerVacancySheet = true
+        selectedVacacyExpectedSkills = viewData.expectedSkills
+        selectedVacacyId = viewData.id
     }
 }
 

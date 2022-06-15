@@ -10,7 +10,7 @@ protocol FirebaseRemoteDataSourceProtocol {
     func signIn(email: String, password: String) -> Future<Bool, Error>
     func signOut() -> Future<Bool, NetworkError>
     
-    func addFirestoreItem<T: Encodable>(collection: String, documentName: String, data: T) -> Future<Bool, Error>
+    func addFirestoreItem<T: Encodable>(collection: String, documentName: String, data: T) -> Future<Bool, NetworkError>
 }
 
 final class FirebaseRemoteDataSource {
@@ -81,7 +81,7 @@ extension FirebaseRemoteDataSource: FirebaseRemoteDataSourceProtocol {
         }
     }
     
-    func addFirestoreItem<T: Encodable>(collection: String, documentName: String, data: T) -> Future<Bool, Error> {
+    func addFirestoreItem<T: Encodable>(collection: String, documentName: String, data: T) -> Future<Bool, NetworkError> {
         return Future { promise in
             let docRef = self.firebaseService.firestore.collection(collection).document(documentName)
             
@@ -89,7 +89,7 @@ extension FirebaseRemoteDataSource: FirebaseRemoteDataSourceProtocol {
                 try docRef.setData(from: data)
                 promise(.success(true))
             } catch let firestoreError {
-                promise(.failure(firestoreError))
+                promise(.failure(.detail(firestoreError.localizedDescription)))
             }
         }
     }

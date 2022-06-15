@@ -16,6 +16,13 @@ struct VacanciesView: View {
                 fullStateView
             }
         }
+        .sheet(isPresented: $viewModel.showAnswerVacancySheet, content: {
+            AnswerVacancyView(
+                userUid: viewModel.userUid,
+                vacancyId: viewModel.selectedVacacyId,
+                expectedSkills: viewModel.selectedVacacyExpectedSkills
+            )
+        })
         .onAppear(perform: viewModel.fetchVacancies)
     }
 }
@@ -46,8 +53,12 @@ private extension VacanciesView {
                     Spacer()
                     
                     ForEach(viewModel.vacancies) { vacancy in
-                        VacanciesCardView(accountType: viewModel.accountType, viewData: vacancy)
-                            .padding(.bottom)
+                        VacanciesCardView(
+                            accountType: viewModel.accountType,
+                            viewData: vacancy,
+                            viewModel: viewModel
+                        )
+                        .padding(.bottom)
                     }
                 }.lineLimit(2)
             }
