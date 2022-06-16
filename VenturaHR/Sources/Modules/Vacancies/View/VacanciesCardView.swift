@@ -124,20 +124,29 @@ private extension VacanciesCardView {
     var companyFooter: some View {
         HStack {
             Button(action: {  }) {
-                Text("Editar")
-                    .bold()
-                    .padding(5)
-                    .border(.blue)
+                Image(systemName: "chart.bar")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 22, height: 22, alignment: .center)
             }
-            .foregroundColor(.blue)
+            .foregroundColor(.orange)
             
             Spacer()
             
+            
             Button(action: {  }) {
-                Text("Apagar")
-                    .bold()
-                    .padding(5)
-                    .border(.red)
+                Image(systemName: "square.and.pencil")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 22, height: 22, alignment: .center)
+            }
+            .foregroundColor(.blue)
+            
+            Button(action: {  }) {
+                Image(systemName: "trash")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 22, height: 22, alignment: .center)
             }
             .foregroundColor(.red)
         }
