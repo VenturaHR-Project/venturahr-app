@@ -5,6 +5,7 @@ final class AnswerVacancyViewModel: ObservableObject {
     @Published var uiState: UIState = .none
     @Published var showCitySelectorProgress: Bool = true
     @Published var shouldPresentPopup : Bool = false
+    @Published var savedAnswer: Bool = false
     @Published var expectedSkills: [ExpectedSkill] = []
     
     private let interactor: AnswerVacancyInteractorProtocol
@@ -71,16 +72,16 @@ final class AnswerVacancyViewModel: ObservableObject {
     }
     
     func handleAnswerVacancy() {
-        let score = calculateAnswersScore()
         let createdDateFormatted = DateHelper().parseDateToString(value: Date())
-        let answer = AnswerVacancyDTO(userUid: userUid, vacancyId: vacancyId, score: score, createdDate: createdDateFormatted)
+        let mappedAnswers = Answer.map(expectedSkills: expectedSkills)
+        let answer: AnswerVacancyDTO = AnswerVacancyDTO(userUid: userUid, vacancyId: vacancyId, answers: mappedAnswers, createdDate: createdDateFormatted)
         
         interactor.handleApplyForVacancy(answer: answer)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 self.handleDefaultCompletion(with: completion)
             } receiveValue: { created in
-                print(created)
+                self.shouldPresentPopup = true
             }
             .store(in: &cancellables)
     }

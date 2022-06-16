@@ -56,6 +56,9 @@ final class Network {
                 case 400:
                     completion(.failure(.badRequest, data))
                     break
+                case 403:
+                    completion(.failure(.detail(data.description), data))
+                    break
                 case 404:
                     completion(.failure(.dataNotFound, data))
                     break

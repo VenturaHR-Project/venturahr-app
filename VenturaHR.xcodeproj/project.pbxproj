@@ -71,6 +71,10 @@
 		6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */; };
 		6D8DEDA327E6C56D0062920E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA227E6C56D0062920E /* Assets.xcassets */; };
 		6D8DEDA627E6C56D0062920E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D8DEDA527E6C56D0062920E /* Preview Assets.xcassets */; };
+		6D8E7927285BD10B005D7B5D /* CandidateMicroservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8E7926285BD10B005D7B5D /* CandidateMicroservice.swift */; };
+		6D8E792A285BD13E005D7B5D /* CandidateMicroserviceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8E7929285BD13E005D7B5D /* CandidateMicroserviceEndpoint.swift */; };
+		6D8E792C285BD28E005D7B5D /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8E792B285BD28E005D7B5D /* Answer.swift */; };
+		6D8E7930285BD38A005D7B5D /* CandidateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8E792F285BD38A005D7B5D /* CandidateDataSource.swift */; };
 		6DA80B062846FFC1005ED991 /* VacanciesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA80B052846FFC1005ED991 /* VacanciesCardView.swift */; };
 		6DA8389C28118DDB009BE7F1 /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA8389B28118DDB009BE7F1 /* MainViewRouter.swift */; };
 		6DA85D8828249929006A9896 /* VacanciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA85D8728249929006A9896 /* VacanciesView.swift */; };
@@ -164,6 +168,10 @@
 		6D8DED9E27E6C5690062920E /* VenturaHRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenturaHRApp.swift; sourceTree = "<group>"; };
 		6D8DEDA227E6C56D0062920E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D8DEDA527E6C56D0062920E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6D8E7926285BD10B005D7B5D /* CandidateMicroservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateMicroservice.swift; sourceTree = "<group>"; };
+		6D8E7929285BD13E005D7B5D /* CandidateMicroserviceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateMicroserviceEndpoint.swift; sourceTree = "<group>"; };
+		6D8E792B285BD28E005D7B5D /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		6D8E792F285BD38A005D7B5D /* CandidateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateDataSource.swift; sourceTree = "<group>"; };
 		6DA80B052846FFC1005ED991 /* VacanciesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesCardView.swift; sourceTree = "<group>"; };
 		6DA8389B28118DDB009BE7F1 /* MainViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
 		6DA85D8728249929006A9896 /* VacanciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesView.swift; sourceTree = "<group>"; };
@@ -239,6 +247,7 @@
 		6D08EFAB2829EA4B00547499 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				6D8E792D285BD375005D7B5D /* CandidateDataSource */,
 				6D653E002843E56900582649 /* CompanyDataSource */,
 				6DE71534282DE22E0007A5E8 /* IbgeDataSource */,
 				6D4BB48C282B25530012A792 /* FirebaseDataSource */,
@@ -433,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				6D3396E52859690500A89914 /* AnswerVacancyDTO.swift */,
+				6D8E792B285BD28E005D7B5D /* Answer.swift */,
 			);
 			path = AnswerVacancy;
 			sourceTree = "<group>";
@@ -567,6 +577,7 @@
 		6D74BFC9280E49AD00725883 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				6D8E7925285BD0F8005D7B5D /* CandidateMicroservice */,
 				6D653DF42843ADF000582649 /* CompanyMicroservice */,
 				6D74BFCF280E4BC700725883 /* FirebaseService */,
 				6D30C4902818C73300A099E2 /* IbgeService */,
@@ -730,6 +741,31 @@
 				6D08EF9B2829C8B700547499 /* UserDefaults */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		6D8E7925285BD0F8005D7B5D /* CandidateMicroservice */ = {
+			isa = PBXGroup;
+			children = (
+				6D8E7928285BD12B005D7B5D /* Enum */,
+				6D8E7926285BD10B005D7B5D /* CandidateMicroservice.swift */,
+			);
+			path = CandidateMicroservice;
+			sourceTree = "<group>";
+		};
+		6D8E7928285BD12B005D7B5D /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				6D8E7929285BD13E005D7B5D /* CandidateMicroserviceEndpoint.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		6D8E792D285BD375005D7B5D /* CandidateDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				6D8E792F285BD38A005D7B5D /* CandidateDataSource.swift */,
+			);
+			path = CandidateDataSource;
 			sourceTree = "<group>";
 		};
 		6DA80B032846FF6D005ED991 /* Util */ = {
@@ -1110,7 +1146,9 @@
 				6D653E022843E58100582649 /* CompanyDataSource.swift in Sources */,
 				6D79D50627ED22BE00F9E961 /* LoadingButtonView.swift in Sources */,
 				6D857A1F2810A02D007D51CD /* MainView.swift in Sources */,
+				6D8E792A285BD13E005D7B5D /* CandidateMicroserviceEndpoint.swift in Sources */,
 				6D20375F27E918FE00377838 /* SplashView.swift in Sources */,
+				6D8E792C285BD28E005D7B5D /* Answer.swift in Sources */,
 				6D857A242810B590007D51CD /* String+Extension.swift in Sources */,
 				6D74BFE5280EFC3200725883 /* UserMicroservice.swift in Sources */,
 				6DC207B82853F0BA007DCBF5 /* AnswerVacancyInteractor.swift in Sources */,
@@ -1131,6 +1169,7 @@
 				6D20376927E958A200377838 /* SplashViewRouter.swift in Sources */,
 				6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */,
 				6D857A0F28107CC4007D51CD /* SignInViewRouter.swift in Sources */,
+				6D8E7930285BD38A005D7B5D /* CandidateDataSource.swift in Sources */,
 				6DDB4DCE2830894C00CE2A3B /* VacanciesInteractor.swift in Sources */,
 				6D7EC537280FA16E0034C58D /* SignUpInteractor.swift in Sources */,
 				6DE2C0202845872200FE3A5D /* VacanciesViewModel.swift in Sources */,
@@ -1158,6 +1197,7 @@
 				6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */,
 				6D74BFDD280E4D8100725883 /* HttpMethod.swift in Sources */,
 				6DA80B062846FFC1005ED991 /* VacanciesCardView.swift in Sources */,
+				6D8E7927285BD10B005D7B5D /* CandidateMicroservice.swift in Sources */,
 				6D08EFB02829EC1A00547499 /* UserLocalDataSource.swift in Sources */,
 				6DC207A12852D1B9007DCBF5 /* VacancyCreateViewRouter.swift in Sources */,
 				6D24FE3028385F6800B2FA93 /* JobType.swift in Sources */,

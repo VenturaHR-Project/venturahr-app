@@ -2,6 +2,7 @@ import SwiftUI
 import PopupView
 
 struct AnswerVacancyView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: AnswerVacancyViewModel = AnswerVacancyViewModel()
     
     var userUid: String
@@ -45,7 +46,10 @@ struct AnswerVacancyView: View {
                     autohideIn: 3,
                     dragToDismiss: true,
                     closeOnTap: true,
-                    closeOnTapOutside: true
+                    closeOnTapOutside: true,
+                    dismissCallback: {
+                        dismiss()
+                    }
                 ) {
                     ToastView(
                         imageName: R.image.checkmarkSeal.name,

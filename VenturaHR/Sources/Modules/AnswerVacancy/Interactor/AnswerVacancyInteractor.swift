@@ -5,19 +5,17 @@ protocol AnswerVacancyInteractorProtocol {
 }
 
 final class AnswerVacancyInteractor {
-    private let firebaseRemoteDataSource: FirebaseRemoteDataSourceProtocol
+    private let candidateRemoteDataSource: CandidateRemoteDataSourceProtocol
     
     init(
-        firebaseRemoteDataSource: FirebaseRemoteDataSourceProtocol = FirebaseRemoteDataSource()
+        candidateRemoteDataSource: CandidateRemoteDataSourceProtocol = CandidateRemoteDataSource()
     ) {
-        self.firebaseRemoteDataSource = firebaseRemoteDataSource
+        self.candidateRemoteDataSource = candidateRemoteDataSource
     }
 }
 
 extension AnswerVacancyInteractor: AnswerVacancyInteractorProtocol {
     func handleApplyForVacancy(answer: AnswerVacancyDTO) -> Future<Bool, NetworkError> {
-        return firebaseRemoteDataSource.addFirestoreItem(collection: "answers",
-                                                         documentName: answer.userUid,
-                                                         data: answer)
+        return candidateRemoteDataSource.saveAnswerVacancy(request: answer)
     }
 }
