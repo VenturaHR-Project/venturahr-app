@@ -9,8 +9,6 @@ protocol FirebaseRemoteDataSourceProtocol {
     func deleteUser()
     func signIn(email: String, password: String) -> Future<Bool, Error>
     func signOut() -> Future<Bool, NetworkError>
-    
-    func addFirestoreItem<T: Encodable>(collection: String, documentName: String, data: T) -> Future<Bool, NetworkError>
 }
 
 final class FirebaseRemoteDataSource {
@@ -77,19 +75,6 @@ extension FirebaseRemoteDataSource: FirebaseRemoteDataSourceProtocol {
                 promise(.success(true))
             } catch let signOutError {
                 promise(.failure(.detail(signOutError.localizedDescription)))
-            }
-        }
-    }
-    
-    func addFirestoreItem<T: Encodable>(collection: String, documentName: String, data: T) -> Future<Bool, NetworkError> {
-        return Future { promise in
-            let docRef = self.firebaseService.firestore.collection(collection).document(documentName)
-            
-            do {
-                try docRef.setData(from: data)
-                promise(.success(true))
-            } catch let firestoreError {
-                promise(.failure(.detail(firestoreError.localizedDescription)))
             }
         }
     }

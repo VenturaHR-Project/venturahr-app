@@ -7,7 +7,6 @@ protocol VacanciesInteractorProtocol {
     func handleGetAccountType() -> String?
     func handleGetVacancies() -> Future<[Vacancy], NetworkError>
     func handleGetVacanciesByCompany(name: String) -> Future<[Vacancy], NetworkError>
-    func handleApplyForVacancy(vacancy: Vacancy) -> Future<Bool, NetworkError>
 }
 
 final class VacanciesInteractor {
@@ -31,12 +30,6 @@ final class VacanciesInteractor {
 }
 
 extension VacanciesInteractor: VacanciesInteractorProtocol {
-    func handleApplyForVacancy(vacancy: Vacancy) -> Future<Bool, NetworkError> {
-        return firebaseRemoteDataSource.addFirestoreItem(collection: "answers",
-                                                         documentName: vacancy.uid,
-                                                         data: vacancy)
-    }
-    
     func handleGetUserUid() -> String? {
         return userLocalDataSource.getUserUid()
     }
