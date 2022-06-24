@@ -1,6 +1,6 @@
 enum CandidateMicroserviceEndpoint {
     case postAnswerVacancy
-
+    case getAnswersByVacancyId
 }
 
 extension CandidateMicroserviceEndpoint {
@@ -12,6 +12,8 @@ extension CandidateMicroserviceEndpoint {
         switch self {
         case .postAnswerVacancy:
             return "\(baseUrl)/answers"
+        case .getAnswersByVacancyId:
+            return "\(baseUrl)/answers/%@"
         }
     }
 }

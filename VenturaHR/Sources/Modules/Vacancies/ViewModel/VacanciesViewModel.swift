@@ -5,7 +5,6 @@ class VacanciesViewModel: ObservableObject {
     @Published private(set) var uiState: VacanciesUIState = .loading
     @Published private(set) var accountType: AccountType = .candidate
     @Published private(set) var vacancies: [VacancyViewData] = []
-    @Published var showAnswerVacancySheet: Bool = false
     
     private var cancellables: Set<AnyCancellable>
     private let interactor: VacanciesInteractorProtocol
@@ -86,16 +85,18 @@ class VacanciesViewModel: ObservableObject {
         uiState = .loading
         accountType.isCandidate ? getVacancies() : getVacanciesByCompany()
     }
-    
-    func handleShowAnswerVacancySheet(viewData: VacancyViewData) {
-        self.showAnswerVacancySheet = true
-        selectedVacacyExpectedSkills = viewData.expectedSkills
-        selectedVacacyId = viewData.id
-    }
 }
 
 extension VacanciesViewModel {
     func goToVacancyCreateView() -> some View {
         return VacanciesViewRouter.makeVacancyCreateView()
+    }
+    
+    func goToAnswerVacancyView(userUid: String, vacancyId: String, expectedSkills: [ExpectedSkill]) -> some View {
+        return VacanciesViewRouter.makeAnswerVacancyView(userUid: userUid, vacancyId: vacancyId, expectedSkills: expectedSkills)
+    }
+    
+    func goToRankingView(vacancyId: String) -> some View {
+        return VacanciesViewRouter.makeRankingView(vacancyId: vacancyId)
     }
 }

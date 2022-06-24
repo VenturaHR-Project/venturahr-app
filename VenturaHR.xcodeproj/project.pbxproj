@@ -25,6 +25,9 @@
 		6D24FE362838601E00B2FA93 /* DesiredMinimumProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D24FE352838601E00B2FA93 /* DesiredMinimumProfile.swift */; };
 		6D285A7C27E80AB900FAED39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D285A7B27E80AB900FAED39 /* Localizable.strings */; };
 		6D285A7E27E80B1200FAED39 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D285A7D27E80B1200FAED39 /* R.generated.swift */; };
+		6D2B7A1A285E8B150085F060 /* AnswerVacancyResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2B7A19285E8B150085F060 /* AnswerVacancyResponseDTO.swift */; };
+		6D2B7A1F285E91460085F060 /* CandidateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2B7A1E285E91460085F060 /* CandidateSelectorView.swift */; };
+		6D2B7A22285E92EB0085F060 /* CandidateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2B7A21285E92EB0085F060 /* CandidateData.swift */; };
 		6D30C48F2818A29000A099E2 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D30C48E2818A29000A099E2 /* NetworkResult.swift */; };
 		6D30C4922818C78600A099E2 /* IbgeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D30C4912818C78600A099E2 /* IbgeService.swift */; };
 		6D30C4952818C90100A099E2 /* IbgeServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D30C4942818C90100A099E2 /* IbgeServiceEndpoint.swift */; };
@@ -63,6 +66,9 @@
 		6D79D50827ED22D500F9E961 /* LoadingButtonViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D79D50727ED22D500F9E961 /* LoadingButtonViewData.swift */; };
 		6D7EC52F280F98580034C58D /* UserMicroserviceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC52E280F98580034C58D /* UserMicroserviceEndpoint.swift */; };
 		6D7EC537280FA16E0034C58D /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EC536280FA16E0034C58D /* SignUpInteractor.swift */; };
+		6D807612285BEE60002E0ED1 /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D807611285BEE60002E0ED1 /* RankingViewModel.swift */; };
+		6D807614285BEE95002E0ED1 /* RankingViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D807613285BEE95002E0ED1 /* RankingViewRouter.swift */; };
+		6D807616285BF190002E0ED1 /* RankingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D807615285BF190002E0ED1 /* RankingInteractor.swift */; };
 		6D857A0F28107CC4007D51CD /* SignInViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857A0E28107CC4007D51CD /* SignInViewRouter.swift */; };
 		6D857A1728107F75007D51CD /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857A1628107F75007D51CD /* SignInRequest.swift */; };
 		6D857A1F2810A02D007D51CD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857A1E2810A02D007D51CD /* MainView.swift */; };
@@ -75,6 +81,7 @@
 		6D8E792A285BD13E005D7B5D /* CandidateMicroserviceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8E7929285BD13E005D7B5D /* CandidateMicroserviceEndpoint.swift */; };
 		6D8E792C285BD28E005D7B5D /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8E792B285BD28E005D7B5D /* Answer.swift */; };
 		6D8E7930285BD38A005D7B5D /* CandidateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8E792F285BD38A005D7B5D /* CandidateDataSource.swift */; };
+		6D8E7939285BE858005D7B5D /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8E7938285BE858005D7B5D /* RankingView.swift */; };
 		6DA80B062846FFC1005ED991 /* VacanciesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA80B052846FFC1005ED991 /* VacanciesCardView.swift */; };
 		6DA8389C28118DDB009BE7F1 /* MainViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA8389B28118DDB009BE7F1 /* MainViewRouter.swift */; };
 		6DA85D8828249929006A9896 /* VacanciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA85D8728249929006A9896 /* VacanciesView.swift */; };
@@ -122,6 +129,9 @@
 		6D24FE352838601E00B2FA93 /* DesiredMinimumProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesiredMinimumProfile.swift; sourceTree = "<group>"; };
 		6D285A7B27E80AB900FAED39 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6D285A7D27E80B1200FAED39 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		6D2B7A19285E8B150085F060 /* AnswerVacancyResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerVacancyResponseDTO.swift; sourceTree = "<group>"; };
+		6D2B7A1E285E91460085F060 /* CandidateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateSelectorView.swift; sourceTree = "<group>"; };
+		6D2B7A21285E92EB0085F060 /* CandidateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateData.swift; sourceTree = "<group>"; };
 		6D30C48E2818A29000A099E2 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		6D30C4912818C78600A099E2 /* IbgeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbgeService.swift; sourceTree = "<group>"; };
 		6D30C4942818C90100A099E2 /* IbgeServiceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbgeServiceEndpoint.swift; sourceTree = "<group>"; };
@@ -159,6 +169,9 @@
 		6D79D50727ED22D500F9E961 /* LoadingButtonViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButtonViewData.swift; sourceTree = "<group>"; };
 		6D7EC52E280F98580034C58D /* UserMicroserviceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMicroserviceEndpoint.swift; sourceTree = "<group>"; };
 		6D7EC536280FA16E0034C58D /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
+		6D807611285BEE60002E0ED1 /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
+		6D807613285BEE95002E0ED1 /* RankingViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewRouter.swift; sourceTree = "<group>"; };
+		6D807615285BF190002E0ED1 /* RankingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingInteractor.swift; sourceTree = "<group>"; };
 		6D857A0E28107CC4007D51CD /* SignInViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewRouter.swift; sourceTree = "<group>"; };
 		6D857A1628107F75007D51CD /* SignInRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		6D857A1E2810A02D007D51CD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -172,6 +185,7 @@
 		6D8E7929285BD13E005D7B5D /* CandidateMicroserviceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateMicroserviceEndpoint.swift; sourceTree = "<group>"; };
 		6D8E792B285BD28E005D7B5D /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		6D8E792F285BD38A005D7B5D /* CandidateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateDataSource.swift; sourceTree = "<group>"; };
+		6D8E7938285BE858005D7B5D /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
 		6DA80B052846FFC1005ED991 /* VacanciesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesCardView.swift; sourceTree = "<group>"; };
 		6DA8389B28118DDB009BE7F1 /* MainViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewRouter.swift; sourceTree = "<group>"; };
 		6DA85D8728249929006A9896 /* VacanciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesView.swift; sourceTree = "<group>"; };
@@ -273,6 +287,7 @@
 			children = (
 				6DC207AA2853EF45007DCBF5 /* AnswerVacancy */,
 				6D857A1B2810A015007D51CD /* Main */,
+				6D8E7931285BE7E3005D7B5D /* Ranking */,
 				6D3C6B4D27EE6B2400F8F433 /* SignIn */,
 				6D20376A27E9595200377838 /* SignUp */,
 				6D20375C27E918C300377838 /* Splash */,
@@ -370,9 +385,9 @@
 				6D08EFAB2829EA4B00547499 /* DataSource */,
 				6D13E41B27EC6E1D00577DCD /* Enum */,
 				6D857A222810B57F007D51CD /* Extension */,
-				6D653E032843EA6300582649 /* Util */,
 				6DD78751281357220032F6AA /* Model */,
 				6D74BFC9280E49AD00725883 /* Service */,
+				6D653E032843EA6300582649 /* Util */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -421,6 +436,14 @@
 			path = String;
 			sourceTree = "<group>";
 		};
+		6D2B7A1B285E91240085F060 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6D2B7A1E285E91460085F060 /* CandidateSelectorView.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		6D30C4902818C73300A099E2 /* IbgeService */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,8 +464,9 @@
 		6D3396E3285968EC00A89914 /* AnswerVacancy */ = {
 			isa = PBXGroup;
 			children = (
-				6D3396E52859690500A89914 /* AnswerVacancyDTO.swift */,
 				6D8E792B285BD28E005D7B5D /* Answer.swift */,
+				6D3396E52859690500A89914 /* AnswerVacancyDTO.swift */,
+				6D2B7A19285E8B150085F060 /* AnswerVacancyResponseDTO.swift */,
 			);
 			path = AnswerVacancy;
 			sourceTree = "<group>";
@@ -724,9 +748,9 @@
 		6D8DEDAC27E6C90D0062920E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6D285A7D27E80B1200FAED39 /* R.generated.swift */,
 				6D285A7527E7FB7400FAED39 /* Assets */,
 				6D285A7A27E80A9500FAED39 /* String */,
-				6D285A7D27E80B1200FAED39 /* R.generated.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -766,6 +790,49 @@
 				6D8E792F285BD38A005D7B5D /* CandidateDataSource.swift */,
 			);
 			path = CandidateDataSource;
+			sourceTree = "<group>";
+		};
+		6D8E7931285BE7E3005D7B5D /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				6D8E7935285BE7FC005D7B5D /* Interactor */,
+				6D8E7934285BE7F8005D7B5D /* Router */,
+				6D8E7933285BE7F5005D7B5D /* View */,
+				6D8E7932285BE7EE005D7B5D /* ViewModel */,
+			);
+			path = Ranking;
+			sourceTree = "<group>";
+		};
+		6D8E7932285BE7EE005D7B5D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6D807611285BEE60002E0ED1 /* RankingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6D8E7933285BE7F5005D7B5D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6D8E7938285BE858005D7B5D /* RankingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6D8E7934285BE7F8005D7B5D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				6D807613285BEE95002E0ED1 /* RankingViewRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		6D8E7935285BE7FC005D7B5D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				6D807615285BF190002E0ED1 /* RankingInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		6DA80B032846FF6D005ED991 /* Util */ = {
@@ -889,6 +956,7 @@
 		6DC207AC2853EF63007DCBF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6D2B7A1B285E91240085F060 /* Util */,
 				6DC207B22853F06D007DCBF5 /* AnswerVacancyView.swift */,
 			);
 			path = View;
@@ -929,6 +997,7 @@
 		6DD78751281357220032F6AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6D2B7A21285E92EB0085F060 /* CandidateData.swift */,
 				6D24FE3328385FBF00B2FA93 /* ExpectedSkill.swift */,
 				6D3DC6952825AB7B00B77C03 /* VacancyRequest.swift */,
 				6DD8EF3128484F7200E5B477 /* VacancyViewData.swift */,
@@ -1190,12 +1259,16 @@
 				6D08EFA02829CAEF00547499 /* UserDefaultsKeys.swift in Sources */,
 				6D74BFD5280E4CBE00725883 /* ContentType.swift in Sources */,
 				6D39C4E827EA9BC800CF69C0 /* InputFieldViewData.swift in Sources */,
+				6D807612285BEE60002E0ED1 /* RankingViewModel.swift in Sources */,
+				6D8E7939285BE858005D7B5D /* RankingView.swift in Sources */,
 				6D20376F27E96A4B00377838 /* SignUpView.swift in Sources */,
 				6D857A212810A2E1007D51CD /* SignInInteractor.swift in Sources */,
 				6D74BFC8280E492400725883 /* SignUpRemoteDataSource.swift in Sources */,
+				6D807614285BEE95002E0ED1 /* RankingViewRouter.swift in Sources */,
 				6D6AD72427EFEA550041A9F1 /* SignInView.swift in Sources */,
 				6D8DED9F27E6C5690062920E /* VenturaHRApp.swift in Sources */,
 				6D74BFDD280E4D8100725883 /* HttpMethod.swift in Sources */,
+				6D807616285BF190002E0ED1 /* RankingInteractor.swift in Sources */,
 				6DA80B062846FFC1005ED991 /* VacanciesCardView.swift in Sources */,
 				6D8E7927285BD10B005D7B5D /* CandidateMicroservice.swift in Sources */,
 				6D08EFB02829EC1A00547499 /* UserLocalDataSource.swift in Sources */,
@@ -1207,12 +1280,15 @@
 				6D285A7E27E80B1200FAED39 /* R.generated.swift in Sources */,
 				6D4BB492282B3D9F0012A792 /* MainInteractor.swift in Sources */,
 				6D39C4EA27EA9E2800CF69C0 /* CustomInputFieldStyle.swift in Sources */,
+				6D2B7A22285E92EB0085F060 /* CandidateData.swift in Sources */,
 				6D653DFD2843B24100582649 /* Vacancy.swift in Sources */,
 				6D20376327E9317400377838 /* SplashViewModel.swift in Sources */,
+				6D2B7A1A285E8B150085F060 /* AnswerVacancyResponseDTO.swift in Sources */,
 				6D4937FF27ED5977002AA2F7 /* UIState.swift in Sources */,
 				6DE3315A28370DA50029C783 /* ExpectedSkillSheetView.swift in Sources */,
 				6D653E062843EAA400582649 /* DateHelper.swift in Sources */,
 				6D69FDA22819F516003D2BDB /* IbgeState.swift in Sources */,
+				6D2B7A1F285E91460085F060 /* CandidateSelectorView.swift in Sources */,
 				6DC207B12853F054007DCBF5 /* AnswerVacancyViewModel.swift in Sources */,
 				6D08EFA52829CBB600547499 /* SplashInteractor.swift in Sources */,
 				6D386D7C283D91C4006BB328 /* ToastView.swift in Sources */,

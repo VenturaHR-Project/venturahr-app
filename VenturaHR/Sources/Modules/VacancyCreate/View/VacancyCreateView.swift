@@ -182,20 +182,18 @@ private extension VacancyCreateView {
     }
     
     var rightSectionHeaderButton: some View {
-        Button(action: viewModel.showExpectedSkillsSheet) {
-            Image(R.image.plus.name)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 18, height: 18, alignment: .center)
-        }
-        .foregroundColor(.orange)
-        .sheet(isPresented: $viewModel.shouldPresentExpectedSkiilsSheet) {
+        NavigationLink {
             ExpectedSkillSheetView(
                 expectedSkills: $viewModel.expectedSkills,
                 description: $viewModel.expectedSkill.description,
                 profile: $viewModel.expectedSkill.desiredMinimumProfile,
                 height: $viewModel.expectedSkill.height
             )
+        } label: {
+            Image(R.image.plus.name)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 18, height: 18, alignment: .center)
         }
     }
     

@@ -3,6 +3,7 @@ protocol UserLocalDataSourceProtocol {
     func getAccountType() -> String?
     func getUserUid() -> String?
     func getUserName() -> String?
+    func getUserPhone() -> String?
 }
 
 final class UserLocalDataSource {
@@ -19,6 +20,7 @@ extension UserLocalDataSource: UserLocalDataSourceProtocol {
     func saveAccountLocally(data: GenericUser) {
         userDefaultsManager.set(value: data.uid, for: .userUid)
         userDefaultsManager.set(value: data.name, for: .userName)
+        userDefaultsManager.set(value: data.phone, for: .userPhone)
         userDefaultsManager.set(value: data.accountType, for: .userAccountType)
     }
     
@@ -34,6 +36,11 @@ extension UserLocalDataSource: UserLocalDataSourceProtocol {
     
     func getUserName() -> String? {
         guard let name = userDefaultsManager.get(from: .userName) as String? else { return nil }
+        return name
+    }
+    
+    func getUserPhone() -> String? {
+        guard let name = userDefaultsManager.get(from: .userPhone) as String? else { return nil }
         return name
     }
 }

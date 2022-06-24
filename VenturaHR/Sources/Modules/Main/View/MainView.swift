@@ -13,32 +13,19 @@ struct MainView: View {
                 }.tag(0)
             
             if viewModel.accountType.isCompany {
-                Text("Ranking de Candidatos")
-                    .tabItem {
-                        Image(systemName: "chart.bar.fill")
-                        Text("Ranking")
-                    }.tag(1)
-                
                 MainViewRouter.makeVacancyCreateView()
                     .tabItem {
                         Image(systemName: "bag.fill.badge.plus")
                         Text("Nova Vaga")
-                    }.tag(2)
+                    }.tag(1)
             } else {
                 MainViewRouter.makeVacanciesView()
                     .tabItem {
                         Image(systemName: "bag")
-                        //Image(systemName: "chart.bar")
                         Text("Candidaturas")
-                    }.tag(3)
+                    }.tag(2)
                 
             }
-            
-            Text("View 3")
-                .tabItem {
-                    Image(systemName: "person.crop.circle")
-                    Text("Perfil")
-                }.tag(4)
         }
         .accentColor(.orange)
     }

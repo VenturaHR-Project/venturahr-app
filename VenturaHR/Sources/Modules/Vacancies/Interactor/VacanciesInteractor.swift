@@ -2,6 +2,7 @@ import Combine
 
 protocol VacanciesInteractorProtocol {
     func handleGetUserUid() -> String?
+    func handleGetUserPhone() -> String?
     func handleGetUserName() -> String?
     func handleGetAccountType() -> String?
     func handleGetVacancies() -> Future<[Vacancy], NetworkError>
@@ -38,6 +39,10 @@ extension VacanciesInteractor: VacanciesInteractorProtocol {
     
     func handleGetUserUid() -> String? {
         return userLocalDataSource.getUserUid()
+    }
+    
+    func handleGetUserPhone() -> String? {
+        return userLocalDataSource.getUserPhone()
     }
     
     func handleGetUserName() -> String? {

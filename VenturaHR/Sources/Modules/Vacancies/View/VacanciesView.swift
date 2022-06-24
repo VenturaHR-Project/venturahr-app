@@ -16,13 +16,6 @@ struct VacanciesView: View {
                 fullStateView
             }
         }
-        .sheet(isPresented: $viewModel.showAnswerVacancySheet, content: {
-            AnswerVacancyView(
-                userUid: viewModel.userUid,
-                vacancyId: viewModel.selectedVacacyId,
-                expectedSkills: viewModel.selectedVacacyExpectedSkills
-            )
-        })
         .onAppear(perform: viewModel.fetchVacancies)
     }
 }

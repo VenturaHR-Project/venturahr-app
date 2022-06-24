@@ -72,9 +72,16 @@ final class AnswerVacancyViewModel: ObservableObject {
     }
     
     func handleAnswerVacancy() {
+        guard let userName = interactor.handleGetUserName() else { return }
+        guard let userPhone = interactor.handleGetUserPhone() else { return }
         let createdDateFormatted = DateHelper().parseDateToString(value: Date())
         let mappedAnswers = Answer.map(expectedSkills: expectedSkills)
-        let answer: AnswerVacancyDTO = AnswerVacancyDTO(userUid: userUid, vacancyId: vacancyId, answers: mappedAnswers, createdDate: createdDateFormatted)
+        let answer: AnswerVacancyDTO = AnswerVacancyDTO(userUid: userUid,
+                                                        vacancyId: vacancyId,
+                                                        userName: userName,
+                                                        userPhone: userPhone,
+                                                        answers: mappedAnswers,
+                                                        createdDate: createdDateFormatted)
         
         interactor.handleApplyForVacancy(answer: answer)
             .receive(on: DispatchQueue.main)

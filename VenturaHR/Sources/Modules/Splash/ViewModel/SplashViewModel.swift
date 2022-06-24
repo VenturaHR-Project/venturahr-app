@@ -34,7 +34,7 @@ final class SplashViewModel: ObservableObject {
                 }
             }, receiveValue: { genericUser in
                 self.interactor.saveUserAccountLocally(data: genericUser)
-                self.uiState = .goToMainScreen
+                self.uiState = .goToSignInScreen
             })
     }
 }

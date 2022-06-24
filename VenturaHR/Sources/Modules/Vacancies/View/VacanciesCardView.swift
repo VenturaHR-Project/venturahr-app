@@ -7,14 +7,6 @@ struct VacanciesCardView: View {
     
     var body: some View {
         ZStack {
-            NavigationLink(
-                destination: EmptyView(),
-                isActive: .constant(false),
-                label: {
-                    EmptyView()
-                }
-            )
-            
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
                     header
@@ -109,27 +101,30 @@ private extension VacanciesCardView {
     }
     
     var candidateFooter: some View {
-        LoadingButtonView(
-            viewData: LoadingButtonViewData(
-                action: { viewModel.handleShowAnswerVacancySheet(viewData: viewData) },
-                buttonTitle: "Quero me candidatar",
-                showProgress: false,
-                disabled: false,
-                verticalPadding: 6
-            )
-        )
-        .padding(.vertical, 10)
+        NavigationLink {
+            viewModel.goToAnswerVacancyView(userUid: viewData.uid,
+                                            vacancyId: viewData.id,
+                                            expectedSkills: viewData.expectedSkills)
+        } label: {
+            Text("Quero me candidatar")
+                .bold()
+                .padding(8)
+                .foregroundColor(.white)
+                .background(.orange)
+        }
+        .padding(.vertical, 6)
     }
     
     var companyFooter: some View {
         HStack {
-            Button(action: {  }) {
+            NavigationLink {
+                viewModel.goToRankingView(vacancyId: viewData.id)
+            } label: {
                 Image(systemName: "chart.bar")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 22, height: 22, alignment: .center)
             }
-            .foregroundColor(.orange)
             
             Spacer()
             
