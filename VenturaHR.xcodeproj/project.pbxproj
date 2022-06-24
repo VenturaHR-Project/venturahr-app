@@ -26,7 +26,6 @@
 		6D285A7C27E80AB900FAED39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D285A7B27E80AB900FAED39 /* Localizable.strings */; };
 		6D285A7E27E80B1200FAED39 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D285A7D27E80B1200FAED39 /* R.generated.swift */; };
 		6D2B7A1A285E8B150085F060 /* AnswerVacancyResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2B7A19285E8B150085F060 /* AnswerVacancyResponseDTO.swift */; };
-		6D2B7A1F285E91460085F060 /* CandidateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2B7A1E285E91460085F060 /* CandidateSelectorView.swift */; };
 		6D2B7A22285E92EB0085F060 /* CandidateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2B7A21285E92EB0085F060 /* CandidateData.swift */; };
 		6D30C48F2818A29000A099E2 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D30C48E2818A29000A099E2 /* NetworkResult.swift */; };
 		6D30C4922818C78600A099E2 /* IbgeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D30C4912818C78600A099E2 /* IbgeService.swift */; };
@@ -130,7 +129,6 @@
 		6D285A7B27E80AB900FAED39 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6D285A7D27E80B1200FAED39 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		6D2B7A19285E8B150085F060 /* AnswerVacancyResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerVacancyResponseDTO.swift; sourceTree = "<group>"; };
-		6D2B7A1E285E91460085F060 /* CandidateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateSelectorView.swift; sourceTree = "<group>"; };
 		6D2B7A21285E92EB0085F060 /* CandidateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateData.swift; sourceTree = "<group>"; };
 		6D30C48E2818A29000A099E2 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		6D30C4912818C78600A099E2 /* IbgeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbgeService.swift; sourceTree = "<group>"; };
@@ -434,14 +432,6 @@
 				6D285A7B27E80AB900FAED39 /* Localizable.strings */,
 			);
 			path = String;
-			sourceTree = "<group>";
-		};
-		6D2B7A1B285E91240085F060 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				6D2B7A1E285E91460085F060 /* CandidateSelectorView.swift */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		6D30C4902818C73300A099E2 /* IbgeService */ = {
@@ -956,7 +946,6 @@
 		6DC207AC2853EF63007DCBF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6D2B7A1B285E91240085F060 /* Util */,
 				6DC207B22853F06D007DCBF5 /* AnswerVacancyView.swift */,
 			);
 			path = View;
@@ -1288,7 +1277,6 @@
 				6DE3315A28370DA50029C783 /* ExpectedSkillSheetView.swift in Sources */,
 				6D653E062843EAA400582649 /* DateHelper.swift in Sources */,
 				6D69FDA22819F516003D2BDB /* IbgeState.swift in Sources */,
-				6D2B7A1F285E91460085F060 /* CandidateSelectorView.swift in Sources */,
 				6DC207B12853F054007DCBF5 /* AnswerVacancyViewModel.swift in Sources */,
 				6D08EFA52829CBB600547499 /* SplashInteractor.swift in Sources */,
 				6D386D7C283D91C4006BB328 /* ToastView.swift in Sources */,
